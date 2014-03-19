@@ -28,5 +28,7 @@ proguard/
 *.iws
 .idea/
 
-# Cordova files
+# Phonegap files
 .cordova/
+platforms/
+plugins/
