@@ -38,7 +38,7 @@ app.initialize();
 </head>
 <body>
     <div data-role="app">
-        <div data-role="page" id="main">
+        <div data-role="page" id="page_main">
             <!-- MENU PANEL -->
             <div data-role="panel" id="panel_menu">
                 <ul data-role="listview">
@@ -61,6 +61,7 @@ app.initialize();
                     <li>HELP</li>
                 </ul>
             </div>
+
             <div data-role="panel" id="panel_chat">
                 <ul data-role="listview">
                     <li data-role="list-divider">Friends</li>
@@ -80,7 +81,7 @@ app.initialize();
             </div>
             <!-- PAGE -->
             <div data-role="main" class="ui-content">
-                <a href="#two" class="ui-btn ui-btn-inline ui-btn-corner-all"></a>
+                <a href="#page_two" rel="external" class="ui-btn ui-btn-inline ui-btn-corner-all">Go to next page</a>
             </div>
             <!-- FOOTER -->
             <div data-role="footer" data-position="fixed">
@@ -89,14 +90,18 @@ app.initialize();
                         <li><a href="#panel_chat">Chat</a></li>
                     </ul>
                 </div>
-            </div> 
-        </div> 
-        <div data-role="page" id="two">
-            <h2>This is page two</h2>
-            <a href="#main" class="ui-btn ui-btn-inline ui-btn-corner-all"></a>
-
+            </div>
+        </div>
+        <div data-role="page" id="page_two">
+            <div data-role="header">
+                <a href="#page_main" class="ui-btn ui-btn-inline"></a>
+                <h2>Blabla</h2>
+            </div>
+            <div data-role="main" class="ui-content">
+            </div>
+            <div data-role="footer">
+            </div>
         </div>
     </div>
-
 </body>
 </html>
