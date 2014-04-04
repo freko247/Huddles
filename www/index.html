@@ -30,9 +30,9 @@
     app.initialize();
     </script>
     <script id="panel-init">
-        $(function() {
-            $( "body>[data-role='panel']" ).panel().enhanceWithin();
-        });
+    $(function() {
+        $( "body>[data-role='panel']" ).panel().enhanceWithin();
+    });
     </script>
 </head>
 <body>
@@ -44,19 +44,38 @@
         </div>
         <!-- MAIN -->
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
-            <h2>Suggested Huddles:</h2>
             <div>
-                <ul data-role="listview">
-                    <li>Mobile Application Prototyping</li>
-                    <li>Agile Digital Media Development</li>
-                    <li>AI and MAS</li>
-                    <li>User Experience Engineering</li>
-                    <li>Requirements Engineering</li>
-                </ul>
+                <div class="ui-corner-all">
+                    <div class="ui-bar ui-bar-a">
+                        <h3>Suggested Huddles:</h3>
+                    </div>
+                    <div class="ui-body ui-body-a">
+                        <ul data-role="listview">
+                            <li>Mobile Application Prototyping</li>
+                            <li>Agile Digital Media Development</li>
+                            <li>AI and MAS</li>
+                            <li>User Experience Engineering</li>
+                            <li>Requirements Engineering</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <h2>Recent Events:</h2>
-            <div data-role="listview">
-                
+            <hr>
+            <div>
+                <div class="ui-corner-all">
+                    <div class="ui-bar ui-bar-a">
+                        <h3>Recent Events:</h3>
+                    </div>
+                    <div class="ui-body ui-body-a">
+                        <ul data-role="listview">
+                            <li>Mobile Application Prototyping</li>
+                            <li>Agile Digital Media Development</li>
+                            <li>AI and MAS</li>
+                            <li>User Experience Engineering</li>
+                            <li>Requirements Engineering</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- FOOTER -->
@@ -71,25 +90,25 @@
     <!-- MENU PANEL -->
     <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
         <div data-role="ui-panel-inner">
-        <ul data-role="listview">
-            <li data-role="list-divider">Profile</li>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="edit_profile.html">EDIT PROFILE</a></li>
-            <li><a href="add_tags.html">ADD TAGS</a></li>
-            <li><a href="friend_list.html">FRIEND LIST</a></li>
-            <li><a href="log_out.html">LOG OUT</a></li>
-            <li data-role="list-divider">Huddles</li>
-            <li><a href="my_huddles.html">MY HUDDLES</a></li>
-            <li><a href="find_huddles.html">FIND HUDDLES</a></li>
-            <li><a href="create_huddle.html">CREATE HUDDLE</a></li>
-            <li data-role="list-divider">Groups</li>
-            <li><a href="my_groups.html">MY GROUPS</a></li>
-            <li><a href="find_groups.html">FIND GROUPS</a></li>
-            <li><a href="create_group.html">CREATE GROUP</a></li>
-            <li data-role="list-divider">Options</li>
-            <li><a href="settings.html">SETTINGS</a></li>
-            <li><a href="help.html">HELP</a></li>
-        </ul>
+            <ul data-role="listview">
+                <li data-role="list-divider">Profile</li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="edit_profile.html">EDIT PROFILE</a></li>
+                <li><a href="add_tags.html">ADD TAGS</a></li>
+                <li><a href="friend_list.html">FRIEND LIST</a></li>
+                <li><a href="log_out.html">LOG OUT</a></li>
+                <li data-role="list-divider">Huddles</li>
+                <li><a href="my_huddles.html">MY HUDDLES</a></li>
+                <li><a href="find_huddles.html">FIND HUDDLES</a></li>
+                <li><a href="create_huddle.html">CREATE HUDDLE</a></li>
+                <li data-role="list-divider">Groups</li>
+                <li><a href="my_groups.html">MY GROUPS</a></li>
+                <li><a href="find_groups.html">FIND GROUPS</a></li>
+                <li><a href="create_group.html">CREATE GROUP</a></li>
+                <li data-role="list-divider">Options</li>
+                <li><a href="settings.html">SETTINGS</a></li>
+                <li><a href="help.html">HELP</a></li>
+            </ul>
         </div>
     </div>
 
