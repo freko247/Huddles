@@ -23,85 +23,79 @@
     <meta name="format-detection" content="telephone=no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    
+
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/jqeury.mobile-overide.css"> -->
 <!--     <link rel="stylesheet" type="text/css" href="css/flat-ui.css">
 -->
 
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery.mobile-1.4.2.min.js"></script>
-<script type="text/javascript" src="phonegap.js"></script>
-<script type="text/javascript">
-app.initialize();
-</script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript">
+    app.initialize();
+    </script>
+    <script id="panel-init">
+        $(function() {
+            $( "body>[data-role='panel']" ).panel();
+        });
+    </script>
 </head>
 <body>
-    <div data-role="app">
-        <div data-role="page" id="page_main">
-            <!-- MENU PANEL -->
-            <div data-role="panel" id="panel_menu">
-                <ul data-role="listview">
-                    <li data-role="list-divider">Profile</li>
-                    <li>HOME</li>
-                    <li>EDIT PROFILE</li>
-                    <li>ADD TAGS</li>
-                    <li>FRIEND LIST</li>
-                    <li>LOG OUT</li>
-                    <li data-role="list-divider">Huddles</li>
-                    <li>MY HUDDLES</li>
-                    <li>FIND HUDDLES</li>
-                    <li>CREATE HUDDLE</li>
-                    <li data-role="list-divider">Groups</li>
-                    <li>MY GROUPS</li>
-                    <li>FIND GROUPS</li>
-                    <li>CREATE GROUPS</li>
-                    <li data-role="list-divider">Options</li>
-                    <li>SETTINGS</li>
-                    <li>HELP</li>
-                </ul>
-            </div>
-
-            <div data-role="panel" id="panel_chat">
-                <ul data-role="listview">
-                    <li data-role="list-divider">Friends</li>
-                    <li>John</li>
-                    <li>Eric</li>
-                    <li data-role="list-divider">Groups</li>
-                    <li>Simon</li>
-                    <li>James</li>
-                    <li>Group1337</li>
-                </ul>
-            </div>
-
-            <!-- HEADER -->
-            <div data-role="header">
-                <a href="#panel_menu" data-icon="bars" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
-                <h1>Home</h1>
-            </div>
-            <!-- PAGE -->
-            <div data-role="main" class="ui-content">
-                <a href="#page_two" rel="external" class="ui-btn ui-btn-inline ui-btn-corner-all">Go to next page</a>
-            </div>
-            <!-- FOOTER -->
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#panel_chat">Chat</a></li>
-                    </ul>
-                </div>
-            </div>
+    <div data-role="page" id="page_main">
+        <!-- HEADER -->
+        <div data-role="header">
+            <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
+            <h1>Home</h1>
         </div>
-        <div data-role="page" id="page_two">
-            <div data-role="header">
-                <a href="#page_main" class="ui-btn ui-btn-inline"></a>
-                <h2>Blabla</h2>
-            </div>
-            <div data-role="main" class="ui-content">
-            </div>
-            <div data-role="footer">
+        <!-- MAIN -->
+        <div data-role="main" class="ui-content">
+            <p>This is the home page</p>
+            <a href="edit_profile.html">EDIT PROFILE</a>
+        </div>
+        <!-- FOOTER -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#panel_chat">Chat</a></li>
+                </ul>
             </div>
         </div>
     </div>
+    <!-- MENU PANEL -->
+    <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
+        <ul data-role="listview">
+            <li data-role="list-divider">Profile</li>
+            <li>HOME</li>
+            <li><a href="edit_profile.html">EDIT PROFILE</a></li>
+            <li>ADD TAGS</li>
+            <li>FRIEND LIST</li>
+            <li>LOG OUT</li>
+            <li data-role="list-divider">Huddles</li>
+            <li>MY HUDDLES</li>
+            <li>FIND HUDDLES</li>
+            <li>CREATE HUDDLE</li>
+            <li data-role="list-divider">Groups</li>
+            <li>MY GROUPS</li>
+            <li>FIND GROUPS</li>
+            <li>CREATE GROUPS</li>
+            <li data-role="list-divider">Options</li>
+            <li>SETTINGS</li>
+            <li>HELP</li>
+        </ul>
+    </div>
+
+<!--     <div data-role="panel" id="panel_chat" data-position="bottom" data-display="push" data-theme="a">
+        <ul data-role="listview">
+            <li data-role="list-divider">Friends</li>
+            <li>John</li>
+            <li>Eric</li>
+            <li data-role="list-divider">Groups</li>
+            <li>Simon</li>
+            <li>James</li>
+            <li>Group1337</li>
+        </ul>
+    </div> -->
+
 </body>
 </html>
