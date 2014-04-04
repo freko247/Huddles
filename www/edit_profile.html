@@ -1,29 +1,48 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
-        <!-- <link rel="stylesheet" type="text/css" href="css/jqeury.mobile-overide.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/jqeury.mobile-overide.css"> -->
     <!--     <link rel="stylesheet" type="text/css" href="css/flat-ui.css">
-    -->
+-->
 
-        <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/jquery.mobile-1.4.2.min.js"></script>
-        <script type="text/javascript" src="phonegap.js"></script>
-    </head>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+</head>
 <body>
     <div data-role="page">
         <!-- HEADER -->
         <div data-role="header">
             <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
-            <h1>Edit Profile</h1>
+            <h1>Profile</h1>
         </div>
         <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <h1>Edit profile</h1>
+            <!-- ADD PICTURE -->
+            <label for="picture">User picture:</label>
+            <input type="file" name="picture" id="picture" value="">
+            <label for="textinput-1">Name:</label>
+            <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="">
+            <label for="textinput-2">E-mail:</label>
+            <input type="text" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="">
+            <label for="textinput-3">Phone number:</label>
+            <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value="">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" value="" autocomplete="off">
+            <label for="password">Retype password:</label>
+            <input type="password" name="password" id="password" value="" autocomplete="off">
+            <label for="password">Skills:</label>
+            <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-a">Add</a>
+                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-a">Delete</a>
+            </div>
+            <!-- ADD SKILLS SECTION -->
+            <button class="ui-shadow ui-btn ui-corner-all" type="submit" id="save-1">Save</button>
         </div>
     </div>
 </body>
