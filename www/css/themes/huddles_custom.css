@@ -13,3 +13,10 @@
     padding-top: 0px;
     padding-right: 0px;
 }
+.ui-header{
+    background: linear-gradient(#2692f6, #11518c);
+}
+
+.ui-li-divider{
+    background: linear-gradient(#1e76bf, #114a80);
+}
