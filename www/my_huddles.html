@@ -1,21 +1,21 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
-        <!-- <link rel="stylesheet" type="text/css" href="css/jqeury.mobile-overide.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/jqeury.mobile-overide.css"> -->
     <!--     <link rel="stylesheet" type="text/css" href="css/flat-ui.css">
-    -->
+-->
 
-        <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/jquery.mobile-1.4.2.min.js"></script>
-        <script type="text/javascript" src="phonegap.js"></script>
-    </head>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+</head>
 <body>
-    <div data-role="page" id="page_search">
+    <div data-role="page" id="pagesearch">
         <!-- HEADER -->
         <div data-role="header">
             <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
@@ -33,16 +33,16 @@
             <h1>SEARCH</h1>
         </div>
     </div>
-    <div data-role="page" id="page_myhuddles">
+    <div data-role="page" id="pagemyhuddles">
         <!-- HEADER -->
         <div data-role="header">
             <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
             <h1>My Huddles</h1>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#page_search">Search</a></li>
+                    <li><a href="#pagesearch">Search</a></li>
                     <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
-                    <li><a href="#page_oldhuddles">Old Huddles</a></li>
+                    <li><a href="#pageoldhuddles">Old Huddles</a></li>
                 </ul>
             </div>
         </div>
@@ -51,15 +51,15 @@
             <h2>My Huddles</h2>
         </div>
     </div>
-    <div data-role="page" id="page_oldhuddles">
+    <div data-role="page" id="pageoldhuddles">
         <!-- HEADER -->
         <div data-role="header">
             <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
             <h1>My Huddles</h1>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#page_search">Search</a></li>
-                    <li><a href="#page_myhuddles">My Huddles</a></li>
+                    <li><a href="#pagesearch">Search</a></li>
+                    <li><a href="#pagemyhuddles">My Huddles</a></li>
                     <li><a href="#" class="ui-btn-active ui-state-persists">Old Huddles</a></li>
                 </ul>
             </div>
