@@ -15,15 +15,58 @@
         <script type="text/javascript" src="phonegap.js"></script>
     </head>
 <body>
-    <div data-role="page">
+    <div data-role="page" id="page_search">
         <!-- HEADER -->
         <div data-role="header">
             <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
             <h1>My Huddles</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
+                    <li><a href="#page_myhuddles">My Huddles</a></li>
+                    <li><a href="#page_oldhuddles">Old Huddles</a></li>
+                </ul>
+            </div>
         </div>
         <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <h1>SEARCH</h1>
+        </div>
+    </div>
+    <div data-role="page" id="page_myhuddles">
+        <!-- HEADER -->
+        <div data-role="header">
+            <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
             <h1>My Huddles</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_search">Search</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
+                    <li><a href="#page_oldhuddles">Old Huddles</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <h2>My Huddles</h2>
+        </div>
+    </div>
+    <div data-role="page" id="page_oldhuddles">
+        <!-- HEADER -->
+        <div data-role="header">
+            <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
+            <h1>My Huddles</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_search">Search</a></li>
+                    <li><a href="#page_myhuddles">My Huddles</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persists">Old Huddles</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <h1>Old Huddles</h1>
         </div>
     </div>
 </body>
