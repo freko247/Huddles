@@ -7,6 +7,18 @@
     background-color: black;
 }
 
+#hamburger{
+    -webkit-border-radius: 0em;
+    border-radius: 0em;
+    background-color: #2692f6;
+}
+
+#hamburger:after{
+    -webkit-border-radius: 0em;
+    border-radius: 0em;
+    background-color: #2692f6;
+}
+
 .ui-panel-inner{
     padding-bottom: 0px;
     padding-left: 0px;
