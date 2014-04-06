@@ -15,5 +15,5 @@ Command line:
     git fetch
     git checkout -t -f origin/master
     git clean -f -d
-    cordova add platform android
+    cordova platform add android
     phonegap run android
