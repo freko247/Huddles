@@ -1,24 +1,27 @@
 <html>
 <head>
+<head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
-    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/jqeury.mobile-overide.css"> -->
-    <!--     <link rel="stylesheet" type="text/css" href="css/flat-ui.css">
--->
-
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery.mobile-1.4.2.min.js"></script>
-<script type="text/javascript" src="phonegap.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/themes/huddles.min.css">
+    <link rel="stylesheet" type="text/css" href="css/themes/huddles_custom.css">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script id="panel-init">
+    $(function() {
+        $( "body>[data-role='panel']" ).panel().enhanceWithin();
+    });
+    </script>
+</head>
 </head>
 <body>
     <div data-role="page">
         <!-- HEADER -->
         <div data-role="header">
-            <a href="#panel_menu" class="ui-btn ui-btn-inline ui-corner-all">Menu</a>
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a
             <h1>Profile</h1>
         </div>
         <!-- MAIN -->
@@ -42,8 +45,31 @@
                     <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-a">Delete</a>
             </div>
             <!-- ADD SKILLS SECTION -->
-            <button class="ui-shadow ui-btn ui-corner-all" type="submit" id="save-1">Save</button>
+            <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1">Save</button>
         </div>
+    </div>
+        <!-- MENU PANEL -->
+    <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
+    <div data-role="ui-panel-inner">
+        <ul data-role="listview">
+            <li data-role="list-divider">Profile</li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="edit_profile.html">EDIT PROFILE</a></li>
+            <li><a href="add_tags.html">ADD TAGS</a></li>
+            <li><a href="friend_list.html">FRIEND LIST</a></li>
+            <li><a href="log_out.html">LOG OUT</a></li>
+            <li data-role="list-divider">Huddles</li>
+            <li><a href="my_huddles.html#pagemyhuddles" rel="external">MY HUDDLES</a></li>
+            <li><a href="my_huddles.html#pagefindhuddles" rel="external">FIND HUDDLES</a></li>
+            <li><a href="create_huddle.html">CREATE HUDDLE</a></li>
+            <li data-role="list-divider">Groups</li>
+            <li><a href="my_groups.html">MY GROUPS</a></li>
+            <li><a href="find_groups.html">FIND GROUPS</a></li>
+            <li><a href="create_group.html">CREATE GROUP</a></li>
+            <li data-role="list-divider">Options</li>
+            <li><a href="settings.html">SETTINGS</a></li>
+            <li><a href="help.html">HELP</a></li>
+        </ul>
     </div>
 </body>
 </html>
