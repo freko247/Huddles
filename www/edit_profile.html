@@ -27,9 +27,24 @@
                        'userEmail': 'user@mail.com',
                        'userName': 'John Doe',
                        'userSkill': ['Python', 'Communication', 'Leadership'],
-                       }
-               }
-        );
+                       },
+                beforeSend: function() {
+                   // This callback function will trigger before data is sent
+                   $.mobile.loading('show');
+                },
+                complete: function() {
+                   // This callback function will trigger on data sent/received complete
+                   $.mobile.loading('hide');
+                },
+                success: function (result) {
+                    $("#save-1").text("Saved");
+                },
+                error: function (request,error) {
+                   // This callback function will trigger on unsuccessful action
+                   alert('Network error has occurred please try again!');
+                }
+               });
+        });
     });
     </script>
 </head>
@@ -44,6 +59,9 @@
         <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
             <!-- ADD PICTURE -->
+            <div class="nailthumb-container">
+                <img src="img/avatar.png" />
+            </div>
             <label for="picture">User picture:</label>
             <input type="file" name="picture" id="picture" value="">
             <label for="textinput-1">Name:</label>
