@@ -7,6 +7,7 @@
     <author email="huddles@gmail.com" href="http://huddles.appspot.com">
         Huddles Team
     </author>
+    <access origin="http://huddlesrest.appspot.com" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
