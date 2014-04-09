@@ -1,110 +1,110 @@
+<!DOCTYPE html>
 <html>
-<head>
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
-    <link rel="stylesheet" type="text/css" href="css/themes/huddles.min.css">
-    <link rel="stylesheet" type="text/css" href="css/themes/huddles_custom.css">
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery.mobile-1.4.2.min.js"></script>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <script id="panel-init">
-    $(function() {
-        $( "body>[data-role='panel']" ).panel().enhanceWithin();
-    });
-    </script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $("#save-1").click( function()
-               {
-                $.ajax({
-                traditional: true,
-                url: 'http://huddlesrest.appspot.com/api',
-                type: 'POST',
-                data: {'db_funtion': 'addUser',
-                       'userEmail': 'user@mail.com',
-                       'userName': 'John Doe',
-                       'userSkill': ['Python', 'Communication', 'Leadership'],
-                       },
-                beforeSend: function() {
-                   // This callback function will trigger before data is sent
-                   $.mobile.loading('show');
-                },
-                complete: function() {
-                   // This callback function will trigger on data sent/received complete
-                   $.mobile.loading('hide');
-                },
-                success: function (result) {
-                    $("#save-1").text("Saved");
-                },
-                error: function (request,error) {
-                   // This callback function will trigger on unsuccessful action
-                   alert('Network error has occurred please try again!');
-                }
-               });
+    <head>
+        <meta charset="utf-8" content="text/html" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css">
+        <link rel="stylesheet" type="text/css" href="css/themes/huddles.min.css">
+        <link rel="stylesheet" type="text/css" href="css/themes/huddles_custom.css">
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" id="panel-init">
+        $(function() {
+            $( "body>[data-role='panel']" ).panel().enhanceWithin();
         });
-    });
-    </script>
-</head>
-</head>
-<body>
-    <div data-role="page">
-        <!-- HEADER -->
-        <div data-role="header">
-            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-           <h1>Profile</h1>
-        </div>
-        <!-- MAIN -->
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <!-- ADD PICTURE -->
-            <div class="nailthumb-container">
-                <img src="img/avatar.png" />
+        </script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $("#save-1").click( function()
+                   {
+                    $.ajax({
+                    traditional: true,
+                    url: 'http://huddlesrest.appspot.com/api',
+                    type: 'POST',
+                    data: {'db_funtion': 'addUser',
+                           'userEmail': 'user@mail.com',
+                           'userName': 'John Doe',
+                           'userSkill': ['Python', 'Communication', 'Leadership'],
+                           },
+                    beforeSend: function() {
+                       // This callback function will trigger before data is sent
+                       $.mobile.loading('show');
+                    },
+                    complete: function() {
+                       // This callback function will trigger on data sent/received complete
+                       $.mobile.loading('hide');
+                    },
+                    success: function (result) {
+                        $("#save-1").text("Saved");
+                    },
+                    error: function (request,error) {
+                       // This callback function will trigger on unsuccessful action
+                       alert('Network error has occurred please try again!');
+                    }
+                   });
+            });
+        });
+        </script>
+        <title></title>
+    </head>
+    <body>
+        <div data-role="page">
+            <!-- HEADER -->
+            <div data-role="header">
+                <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+               <h1>Profile</h1>
             </div>
-            <label for="picture">User picture:</label>
-            <input type="file" name="picture" id="picture" value="">
-            <label for="textinput-1">Name:</label>
-            <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="John Doe">
-            <label for="textinput-2">E-mail:</label>
-            <input type="text" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="user@mail.com">
-            <label for="textinput-3">Phone number:</label>
-            <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value="">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" value="" autocomplete="off">
-            <label for="re_password">Retype password:</label>
-            <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
-            <label for="skills">Skills:</label>
-            <div data-role="controlgroup" id="skills" data-type="horizontal" data-mini="true">
-                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-a">Add</a>
-                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-a">Delete</a>
+            <!-- MAIN -->
+            <div role="main" class="ui-content jqm-content jqm-fullwidth">
+                <!-- ADD PICTURE -->
+                <div class="nailthumb-container">
+                    <img src="img/avatar.png" alt="User avatar"/>
+                </div>
+                <label for="picture">User picture:</label>
+                <input type="file" name="picture" id="picture" value="">
+                <label for="textinput-1">Name:</label>
+                <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="John Doe">
+                <label for="textinput-2">E-mail:</label>
+                <input type="text" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="user@mail.com">
+                <label for="textinput-3">Phone number:</label>
+                <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value="">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" value="" autocomplete="off">
+                <label for="re_password">Retype password:</label>
+                <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
+                <label for="skills">Skills:</label>
+                <div data-role="controlgroup" id="skills" data-type="horizontal" data-mini="true">
+                        <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-a">Add</a>
+                        <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-a">Delete</a>
+                </div>
+                <!-- ADD SKILLS SECTION -->
+                <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1">Save</button>
             </div>
-            <!-- ADD SKILLS SECTION -->
-            <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1">Save</button>
         </div>
-    </div>
-        <!-- MENU PANEL -->
-    <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
-    <div data-role="ui-panel-inner">
-        <ul data-role="listview">
-            <li data-role="list-divider">Profile</li>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="edit_profile.html">EDIT PROFILE</a></li>
-            <li><a href="add_tags.html">ADD TAGS</a></li>
-            <li><a href="friend_list.html">FRIEND LIST</a></li>
-            <li><a href="log_out.html">LOG OUT</a></li>
-            <li data-role="list-divider">Huddles</li>
-            <li><a href="my_huddles.html#pagemyhuddles" rel="external">MY HUDDLES</a></li>
-            <li><a href="my_huddles.html#pagefindhuddles" rel="external">FIND HUDDLES</a></li>
-            <li><a href="create_huddle.html">CREATE HUDDLE</a></li>
-            <li data-role="list-divider">Groups</li>
-            <li><a href="my_groups.html">MY GROUPS</a></li>
-            <li><a href="find_groups.html">FIND GROUPS</a></li>
-            <li><a href="create_group.html">CREATE GROUP</a></li>
-            <li data-role="list-divider">Options</li>
-            <li><a href="settings.html">SETTINGS</a></li>
-            <li><a href="help.html">HELP</a></li>
-        </ul>
-    </div>
-</body>
+            <!-- MENU PANEL -->
+        <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
+        <div data-role="ui-panel-inner">
+            <ul data-role="listview">
+                <li data-role="list-divider">Profile</li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="edit_profile.html">EDIT PROFILE</a></li>
+                <li><a href="add_tags.html">ADD TAGS</a></li>
+                <li><a href="friend_list.html">FRIEND LIST</a></li>
+                <li><a href="log_out.html">LOG OUT</a></li>
+                <li data-role="list-divider">Huddles</li>
+                <li><a href="my_huddles.html#pagemyhuddles" rel="external">MY HUDDLES</a></li>
+                <li><a href="my_huddles.html#pagefindhuddles" rel="external">FIND HUDDLES</a></li>
+                <li><a href="create_huddle.html">CREATE HUDDLE</a></li>
+                <li data-role="list-divider">Groups</li>
+                <li><a href="my_groups.html">MY GROUPS</a></li>
+                <li><a href="find_groups.html">FIND GROUPS</a></li>
+                <li><a href="create_group.html">CREATE GROUP</a></li>
+                <li data-role="list-divider">Options</li>
+                <li><a href="settings.html">SETTINGS</a></li>
+                <li><a href="help.html">HELP</a></li>
+            </ul>
+        </div>
+    </body>
 </html>
