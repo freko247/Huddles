@@ -7,8 +7,9 @@
     <author email="huddles@gmail.com" href="http://huddles.appspot.com">
         Huddles Team
     </author>
-    <access origin="http://huddlesrest.appspot.com" />
     <feature name="http://api.phonegap.com/1.0/device" />
+    <!-- Domain white list -->
+    <access origin="http://huddlesrest.appspot.com" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -24,6 +25,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <!-- Icons -->
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:density="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:density="mdpi" />
