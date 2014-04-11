@@ -80,8 +80,44 @@
         <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
             <!-- ADD PICTURE -->
-            <div class="nailthumb-container">
-                <img src="img/avatar.png" alt="User avatar"/>
+            <div class="ui-grid-a">
+                <div class="nailthumb-container ui-block-a">
+                    <img src="img/avatar.png" alt="User avatar"/>
+                </div>
+                <div class="ui-block-b">
+                    <a id="skills" href="#editSkillsDialog" data-rel="popup" data-position="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow">Edit Skills</a>
+                    <!-- POP-UP -->
+                    <div data-role="popup" id="editSkillsDialog" data-dismissible="false" data-overlay-theme="a">
+                        <div data-role="header">
+                            <h1>Edit Skills</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
+                                <button>Add</button>
+                            </div>
+                            <h1>SOME SAVED SKILSS</h1>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
+                        </div>
+                    </div>
+                    <a id="tags" href="#editTagsDialog" data-rel="popup" data-position="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow">Edit Tags</a>
+                    <!-- POP-UP -->
+                    <div data-role="popup" id="editTagsDialog" data-dismissible="false" data-overlay-theme="a">
+                        <div data-role="header">
+                            <h1>Edit Tags</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
+                                <button>Add</button>
+                            </div>
+                            <h1>SOME SAVED TAGS</h1>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <label for="picture">User picture:</label>
             <input type="file" name="picture" id="picture" value="">
@@ -96,10 +132,6 @@
             <label for="re_password">Retype password:</label>
             <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
             <label for="skills">Skills:</label>
-            <div data-role="controlgroup" id="skills" data-type="horizontal" data-mini="true">
-                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-a">Add</a>
-                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-a">Delete</a>
-            </div>
             <!-- ADD SKILLS SECTION -->
             <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1">Save</button>
         </div>

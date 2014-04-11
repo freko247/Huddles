@@ -32,3 +32,8 @@
 .ui-li-divider{
     background: linear-gradient(#1e76bf, #114a80);
 }
+
+.controlgroup-textinput{
+    padding-top:.22em;
+    padding-bottom:.22em;
+}
