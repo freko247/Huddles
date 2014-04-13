@@ -28,7 +28,6 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">
     app.initialize();
     </script>
@@ -39,26 +38,49 @@
     </script>
 </head>
 <body>
-    <div data-role="page" data-theme="a">
+    <div data-role="page" id="pagerecent" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Home</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active">Recent Events</a></li>
+                    <li><a href="#pagesuggest">Suggested Huddles</a></li>
+                </ul>
+            </div>
         </div>
         <!-- MAIN -->
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
             <ul data-role="listview" data-inset="true" data-divider-theme="a">
-                <li data-role="list-divider">Suggested Huddles:</li>
+                <li data-icon="false"><a href="#">New session added for your group in: <br> Mobile Application Prototyping</a></li>
+                <li data-icon="false"><a href="#">2 new groups created in the Huddle: <br> User Experience Engineering</a></li>
+                <li data-icon="false"><a href="#">4 new members added to the Huddle: <br> Requirements Engineering</a></li>
+                <li data-icon="false"><a href="#">Peter joined your group in: <br> Mobile Application Prototyping</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="page" id="pagesuggest" data-theme="a">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Home</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#pagerecent">Recent Events</a></li>
+                    <li><a href="#" class="ui-btn-active">Suggested Huddles</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- MAIN -->
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+            <ul data-role="listview" data-inset="true" data-divider-theme="a">
                 <li data-icon="false"><a href="#">Mobile Application Prototyping</a></li>
                 <li data-icon="false"><a href="#">Requirements Engineering</li></a>
                 <li data-icon="false"><a href="#">Agile Digital Media Development</a></li>
                 <li data-icon="false"><a href="#">AI and MAS</a></li>
                 <li data-icon="false"><a href="#">User Experience Engineering</a></li>
-                <li data-role="list-divider">Recent Events:</li>
-                <li data-icon="false"><a href="#">New session added for your group in: <br> Mobile Application Prototyping</a></li>
-                <li data-icon="false"><a href="#">2 new groups created in the Huddle: <br> User Experience Engineering</a></li>
-                <li data-icon="false"><a href="#">4 new members added to the Huddle: <br> Requirements Engineering</a></li>
-                <li data-icon="false"><a href="#">Peter joined your group in: <br> Mobile Application Prototyping</a></li>
             </ul>
         </div>
     </div>
@@ -68,7 +90,7 @@
         <div data-role="ui-panel-inner">
             <ul data-role="listview">
                 <li data-role="list-divider">Profile</li>
-                <li><a href="alt_index1.html" class="ui-btn" rel="external">HOME</a></li>
+                <li><a href="index.html" class="ui-btn" rel="external">HOME</a></li>
                 <li><a href="edit_profile.html" class="ui-btn" rel="external">EDIT PROFILE</a></li>
                 <li><a href="add_tags.html" class="ui-btn" rel="external">ADD TAGS</a></li>
                 <li><a href="add_skills.html" class="ui-btn" rel="external">ADD SKILS</a></li>
