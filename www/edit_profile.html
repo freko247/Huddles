@@ -28,6 +28,7 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">
     app.initialize();
     </script>
@@ -36,38 +37,6 @@
         $( "body>[data-role='panel']" ).panel().enhanceWithin();
     });
     </script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $("#save-1").click( function()
-        {
-            $.ajax({
-                traditional: true,
-                url: 'http://huddlesrest.appspot.com/api',
-                type: 'POST',
-                data: {'db_funtion': 'addUser',
-                'userEmail': 'user@mail.com',
-                'userName': 'John Doe',
-                'userSkill': ['Python', 'Communication', 'Leadership'],
-            },
-            beforeSend: function() {
-                       // This callback function will trigger before data is sent
-                       $.mobile.loading('show');
-                   },
-                   complete: function() {
-                       // This callback function will trigger on data sent/received complete
-                       $.mobile.loading('hide');
-                   },
-                   success: function (result) {
-                    $("#save-1").text("Saved");
-                },
-                error: function (request,error) {
-                       // This callback function will trigger on unsuccessful action
-                       alert('Network error has occurred please try again!');
-                   }
-               });
-});
-});
-</script>
 <title></title>
 </head>
 <body>
@@ -96,7 +65,7 @@
                                 <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
                                 <button>Add</button>
                             </div>
-                            <h1>SOME SAVED SKILSS</h1>
+                            <h1>SOME SAVED SKILLS</h1>
                             <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
                             <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
                         </div>
@@ -133,7 +102,7 @@
             <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
             <label for="skills">Skills:</label>
             <!-- ADD SKILLS SECTION -->
-            <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1">Save</button>
+            <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1" onclick="addUser()">Save</button>
         </div>
     </div>
     <!-- MENU PANEL -->
