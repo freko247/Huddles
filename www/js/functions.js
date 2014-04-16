@@ -9,6 +9,7 @@ function addUser() {
             "db_function": "addUser",
             "userName": jQuery("#textinput-1").val(),
             "userEmail": jQuery("#textinput-2").val(),
+            "userPassword": sha256_digest(jQuery("#password").val() + "salt"),
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
