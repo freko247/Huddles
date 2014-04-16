@@ -29,3 +29,16 @@ function addUser() {
         }
     });
 }
+
+function addItem() {
+    $('ul').append($('<li/>', { //here appending `<li>`
+        'data-icon': 'delete',
+        'class': 'skill-item',
+    }).append($('<a/>', { //here appending `<a>` into `<li>`
+        'href': '#',
+        'data-transition': 'slide',
+        'text': jQuery("#skill-control-group").val()
+    })));
+
+    $('ul').listview('refresh');
+}
