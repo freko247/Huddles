@@ -30,7 +30,7 @@ function addUser() {
     });
 }
 
-function addItem() {
+function addSkill() {
     $('ul').append($('<li/>', { //here appending `<li>`
         'data-icon': 'delete',
         'class': 'skill-item',
