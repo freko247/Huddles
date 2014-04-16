@@ -6,10 +6,9 @@ function addUser() {
         type: 'POST',
         dataType: 'json',
         data: {
-            'db_function': 'addUser',
-            'userEmail': 'user@mail.com',
-            'userName': 'John Doe',
-            'userSkill': ['Python', 'Android', ],
+            "db_function": "addUser",
+            "userName": jQuery("#textinput-1").val(),
+            "userEmail": jQuery("#textinput-2").val(),
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
