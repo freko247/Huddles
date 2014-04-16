@@ -20,6 +20,7 @@ function addUser() {
         },
         success: function(result) {
             $("#save-1").text("Saved");
+            $('#save-1').attr('disabled', 'disabled');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
