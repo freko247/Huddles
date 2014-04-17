@@ -36,7 +36,7 @@ function addSkill() {
         'class': 'skill-item',
     }).append($('<a/>', { //here appending `<a>` into `<li>`
         'href': '#',
-        'onclick': 'removeSkill()'
+        'onclick': 'removeSkill()',
         'data-transition': 'slide',
         'text': jQuery("#skill-control-group").val()
     })));
