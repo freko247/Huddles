@@ -44,9 +44,40 @@
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Create Huddles</h1>
         </div>
-       <!-- MAIN -->
+        <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <h1>Create Huddles</h1>
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <li class="ui-field-contain">
+                        <label for="huddlename">Huddle Name:</label>
+                        <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="location">Location:</label>
+                        <p>current location button</p><p>set location button</p>
+                    </li>
+                    <li class="ui-field-contain">
+                        <label>Starts at:</label>
+                        <input type="text" data-role="date" data-inline="true" value="implement datepicker">
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="occurance">Occurance:</label>
+
+                    </li>
+                    <li class="ui-field-contain">
+                        <label>Tags:</label>
+                        <input type="text" name="tagone" id="tagone" value="" data-clear-btn="true">
+                        <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
+                        <input type="text" name="tagthree" id="tagthree" value="" data-clear-btn="true">
+                    </li>
+                    <li class="ui-body ui-body-b">
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
+                            <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
+                        </fieldset>
+                    </li>
+                </ul>
+            </form>
         </div>
     </div>
     
