@@ -31,7 +31,7 @@ function addUser() {
 }
 
 function addSkill() {
-    $('ul').append($('<li/>', { //here appending `<li>`
+    $('#skill-list').append($('<li/>', { //here appending `<li>`
         'data-icon': 'delete',
         'class': 'skill-item',
     }).append($('<a/>', { //here appending `<a>` into `<li>`
@@ -45,5 +45,6 @@ function addSkill() {
 }
 
 function removeSkill() {
-    $(this).remove();
+    $(this).closest('li').remove();
+    $('ul').listview('refresh');
 }
