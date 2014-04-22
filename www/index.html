@@ -28,7 +28,6 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">
     app.initialize();
     </script>
@@ -39,7 +38,9 @@
     </script>
 </head>
 <body>
-    <div data-role="page" data-theme="a">
+
+<!-- HOME PAGE - RECENT EVENTS -->
+    <div data-role="page" id="page_recentevents" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -47,14 +48,13 @@
         </div>
         <!-- MAIN -->
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
-            <ul data-role="listview" data-inset="true" data-divider-theme="a" data-split-icon="delete" data-split-theme="a">
-                <li data-role="list-divider">Suggested Huddles:</li>
-                <li data-icon="false"><a href="#">Mobile Application Prototyping</a><a href="#"></a></li>
-                <li data-icon="false"><a href="#">Requirements Engineering</a><a href="#"></a></li>
-                <li data-icon="false"><a href="#">Agile Digital Media Development</a><a href="#"></a></li>
-                <li data-icon="false"><a href="#">AI and MAS</a><a href="#"></a></li>
-                <li data-icon="false"><a href="#">User Experience Engineering</a><a href="#"></a></li>
-                <li data-role="list-divider">Recent Events:</li>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active">Recent Events</a></li>
+                    <li><a href="#page_suggestedhuddles">Suggested Huddles</a></li>
+                </ul>
+            </div>
+            <ul data-role="listview" data-inset="true">
                 <li data-icon="false"><a href="#">New session added for your group in: <br> Mobile Application Prototyping</a></li>
                 <li data-icon="false"><a href="#">2 new groups created in the Huddle: <br> User Experience Engineering</a></li>
                 <li data-icon="false"><a href="#">4 new members added to the Huddle: <br> Requirements Engineering</a></li>
@@ -63,25 +63,214 @@
         </div>
     </div>
 
+<!-- HOME PAGE - SUGGESTHUDDLES -->
+    <div data-role="page" id="page_suggestedhuddles" data-theme="a">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Home</h1>
+        </div>
+        <!-- MAIN -->
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_recentevents">Recent Events</a></li>
+                    <li><a href="#" class="ui-btn-active">Suggested Huddles</a></li>
+                </ul>
+            </div>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="false"><a href="#">Mobile Application Prototyping</a></li>
+                <li data-icon="false"><a href="#">Requirements Engineering</li></a>
+                <li data-icon="false"><a href="#">Agile Digital Media Development</a></li>
+                <li data-icon="false"><a href="#">AI and MAS</a></li>
+                <li data-icon="false"><a href="#">User Experience Engineering</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- EDIT PROFILE PAGE -->
+    <div data-role="page" id="page_editprofile">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Profile</h1>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <!-- ADD PICTURE -->
+            <div class="ui-grid-a">
+                <div class="nailthumb-container ui-block-a">
+                    <img src="img/avatar.png" alt="User avatar"/>
+                </div>
+                <div class="ui-block-b">
+                    <a id="skills" href="#editSkillsDialog" data-rel="popup" data-position="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow">Edit Skills</a>
+
+                    <!-- POP-UP -->
+                    <div data-role="popup" id="editSkillsDialog" data-dismissible="false" data-overlay-theme="a">
+                        <div data-role="header">
+                            <h1>Edit Skills</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
+                                <button onclick="addSkill()">Add</button>
+                            </div>
+                            <ul id="skill-list" data-role="listview" data-inset="true">
+                            </ul>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
+                        </div>
+                    </div>
+                    <a id="tags" href="#editTagsDialog" data-rel="popup" data-position="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow">Edit Tags</a>
+                    <!-- POP-UP -->
+                    <div data-role="popup" id="editTagsDialog" data-dismissible="false" data-overlay-theme="a">
+                        <div data-role="header">
+                            <h1>Edit Tags</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
+                                <button>Add</button>
+                            </div>
+                            <h1>SOME SAVED TAGS</h1>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label for="picture">User picture:</label>
+            <input type="file" name="picture" id="picture" value="">
+            <label for="textinput-1">Name:</label>
+            <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="John Doe">
+            <label for="textinput-2">E-mail:</label>
+            <input type="text" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="user@mail.com">
+            <label for="textinput-3">Phone number:</label>
+            <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value="">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" value="" autocomplete="off">
+            <label for="re_password">Retype password:</label>
+            <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
+            <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1" onclick="addUser()">Save</button>
+        </div>
+    </div>
+
+
+
+    <!-- HUDDLES - PAGE ONE - SEARCH -->
+    <div data-role="page" id="page_searchhuddles">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+           <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Huddles</h1>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
+                    <li><a href="#page_myhuddles">My Huddles</a></li>
+                </ul>
+            </div>
+            <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+                <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
+                    <li data-icon="false"><a href="#">
+                        <h2>Mobile Application Prototyping</h2>
+                        <p><strong>Re: Dinner Tonight</strong></p>
+                        <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                        <p>Filler</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </li></a>
+                    <li data-icon="false"><a href="#">
+                        <h2>Agile Digital Media Development</h2>
+                        <p><strong>Re: Food later</strong></p>
+                        <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                        <p>Ransom</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- HUDDLES - PAGE TWO - MY HUDDLES -->
+    <div data-role="page" id="page_myhuddles">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+           <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Huddles</h1>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_searchhuddles">Search</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
+                </ul>
+            </div>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="false"><a href="#">
+                    <h2>Mobile Application Prototyping</h2>
+                    <p><strong>Re: Dinner Tonight</strong></p>
+                    <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                    <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                </li></a>
+                <li data-icon="false"><a href="#">
+                    <h2>Agile Digital Media Development</h2>
+                    <p><strong>Re: Dinner Tonight</strong></p>
+                    <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                    <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                </li></a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SETTINGS PAGE -->
+    <div data-role="page_settings">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Settings</h1>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <h1>Settings</h1>
+        </div>
+    </div>
+
+
+    <!-- HELP PAGE -->
+    <div data-role="page" id="page_help">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Help</h1>
+        </div>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        </div>
+    </div>
+
+<!-- PANELS, POP-UPS AND ETC -->
+
     <!-- MENU PANEL -->
     <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
         <div data-role="ui-panel-inner">
             <ul data-role="listview">
                 <li data-role="list-divider">Profile</li>
-                <li><a href="alt_index1.html" class="ui-btn" rel="external">HOME</a></li>
-                <li><a href="edit_profile.html" class="ui-btn" rel="external">EDIT PROFILE</a></li>
-                <li><a href="add_tags.html" class="ui-btn" rel="external">ADD TAGS</a></li>
-                <li><a href="add_skills.html" class="ui-btn" rel="external">ADD SKILS</a></li>
-                <li><a href="log_out.html" class="ui-btn" rel="external">LOG OUT</a></li>
+                <li><a href="#page_recentevents" class="ui-btn">HOME</a></li>
+                <li><a href="#page_editprofile" class="ui-btn">EDIT PROFILE</a></li>
+                <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li>
+                <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li>
+                <li><a href="log_out.html" class="ui-btn" >LOG OUT</a></li>
                 <li data-role="list-divider">Huddles</li>
-                <li><a href="huddles.html#pagemyhuddles" class="ui-btn" rel="external">HUDDLES</a></li>
-                <li><a href="create_huddle.html" class="ui-btn" rel="external">CREATE HUDDLE</a></li>
+                <li><a href="page_myhuddles" class="ui-btn">HUDDLES</a></li>
+                <li><a href="page_createhuddle" class="ui-btn">CREATE HUDDLE</a></li>
                 <li data-role="list-divider">Options</li>
-                <li><a href="settings.html" class="ui-btn" rel="external">SETTINGS</a></li>
-                <li><a href="help.html" class="ui-btn" rel="external">HELP</a></li>
+                <li><a href="#page_settings" class="ui-btn">SETTINGS</a></li>
+                <li><a href="#page_help" class="ui-btn">HELP</a></li>
             </ul>
         </div>
     </div>
-
 </body>
 </html>
