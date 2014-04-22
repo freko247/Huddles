@@ -1,5 +1,4 @@
 function initDB() {
-    var db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
     db.transaction(populateDB);
 }
 

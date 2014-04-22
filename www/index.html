@@ -33,16 +33,17 @@
     <script type="text/javascript">
     app.initialize();
     </script>
-    <script type="text/javascript">
-        $( document ).ready(function() {
-        console.log( "ready!" );
-        initDB()
-        });
-    </script>
     <script id="panel-init">
     $(function() {
         $( "body>[data-role='panel']" ).panel().enhanceWithin();
     });
+    </script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+        console.log( "ready!" );
+        window.db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
+        initDB();
+        });
     </script>
 </head>
 <body>
