@@ -9,7 +9,7 @@ function populateDB(tx) {
     tx.executeSql('SELECT userEmail FROM user WHERE active = "X"', [], function(tx, results) {
         if (results.rows.length < 1) {
             alert("Is this your first time using Huddles? Please enter user information...");
-            window.location = "#profile";
+            window.location = "#page_editprofile";
         } else {
             alert(results.rows.length);
         }

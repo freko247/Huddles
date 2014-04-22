@@ -33,6 +33,12 @@
     <script type="text/javascript">
     app.initialize();
     </script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+        console.log( "ready!" );
+        initDB()
+        });
+    </script>
     <script id="panel-init">
     $(function() {
         $( "body>[data-role='panel']" ).panel().enhanceWithin();
