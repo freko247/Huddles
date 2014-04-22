@@ -1,10 +1,45 @@
+function initDB() {
+    var db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
+    db.transaction(populateDB);
+}
+
+function populateDB(tx) {
+    tx.executeSql('DROP TABLE IF EXISTS USER');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS USER (userEmail, active)');
+    tx.executeSql('SELECT userEmail FROM user WHERE active = "X"', [], function(tx, results) {
+        if (results.rows.length < 1) {
+            alert("Is this your first time using Huddles? Please enter user information...");
+            window.location = "#profile";
+        } else {
+            alert(results.rows.length);
+        }
+    });
+}
+
+function errorCB(err) {
+    alert("Error processing SQL: " + err.code + err.message);
+}
+
+function successCB() {
+    return;
+}
+
 function addUser() {
+    var db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
+    db.transaction(function(tx) {
+        var userEmail = jQuery("#textinput-2").val();
+        tx.executeSql('INSERT OR REPLACE INTO USER (userEmail, active) VALUES ("' + userEmail + '", "X")');
+    }, errorCB);
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT userEmail FROM user WHERE active = "X"', [], function(tx, results) {
+            $('#first').popup("open");
+        });
+    });
     $.ajax({
         traditional: true,
-        // url: 'http://localhost:8080/api',
-        url: 'http://huddlesrest.appspot.com/api',
-        type: 'POST',
-        dataType: 'json',
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
         data: {
             "db_function": "addUser",
             "userName": jQuery("#textinput-1").val(),
@@ -36,7 +71,6 @@ function addSkill() {
         'class': 'skill-item',
     }).append($('<a/>', { //here appending `<a>` into `<li>`
         'href': '#',
-        'onclick': 'removeSkill()',
         'data-transition': 'slide',
         'text': jQuery("#skill-control-group").val()
     })));
@@ -44,10 +78,11 @@ function addSkill() {
     $('ul').listview('refresh');
 }
 
-function removeSkill() {
-    $(this).closest('li').remove();
-    $('ul').listview('refresh');
-}
+
+// $('#skill-list li').click(function) {
+//     $(this).remove()
+// }
+// $('ul').listview('refresh');
 
 function addHuddleTag() {
     $('#huddle-tag-list').append($('<li/>', { //here appending `<li>`
@@ -64,14 +99,18 @@ function addHuddleTag() {
 
 function createHuddle() {
     var onSuccess = function(position) {
-        alert('Latitude: ' + position.coords.latitude + '\n' +
-            'Longitude: ' + position.coords.longitude + '\n' +
-            'Altitude: ' + position.coords.altitude + '\n' +
-            'Accuracy: ' + position.coords.accuracy + '\n' +
-            'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
-            'Heading: ' + position.coords.heading + '\n' +
-            'Speed: ' + position.coords.speed + '\n' +
-            'Timestamp: ' + new Date(position.timestamp) + '\n');
+        var tags = [];
+        $('#huddle-tag-list li').each(function() {
+            tags.push($(this).text());
+        });
+        data = {
+            'huddlePosition': [position.coords.latitude, position.coords.longitude],
+            'huddleTimestamp': position.timestamp,
+            'huddleTag': tags,
+            'huddleName': jQuery("#textinput-1").val(),
+        };
+        console.log(data);
+        // alert(data);
     };
 
     // onError Callback receives a PositionError object
