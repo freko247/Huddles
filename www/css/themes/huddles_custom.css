@@ -1,41 +1,41 @@
 #panel_menu{
-    border-top-width: 0px;
-    border-right-width: 0px;
-    margin-right: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    background-color: black;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  margin-right: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  background-color: #448ccb;
 }
 
 #hamburger{
-    -webkit-border-radius: 0em;
-    border-radius: 0em;
-    background-color: #2692f6;
+  -webkit-border-radius: 0em;
+  border-radius: 0em;
+  background-color: #2692f6;
 }
 
 #hamburger:after{
-    -webkit-border-radius: 0em;
-    border-radius: 0em;
-    background-color: #2692f6;
+  -webkit-border-radius: 0em;
+  border-radius: 0em;
+  background-color: #2692f6;
 }
 
 .ui-panel-inner{
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-top: 0px;
-    padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
 }
 .ui-header{
-    background: linear-gradient(#2692f6, #11518c);
+  background: linear-gradient(#2692f6, #11518c);
 }
 
 .ui-li-divider{
-    background: linear-gradient(#1e76bf, #114a80);
+  background: linear-gradient(#1e76bf, #114a80);
 }
 
 .controlgroup-textinput{
-    padding-top:.22em;
-    padding-bottom:.22em;
+  padding-top:.22em;
+  padding-bottom:.22em;
 }
 
 .custom-corners .ui-bar {
@@ -54,45 +54,69 @@
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .ui-icon-homeicon:after {
-    background-image: url("../images/Icon_home_hi.png");
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_home.png");
     background-position: 3px 3px;
-    background-size: 70%;
+    background-size: 80%;
+    background-repeat: no-repeat;
   }
   .ui-icon-profileicon:after {
-    background-image: url("../images/Icon_profile_hi.png");
-    background-position: 3px 3px;
-    background-size: 70%;
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_profile.png");
+    background-position: 4px 3px;
+    background-size: 80%;
+    background-repeat: no-repeat; 
   }
   .ui-icon-skillsicon:after {
+    background: transparent;
+    box-shadow: none;
     background-image: url("../images/Icon_skills_hi.png");
-    background-position: 3px 3px;
-    background-size: 70%;
+    background-position: 4px 3px;
+    background-size: 80%;
+    background-repeat: no-repeat;
   }
   .ui-icon-tagsicon:after {
-    background-image: url("../images/Icon_tags_hi.png");
-    background-position: 3px 3px;
-    background-size: 70%;
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_tags.png");
+    background-position: 4px 3px;
+    background-size: 80%;
+    background-repeat: no-repeat;
   }
   .ui-icon-huddleicon:after {
-    background-image: url("../images/Icon_huddle_hi.png");
-    background-position: 3px 3px;
-    background-size: 70%;
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_huddle.png");
+    background-position: 2px 2px;
+    background-size: 90%;
+    background-repeat: no-repeat;
   }
   .ui-icon-createhuddleicon:after {
-    background-image: url("../images/Icon_createhuddle_hi.png");
-    background-position: 3px 3px;
-    background-size: 70%;
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_createhuddle.png");
+    background-position: 2px 2px;
+    background-size: 90%;
+    background-repeat: no-repeat;
   }
   .ui-icon-settingsicon:after {
-    background-image: url("../images/Icon_settings_hi.png");
-    background-position: 3px 3px;
-    background-size: 70%;
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_settings.png");
+    background-position: 4px 3px;
+    background-size: 80%;
+    background-repeat: no-repeat;
   }
   .ui-icon-helpicon:after {
-    background-image: url("../images/Icon_help_hi.png");
+    background: transparent;
+    box-shadow: none;
+    background-image: url("../images/Icon_help.png");
     background-position: 3px 3px;
-    background-size: 70%;
+    background-size: 80%;
+    background-repeat: no-repeat;
   }
-/*  ...more HD icon rules go here...
-*/}
+  /*  ...more HD icon rules go here...*/
+}
 
