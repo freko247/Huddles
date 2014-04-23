@@ -38,6 +38,14 @@
         $( "body>[data-role='panel']" ).panel().enhanceWithin();
     });
     </script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+        console.log( "ready!" );
+        var db = "";
+        db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
+        initDB();
+        });
+    </script>
 </head>
 <body>
 
@@ -81,11 +89,115 @@
                 </ul>
             </div>
             <ul data-role="listview" data-inset="true">
-                <li data-icon="false"><a href="#">Mobile Application Prototyping</a></li>
+                <li data-icon="false"><a href="#page_mobile_skills">Mobile Application Prototyping</a></li>
                 <li data-icon="false"><a href="#">Requirements Engineering</li></a>
                 <li data-icon="false"><a href="#">Agile Digital Media Development</a></li>
                 <li data-icon="false"><a href="#">AI and MAS</a></li>
                 <li data-icon="false"><a href="#">User Experience Engineering</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- HUDDLE - MOBILE PROTOTYPING SKILLS-->
+    <div data-role="page" id="page_mobile_skills" data-theme="a">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Huddle</h1>
+        </div>
+        <!-- MAIN -->
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div>
+                <h1>Mobile Application Prototyping</h1>
+                <ul>
+                    <li>#DTU</li>
+                    <li>#02827</li>
+                    <li>#Digital Media Engineering</li>
+                </ul>
+            </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active">People Skills</a></li>
+                    <li><a href="#page_mobile_groups">Groups</a></li>
+                    <li><a href="#page_mobile_users">People</a></li>
+                </ul>
+            </div>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="false"><a href="#">#Android Programming</a></li>
+                <li data-icon="false"><a href="#">#iOS Programming</li></a>
+                <li data-icon="false"><a href="#">#Prototyping</a></li>
+                <li data-icon="false"><a href="#">#Java Programming</a></li>
+                <li data-icon="false"><a href="#">#HTML Programming</a></li>
+                <li data-icon="false"><a href="#">#HTML5</a></li>
+                <li data-icon="false"><a href="#">#Phonegap</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- HUDDLE - MOBILE PROTOTYPING GROUPS -->
+    <div data-role="page" id="page_mobile_groups" data-theme="a">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Huddle</h1>
+        </div>
+        <!-- MAIN -->
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div>
+                <h1>Mobile Application Prototyping</h1>
+                <ul>
+                    <li>#DTU</li>
+                    <li>#02827</li>
+                    <li>#Digital Media Engineering</li>
+                </ul>
+            </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_mobile_skills">People Skills</a></li>
+                    <li><a href="#" class="ui-btn-active">Groups</a></li>
+                    <li><a href="#page_mobile_users">People</a></li>
+                </ul>
+            </div>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="false"><a href="#">Group Awesome</a></li>
+                <li data-icon="false"><a href="#">Group 1337</li></a>
+                <li data-icon="false"><a href="#">Group Ajax</a></li>
+                <li data-icon="false"><a href="#">Group Freko</a></li>
+                <li data-icon="false"><a href="#">Group Zeliax</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- HUDDLE - MOBILE PROTOTYPING -->
+    <div data-role="page" id="page_mobile_users" data-theme="a">
+        <!-- HEADER -->
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Huddle</h1>
+        </div>
+        <!-- MAIN -->
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div>
+                <h1>Mobile Application Prototyping</h1>
+                <ul>
+                    <li>#DTU</li>
+                    <li>#02827</li>
+                    <li>#Digital Media Engineering</li>
+                </ul>
+            </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_mobile_skills">People Skills</a></li>
+                    <li><a href="#page_mobile_groups">Groups</a></li>
+                    <li><a href="#" class="ui-btn-active">People</a></li>
+                </ul>
+            </div>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="false"><a href="#">Mikael Petersen</a></li>
+                <li data-icon="false"><a href="#">Mikael Petersen</a></li>
+                <li data-icon="false"><a href="#">Mikael Petersen</a></li>
+                <li data-icon="false"><a href="#">Mikael Petersen</a></li>
+                <li data-icon="false"><a href="#">Mikael Petersen</a></li>
             </ul>
         </div>
     </div>
@@ -313,9 +425,9 @@
                 <li data-role="list-divider">Profile</li>
                 <li data-icon="delete"><a href="#page_recentevents" class="ui-btn">HOME</a></li>
                 <li><a href="#page_editprofile" class="ui-btn">EDIT PROFILE</a></li>
-                <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li>
-                <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li>
-                <li><a href="#log_out.html" class="ui-btn" >LOG OUT</a></li>
+                <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
+                <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
+                <!-- <li><a href="#log_out.html" class="ui-btn" >LOG OUT</a></li> -->
                 <li data-role="list-divider">Huddles</li>
                 <li><a href="#page_myhuddles" class="ui-btn">HUDDLES</a></li>
                 <li><a href="#page_createhuddle" class="ui-btn">CREATE HUDDLE</a></li>
