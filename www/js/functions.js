@@ -129,7 +129,7 @@ function createHuddle() {
                 $.mobile.loading('hide');
             },
             success: function(result) {
-                console.log("Huddle created!")
+                console.log("Huddle created!");
             },
             error: function(request, error) {
                 // This callback function will trigger on unsuccessful action
@@ -146,4 +146,32 @@ function createHuddle() {
     }
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+function getSuggestedHuddles() {
+    console.log("Getting Huddles!");
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "getSuggestedHuddles",
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            console.log("Got suggested Huddles!", result);
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
 }
