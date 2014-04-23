@@ -51,3 +51,21 @@
   -webkit-border-bottom-right-radius: inherit;
   border-bottom-right-radius: inherit;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .ui-icon-homeicon {
+    background-image: url("../images/Icon_home_hi.png");
+    background-size: 18px 18px;
+  }
+  .ui-icon-profileicon {
+    background-image: url("../images/Icon_profile_hi.png");
+    background-size: 18px 18px;
+  }
+/*  ...more HD icon rules go here...
+*/}
+
+.ui-icon-profileiconhi {
+    background-image: url("../images/Icon_profile_hi.png");
+    /* Make your icon fit */
+    background-size: 18px 18px;
+}
