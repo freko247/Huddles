@@ -53,19 +53,46 @@
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  .ui-icon-homeicon {
+  .ui-icon-homeicon:after {
     background-image: url("../images/Icon_home_hi.png");
-    background-size: 18px 18px;
+    background-position: 3px 3px;
+    background-size: 70%;
   }
-  .ui-icon-profileicon {
+  .ui-icon-profileicon:after {
     background-image: url("../images/Icon_profile_hi.png");
-    background-size: 18px 18px;
+    background-position: 3px 3px;
+    background-size: 70%;
+  }
+  .ui-icon-skillsicon:after {
+    background-image: url("../images/Icon_skills_hi.png");
+    background-position: 3px 3px;
+    background-size: 70%;
+  }
+  .ui-icon-tagsicon:after {
+    background-image: url("../images/Icon_tags_hi.png");
+    background-position: 3px 3px;
+    background-size: 70%;
+  }
+  .ui-icon-huddleicon:after {
+    background-image: url("../images/Icon_huddle_hi.png");
+    background-position: 3px 3px;
+    background-size: 70%;
+  }
+  .ui-icon-createhuddleicon:after {
+    background-image: url("../images/Icon_createhuddle_hi.png");
+    background-position: 3px 3px;
+    background-size: 70%;
+  }
+  .ui-icon-settingsicon:after {
+    background-image: url("../images/Icon_settings_hi.png");
+    background-position: 3px 3px;
+    background-size: 70%;
+  }
+  .ui-icon-helpicon:after {
+    background-image: url("../images/Icon_help_hi.png");
+    background-position: 3px 3px;
+    background-size: 70%;
   }
 /*  ...more HD icon rules go here...
 */}
 
-.ui-icon-profileiconhi {
-    background-image: url("../images/Icon_profile_hi.png");
-    /* Make your icon fit */
-    background-size: 18px 18px;
-}
