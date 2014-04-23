@@ -1,39 +1,12 @@
-function initDB() {
-    db.transaction(populateDB);
-}
-
-function populateDB(tx) {
-    tx.executeSql('DROP TABLE IF EXISTS USER');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS USER (userEmail, active)');
-    tx.executeSql('SELECT userEmail FROM user WHERE active = "X"', [], function(tx, results) {
-        if (results.rows.length < 1) {
-            alert("Is this your first time using Huddles? Please enter user information...");
-            window.location = "#page_editprofile";
-        } else {
-            alert(results.rows.length);
-        }
-    });
-}
-
-function errorCB(err) {
-    alert("Error processing SQL: " + err.code + err.message);
-}
-
-function successCB() {
-    return;
+function getLocalSettings() {
+    if (!localStorage.getItem("userEmail")) {
+        alert("Is this your first time using Huddles? Please enter user information...");
+        window.location = "#page_editprofile";
+    }
 }
 
 function addUser() {
-    var db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
-    db.transaction(function(tx) {
-        var userEmail = jQuery("#textinput-2").val();
-        tx.executeSql('INSERT OR REPLACE INTO USER (userEmail, active) VALUES ("' + userEmail + '", "X")');
-    }, errorCB);
-    db.transaction(function(tx) {
-        tx.executeSql('SELECT userEmail FROM user WHERE active = "X"', [], function(tx, results) {
-            $('#first').popup("open");
-        });
-    });
+    localStorage.setItem("userEmail", jQuery("#textinput-2").val());
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -111,7 +84,7 @@ function createHuddle() {
             'huddleDateAndTime': position.timestamp,
             'huddleTag': tags,
             'huddleName': jQuery("#label_huddlename").val(),
-            'huddleAdmin': "admin@huddles.com",
+            'huddleAdmin': localStorage.getItem("userEmail"),
         };
         console.log(data);
         $.ajax({
