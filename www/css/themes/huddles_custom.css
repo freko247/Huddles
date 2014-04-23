@@ -111,7 +111,7 @@
   }
   .ui-icon-helpicon:after {
     background: transparent;
-    box-shadow: none !important;
+    box-shadow: none;
     background-image: url("../images/Icon_help.png");
     background-position: 3px 3px;
     background-size: 80%;
