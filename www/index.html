@@ -39,17 +39,17 @@
     });
     </script>
     <script type="text/javascript">
-        $( document ).ready(function() {
+    $( document ).ready(function() {
         console.log( "ready!" );
         var db = "";
         db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
         initDB();
-        });
+    });
     </script>
 </head>
 <body>
 
-<!-- HOME PAGE - RECENT EVENTS -->
+    <!-- HOME PAGE - RECENT EVENTS -->
     <div data-role="page" id="page_recentevents" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-<!-- HOME PAGE - SUGGESTHUDDLES -->
+    <!-- HOME PAGE - SUGGESTHUDDLES -->
     <div data-role="page" id="page_suggestedhuddles" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
@@ -98,7 +98,7 @@
         </div>
     </div>
 
-<!-- HUDDLE - MOBILE PROTOTYPING SKILLS-->
+    <!-- HUDDLE - MOBILE PROTOTYPING SKILLS-->
     <div data-role="page" id="page_mobile_skills" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
@@ -134,7 +134,7 @@
         </div>
     </div>
 
-<!-- HUDDLE - MOBILE PROTOTYPING GROUPS -->
+    <!-- HUDDLE - MOBILE PROTOTYPING GROUPS -->
     <div data-role="page" id="page_mobile_groups" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
@@ -168,7 +168,7 @@
         </div>
     </div>
 
-<!-- HUDDLE - MOBILE PROTOTYPING -->
+    <!-- HUDDLE - MOBILE PROTOTYPING -->
     <div data-role="page" id="page_mobile_users" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
@@ -202,7 +202,7 @@
         </div>
     </div>
 
-<!-- EDIT PROFILE PAGE -->
+    <!-- EDIT PROFILE PAGE -->
     <div data-role="page" id="page_editprofile">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
@@ -274,84 +274,84 @@
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-            <h1>Huddles</h1>
+           <h1>Huddles</h1>
+       </div>
+       <!-- MAIN -->
+       <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
+                <li><a href="#page_myhuddles">My Huddles</a></li>
+            </ul>
         </div>
-        <!-- MAIN -->
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
-                    <li><a href="#page_myhuddles">My Huddles</a></li>
-                </ul>
-            </div>
-            <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-                <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
-                    <li data-icon="false"><a href="#">
-                        <h2>Mobile Application Prototyping</h2>
-                        <p><strong>Re: Dinner Tonight</strong></p>
-                        <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
-                        <p>Filler</p>
-                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
-                    </li></a>
-                    <li data-icon="false"><a href="#">
-                        <h2>Agile Digital Media Development</h2>
-                        <p><strong>Re: Food later</strong></p>
-                        <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
-                        <p>Ransom</p>
-                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
-                    </li></a>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- HUDDLES - PAGE TWO - MY HUDDLES -->
-    <div data-role="page" id="page_myhuddles">
-        <!-- HEADER -->
-        <div data-role="header" data-position="fixed">
-           <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-            <h1>Huddles</h1>
-        </div>
-        <!-- MAIN -->
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page_searchhuddles">Search</a></li>
-                    <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
-                </ul>
-            </div>
-            <ul data-role="listview" data-inset="true">
+        <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+            <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
                 <li data-icon="false"><a href="#">
                     <h2>Mobile Application Prototyping</h2>
                     <p><strong>Re: Dinner Tonight</strong></p>
                     <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                    <p>Filler</p>
                     <p class="ui-li-aside"><strong>4:48</strong>PM</p>
                 </li></a>
                 <li data-icon="false"><a href="#">
                     <h2>Agile Digital Media Development</h2>
-                    <p><strong>Re: Dinner Tonight</strong></p>
+                    <p><strong>Re: Food later</strong></p>
                     <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                    <p>Ransom</p>
                     <p class="ui-li-aside"><strong>4:48</strong>PM</p>
                 </li></a>
             </ul>
         </div>
     </div>
+</div>
 
-    <!-- CREATE HUDDLE PAGE -->
-        <div data-role="page" id="page_createhuddle">
-        <!-- HEADER -->
-        <div data-role="header" data-position="fixed">
-            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-            <h1>New Huddle</h1>
-        </div>
-        <!-- MAIN -->
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <form>
-                <ul data-role="listview" data-inset="true">
-                    <li class="ui-field-contain">
-                        <label for="huddlename">Huddle Name:</label>
-                        <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
-                    </li>
+<!-- HUDDLES - PAGE TWO - MY HUDDLES -->
+<div data-role="page" id="page_myhuddles">
+    <!-- HEADER -->
+    <div data-role="header" data-position="fixed">
+       <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+       <h1>Huddles</h1>
+   </div>
+   <!-- MAIN -->
+   <div role="main" class="ui-content jqm-content jqm-fullwidth">
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#page_searchhuddles">Search</a></li>
+            <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
+        </ul>
+    </div>
+    <ul data-role="listview" data-inset="true">
+        <li data-icon="false"><a href="#">
+            <h2>Mobile Application Prototyping</h2>
+            <p><strong>Re: Dinner Tonight</strong></p>
+            <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+        </li></a>
+        <li data-icon="false"><a href="#">
+            <h2>Agile Digital Media Development</h2>
+            <p><strong>Re: Dinner Tonight</strong></p>
+            <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+        </li></a>
+    </ul>
+</div>
+</div>
+
+<!-- CREATE HUDDLE PAGE -->
+<div data-role="page" id="page_createhuddle">
+    <!-- HEADER -->
+    <div data-role="header" data-position="fixed">
+        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+        <h1>New Huddle</h1>
+    </div>
+    <!-- MAIN -->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        <form>
+            <ul data-role="listview" data-inset="true">
+                <li class="ui-field-contain">
+                    <label for="huddlename">Huddle Name:</label>
+                    <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
+                </li>
 <!--                     <li class="ui-field-contain">
                         <label for="location">Location and time:</label>
                         <div class="ui-checkbox">
@@ -403,10 +403,55 @@
         </div>
         <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- introduction -->
+                <h4>Now what is this app about?</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- navigation -->
+                <h4>Application navigation - what is that?</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- profile -->
+                <h4>Who are you mister!?</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- skills -->
+                <h4>What do you know</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- tags -->
+                <h4>Tags and what that is</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- huddles -->
+                <h4>What the Huddles..?</h4>
+                <p></p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- groups -->
+                <h4>Me, me, me.. Why is it all about you?</h4>
+                <p></p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- chat -->
+                <h4>Well Mr. Admin, how do I talk to others?</h4>
+                <p></p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- schedule -->
+                <h4>How about planning..?</h4>
+                <p></p>
+            </div>
         </div>
     </div>
 
-<!-- PANELS, POP-UPS AND ETC -->
+    <!-- PANELS, POP-UPS AND ETC -->
 
     <!-- MENU PANEL -->
     <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
