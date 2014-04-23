@@ -160,5 +160,5 @@ function getSuggestedHuddles() {
 
 $(document).on('click', '#suggestedHuddlesList li a', function() {
     $("#heading_huddle").text($(this).text());
-    window.location = "#page_mobile_skills";
+    window.location = "#page_huddle";
 });
