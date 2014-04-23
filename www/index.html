@@ -352,19 +352,18 @@
                         <label for="huddlename">Huddle Name:</label>
                         <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
                     </li>
-                    <li class="ui-field-contain">
-                        <label for="location">Location:</label>
-                        <p>current location button</p><p>set location button</p>
-                    </li>
-                    <li class="ui-field-contain">
-                        <label>Starts at:</label>
-                        <input type="text" data-role="date" data-inline="true" value="implement datepicker">
-                    </li>
-                    <li class="ui-field-contain">
-                        <label for="occurance">Occurance:</label>
-
-                    </li>
-                    <li class="ui-field-contain">
+<!--                     <li class="ui-field-contain">
+                        <label for="location">Location and time:</label>
+                        <div class="ui-checkbox">
+                            <label for="huddle-location-current" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off">Use current location</label>
+                            <input name="huddle-location-current" id="huddle-location-current" data-enhanced="true" type="checkbox">
+                        </div>
+                        <div class="ui-checkbox">
+                            <label for="huddle-time-now" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off">Huddle opens now</label>
+                            <input name="huddle-time-now" id="huddle-time-now" data-enhanced="true" type="checkbox">
+                        </div>
+                    </li> -->
+                    <li class="ui-field-contain" id="huddle-tag-list">
                         <label>Tags:</label>
                         <input type="text" name="tagone" id="tagone" value="" data-clear-btn="true">
                         <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
@@ -373,20 +372,11 @@
                     <li class="ui-body ui-body-b">
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
-                            <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
+                            <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a" onclick="createHuddle()">Submit</button></div>
                         </fieldset>
                     </li>
                 </ul>
             </form>
-            <label for="textinput-1">Huddle name:</label>
-            <input type="text" name="textinput-1" id="textinput-1" placeholder="Huddle name">
-            <div data-role="controlgroup" data-type="horizontal">
-                <input type="text" id="huddle-tag-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
-                <button onclick="addHuddleTag()">Add Tag</button>
-            </div>
-            <ul id="huddle-tag-list" data-role="listview" data-inset="true">
-            </ul>
-            <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1" onclick="createHuddle()">Create Huddle</button>
         </div>
     </div>
 

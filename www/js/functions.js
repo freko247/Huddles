@@ -98,18 +98,44 @@ function addHuddleTag() {
 
 function createHuddle() {
     var onSuccess = function(position) {
-        var tags = [];
-        $('#huddle-tag-list li').each(function() {
-            tags.push($(this).text());
-        });
+        var tags = [jQuery("#tagone").val(),
+            jQuery("#tagtwo").val(),
+            jQuery("#tagthree").val(),
+        ];
+        // $('#huddle-tag-list input').each(function() {
+        //     tags.push($(this).val());
+        // });
         data = {
-            'huddlePosition': [position.coords.latitude, position.coords.longitude],
-            'huddleTimestamp': position.timestamp,
+            "db_function": "createHuddle",
+            'huddleLocation': [position.coords.latitude, position.coords.longitude],
+            'huddleDateAndTime': position.timestamp,
             'huddleTag': tags,
-            'huddleName': jQuery("#textinput-1").val(),
+            'huddleName': jQuery("#label_huddlename").val(),
+            'huddleAdmin': "admin@huddles.com",
         };
         console.log(data);
-        // alert(data);
+        $.ajax({
+            traditional: true,
+            url: "http://huddlesrest.appspot.com/api",
+            type: "POST",
+            dataType: "json",
+            data: data,
+            beforeSend: function() {
+                // This callback function will trigger before data is sent
+                $.mobile.loading('show');
+            },
+            complete: function() {
+                // This callback function will trigger on data sent/received complete
+                $.mobile.loading('hide');
+            },
+            success: function(result) {
+                console.log("Huddle created!")
+            },
+            error: function(request, error) {
+                // This callback function will trigger on unsuccessful action
+                alert('Network error has occurred please try again!');
+            }
+        });
     };
 
     // onError Callback receives a PositionError object
