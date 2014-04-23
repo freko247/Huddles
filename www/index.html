@@ -39,9 +39,17 @@
     });
     </script>
     <script type="text/javascript">
+<<<<<<< HEAD
     $( document ).ready(function() {
+=======
+        $( document ).on('pageinit', '#page_suggestedhuddles', function() {
+            getSuggestedHuddles();
+        });
+    </script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+>>>>>>> 2be64812f9f61387b0be96cd547d0828c7fa449b
         console.log( "ready!" );
-        var db = "";
         db = window.openDatabase("Database", "1.0", "Huddles db", 200000);
         initDB();
     });
@@ -85,15 +93,11 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="#page_recentevents">Recent Events</a></li>
-                    <li><a href="#" class="ui-btn-active" onclick="getSuggestedHuddles()">Suggested Huddles</a></li>
+                    <li><a href="#" class="ui-btn-active">Suggested Huddles</a></li>
                 </ul>
             </div>
-            <ul data-role="listview" data-inset="true">
+            <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
                 <li data-icon="false"><a href="#page_mobile_skills">Mobile Application Prototyping</a></li>
-                <li data-icon="false"><a href="#">Requirements Engineering</li></a>
-                <li data-icon="false"><a href="#">Agile Digital Media Development</a></li>
-                <li data-icon="false"><a href="#">AI and MAS</a></li>
-                <li data-icon="false"><a href="#">User Experience Engineering</a></li>
             </ul>
         </div>
     </div>

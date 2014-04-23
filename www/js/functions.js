@@ -150,6 +150,7 @@ function createHuddle() {
 
 function getSuggestedHuddles() {
     console.log("Getting Huddles!");
+    // huddles = "";
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -167,7 +168,21 @@ function getSuggestedHuddles() {
             $.mobile.loading('hide');
         },
         success: function(result) {
+            var huddles = result;
             console.log("Got suggested Huddles!", result);
+            $.each(huddles, function(index, value) {
+                $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
+                    'data-icon': 'delete',
+                    'class': 'ui-first-child ui-last-child',
+                }).append($('<a/>', { //here appending `<a>` into `<li>`
+                    'href': '#' + value,
+                    'data-transition': 'slide',
+                    'class': 'ui-btn',
+                    'text': value,
+                })));
+
+            });
+            $('ul').listview('refresh');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
