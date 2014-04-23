@@ -170,7 +170,6 @@ function getSuggestedHuddles() {
         success: function(result) {
             var huddles = result;
             console.log("Got suggested Huddles!", result);
-            alert(huddles);
             $.each(huddles, function(index, value) {
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'delete',
