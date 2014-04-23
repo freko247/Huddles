@@ -50,12 +50,6 @@ function addSkill() {
     $('ul').listview('refresh');
 }
 
-
-// $('#skill-list li').click(function) {
-//     $(this).remove()
-// }
-// $('ul').listview('refresh');
-
 function addHuddleTag() {
     $('#huddle-tag-list').append($('<li/>', { //here appending `<li>`
         'data-icon': 'delete',
@@ -163,3 +157,8 @@ function getSuggestedHuddles() {
         }
     });
 }
+
+$(document).on('click', '#suggestedHuddlesList li a', function() {
+    $("#heading_huddle").text($(this).text());
+    window.location = "#page_mobile_skills";
+});
