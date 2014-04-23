@@ -55,7 +55,7 @@
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .ui-icon-homeicon:after {
     background: transparent;
-    box-shadow: none !important;
+    box-shadow: none;
     background-image: url("../images/Icon_home.png");
     background-position: 3px 3px;
     background-size: 80%;
