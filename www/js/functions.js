@@ -1,3 +1,7 @@
+$(document).on('pageinit', '#page_home', function() {
+    getSuggestedHuddles();
+});
+
 function getLocalSettings() {
     if (!localStorage.getItem("userEmail")) {
         alert("Is this your first time using Huddles? Please enter user information...");
@@ -47,7 +51,7 @@ function addSkill() {
         'text': jQuery("#skill-control-group").val()
     })));
 
-    $('ul').listview('refresh');
+    // $('ul').listview('refresh');
 }
 
 function addHuddleTag() {
@@ -60,7 +64,7 @@ function addHuddleTag() {
         'text': jQuery("#huddle-tag-control-group").val()
     })));
 
-    $('ul').listview('refresh');
+    // $('ul').listview('refresh');
 }
 
 function createHuddle() {
@@ -94,6 +98,7 @@ function createHuddle() {
             },
             success: function(result) {
                 console.log("Huddle created!");
+                getSuggestedHuddles();
             },
             error: function(request, error) {
                 // This callback function will trigger on unsuccessful action
@@ -114,6 +119,7 @@ function createHuddle() {
 function getSuggestedHuddles() {
     console.log("Getting Huddles!");
     // huddles = "";
+    $('#suggestedHuddlesList').empty();
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -145,7 +151,7 @@ function getSuggestedHuddles() {
                 })));
 
             });
-            $('ul').listview('refresh');
+            $('#suggestedHuddlesList').listview('refresh');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -195,6 +201,7 @@ $(document).on('click', '#suggestedHuddlesList li a', function() {
     $("#heading_huddle").text($(this).text());
     window.location = "#page_huddle";
     getHuddleInfo($(this).text());
+    getHuddleUsers();
 });
 
 $(document).on('click', '#join_huddle', function() {
@@ -218,8 +225,9 @@ $(document).on('click', '#join_huddle', function() {
             $.mobile.loading('hide');
         },
         success: function(result) {
-            var huddles = result;
-            console.log("Joined huddle!", huddles);
+            var huddle = result;
+            console.log("Joined huddle!", huddle);
+            getHuddleUsers();
             $(this).attr('disabled', 'disabled');
         },
         error: function(request, error) {
@@ -227,4 +235,45 @@ $(document).on('click', '#join_huddle', function() {
             alert('Network error has occurred please try again!');
         }
     });
+});
+
+function getHuddleUsers() {
+    console.log('Getting Huddle users');
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "getHuddleUsers",
+            "huddleName": encodeURIComponent(jQuery("#heading_huddle").text()),
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            var huddleUsers = result;
+            console.log("Got Huddle users!", huddleUsers);
+            $('#huddle_users').empty();
+            $.each(huddleUsers, function(index, value) {
+                $('#huddle_users').append($('<li/>', { //here appending `<li>`
+                    'class': 'ui-first-child ui-last-child',
+                }).append(value));
+
+            });
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
+}
+
+$(document).on('click', '#suggested_huddles_link', function() {
+    getSuggestedHuddles();
 });
