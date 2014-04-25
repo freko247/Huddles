@@ -196,3 +196,35 @@ $(document).on('click', '#suggestedHuddlesList li a', function() {
     window.location = "#page_huddle";
     getHuddleInfo($(this).text());
 });
+
+$(document).on('click', '#join_huddle', function() {
+    console.log('Joining Huddle');
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "joinHuddle",
+            "huddleName": encodeURIComponent(jQuery("#heading_huddle").text()),
+            "huddleUser": encodeURIComponent(localStorage.getItem("userEmail")),
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            var huddles = result;
+            console.log("Joined huddle!", huddles);
+            $(this).attr('disabled', 'disabled');
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
+});
