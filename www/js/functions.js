@@ -180,15 +180,9 @@ function getHuddleInfo(huddleName) {
             $.each(huddles, function(index, value) {
                 $('#tags_huddle').append($('<li/>', { //here appending `<li>`
                     'class': 'ui-first-child ui-last-child',
-                }).append($('<a/>', { //here appending `<a>` into `<li>`
-                    'href': '#' + value,
-                    'data-transition': 'slide',
-                    'class': 'ui-btn',
-                    'text': value,
-                })));
+                }).append("#" + value));
 
             });
-            // $('ul').listview('refresh');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
