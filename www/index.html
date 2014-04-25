@@ -51,33 +51,8 @@
     </script>
 </head>
 <body>
-
-    <!-- HOME PAGE - RECENT EVENTS -->
-    <div data-role="page" id="page_recentevents" data-theme="a">
-        <!-- HEADER -->
-        <div data-role="header" data-position="fixed">
-            <a href="#panel_menu" id="hamburger" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-            <h1>Home</h1>
-        </div>
-        <!-- MAIN -->
-        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#" class="ui-btn-active">Recent Events</a></li>
-                    <li><a href="#page_suggestedhuddles">Suggested Huddles</a></li>
-                </ul>
-            </div>
-            <ul data-role="listview" data-inset="true">
-                <li data-icon="false"><a href="#">New session added for your group in: <br> Mobile Application Prototyping</a></li>
-                <li data-icon="false"><a href="#">2 new groups created in the Huddle: <br> User Experience Engineering</a></li>
-                <li data-icon="false"><a href="#">4 new members added to the Huddle: <br> Requirements Engineering</a></li>
-                <li data-icon="false"><a href="#">Peter joined your group in: <br> Mobile Application Prototyping</a></li>
-            </ul>
-        </div>
-    </div>
-
     <!-- HOME PAGE - SUGGESTHUDDLES -->
-    <div data-role="page" id="page_suggestedhuddles" data-theme="a">
+    <div data-role="page" id="page_home" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -87,8 +62,8 @@
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#page_recentevents">Recent Events</a></li>
-                    <li><a href="#" class="ui-btn-active">Suggested Huddles</a></li>
+                    <li><a href="#">Recent Events</a></li>
+                    <li><a href="#" id="suggested_huddles_link">Suggested Huddles</a></li>
                 </ul>
             </div>
             <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
@@ -380,7 +355,7 @@
             <ul data-role="listview" data-inset="true">
                 <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
                 <li data-role="list-divider">Profile</li>
-                <li><a href="#page_recentevents" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
+                <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
                 <li data-icon="profileicon"><a href="#page_editprofile">EDIT PROFILE</a></li>
                 <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
                 <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
