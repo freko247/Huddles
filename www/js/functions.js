@@ -69,9 +69,6 @@ function createHuddle() {
             jQuery("#tagtwo").val(),
             jQuery("#tagthree").val(),
         ];
-        // $('#huddle-tag-list input').each(function() {
-        //     tags.push($(this).val());
-        // });
         data = {
             "db_function": "createHuddle",
             'huddleLocation': [position.coords.latitude, position.coords.longitude],
@@ -111,7 +108,6 @@ function createHuddle() {
         alert('code: ' + error.code + '\n' +
             'message: ' + error.message + '\n');
     }
-
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
@@ -158,7 +154,51 @@ function getSuggestedHuddles() {
     });
 }
 
+function getHuddleInfo(huddleName) {
+    console.log("Getting Huddle info");
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "getHuddleInfo",
+            "huddleName": encodeURIComponent(huddleName),
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            var huddles = result;
+            console.log("Got Huddle info!", huddles);
+            $('#tags_huddle').empty();
+            $.each(huddles, function(index, value) {
+                $('#tags_huddle').append($('<li/>', { //here appending `<li>`
+                    'class': 'ui-first-child ui-last-child',
+                }).append($('<a/>', { //here appending `<a>` into `<li>`
+                    'href': '#' + value,
+                    'data-transition': 'slide',
+                    'class': 'ui-btn',
+                    'text': value,
+                })));
+
+            });
+            // $('ul').listview('refresh');
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
+}
+
 $(document).on('click', '#suggestedHuddlesList li a', function() {
     $("#heading_huddle").text($(this).text());
     window.location = "#page_huddle";
+    getHuddleInfo($(this).text());
 });
