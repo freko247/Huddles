@@ -19,6 +19,7 @@ function getUserCredentials() {
     if (!localStorage.getItem("userEmail")) {
         $("#login_popup").popup("open");
     }
+    $.mobile.changePage($('#page_home'));
 }
 
 function getLocalSettings() {
