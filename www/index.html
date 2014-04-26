@@ -50,10 +50,21 @@
                 <a href="#" id="sign-up-button" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b">Cancel</a>
             </div>
         </div>
+
+        <div data-role="popup" id="tags_popup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+            <div data-role="header" data-theme="a">
+            <h1>Add tags</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <h1>bla bla</h1>
+            </div>
+        </div>
+
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Home</h1>
+            <a href="#panel_chat" id="chat" class="ui-btn ui-icon-comment ui-btn-icon-notext ui-corner-all">No text</a>
         </div>
         <!-- MAIN -->
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
@@ -69,8 +80,7 @@
         <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#">Tags</a></li>
-                    <li><a href="#">Chat</a></li>
+                    <li><a href="#tags_popup">Tags</a></li>
                 </ul>
             </div>
         </div>
@@ -320,9 +330,6 @@
             <li data-role="list-divider">Profile</li>
             <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
             <li><a href="#page_editprofile" class="ui-icon-profileicon ui-corner-all ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
-            <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
-            <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
-            <!-- <li><a href="#log_out.html" class="ui-btn" >LOG OUT</a></li> -->
             <li data-role="list-divider">Huddles</li>
             <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-corner-all ui-shadow ui-nodisc-icon">HUDDLES</a></li>
             <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-corner-all ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
@@ -333,22 +340,22 @@
     </div>
 </div>
 
-<!-- <div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
+<div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
     <div data-role="ui-panel-inner">
         <ul data-role="listview" data-inset="true">
             <li data-role="list-divider">PERSONAL CHAT(S)</li>
-            <li><a href="#">Peter Poppy</a></li>
-            <li><a href="#">James Hendry</a></li>
-            <li><a href="#">Felix Tops</a></li>
+            <li><a href="#" class="ui-btn">Peter Poppy</a></li>
+            <li><a href="#" class="ui-btn">James Hendry</a></li>
+            <li><a href="#" class="ui-btn">Felix Tops</a></li>
             <li data-role="list-divider">GROUP CHAT(S)</li>
-            <li><a href="#">Group 1337</a></li>
-            <li><a href="#">Group freako</a></li>
-            <li><a href="#">Group zeliax</a></li>
-            <li data-role="list-divider"><a href="#">HUDDLE CHAT(S)</a></li>
-            <li><a href="#">Mobile Application Prototyping</a></li>
-            <li><a href="#">Agile Digital Media Engineering</a></li>
+            <li><a href="#" class="ui-btn">Group 1337</a></li>
+            <li><a href="#" class="ui-btn">Group freako</a></li>
+            <li><a href="#" class="ui-btn">Group zeliax</a></li>
+            <li data-role="list-divider">HUDDLE CHAT(S)</li>
+            <li><a href="#" class="ui-btn">Mobile Application Prototyping</a></li>
+            <li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>
         </ul>
     </div>
-</div> -->
+</div>
 </body>
 </html>

@@ -19,6 +19,27 @@
   background-color: #2692f6;
 }
 
+#panel_chat{
+  border-top-width: 0px;
+  border-right-width: 0px;
+  margin-right: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  background-color: #448ccb;
+}
+
+#chat{
+  -webkit-border-radius: 0em;
+  border-radius: 0em;
+  background-color: #2692f6;
+}
+
+#chat:after{
+  -webkit-border-radius: 0em;
+  border-radius: 0em;
+  background-color: #2692f6;
+}
+
 .ui-panel-inner{
   padding-bottom: 0px;
   padding-left: 0px;
