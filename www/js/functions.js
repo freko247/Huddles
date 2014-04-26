@@ -1,6 +1,22 @@
-$(document).on('pageinit', '#page_home', function() {
+$(document).ready(function() {
+    console.log("ready!");
+    // getLocalSettings();
+});
+
+$(function() {
+    $("body>[data-role='panel']").panel().enhanceWithin();
+});
+
+$(document).on('pageshow', '#page_home', function() {
+    getUserCredentials();
     getSuggestedHuddles();
 });
+
+function getUserCredentials() {
+    if (!localStorage.getItem("userEmail")) {
+        $("#login_popup").popup("open");
+    }
+}
 
 function getLocalSettings() {
     if (!localStorage.getItem("userEmail")) {
@@ -18,6 +34,10 @@ function addUser() {
         dataType: "json",
         data: {
             "db_function": "addUser",
+            "userSkill": [jQuery("#skillone").val(),
+                jQuery("#skilltwo").val(),
+                jQuery("#skillthree").val(),
+            ],
             "userName": jQuery("#textinput-1").val(),
             "userEmail": jQuery("#textinput-2").val(),
             "userPassword": sha256_digest(jQuery("#password").val() + "salt"),
@@ -151,7 +171,7 @@ function getSuggestedHuddles() {
                 })));
 
             });
-            $('#suggestedHuddlesList').listview('refresh');
+            // $('#suggestedHuddlesList').listview('refresh');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -276,4 +296,41 @@ function getHuddleUsers() {
 
 $(document).on('click', '#suggested_huddles_link', function() {
     getSuggestedHuddles();
+});
+
+$(document).on('click', '#sign-in-button', function() {
+    console.log("Signing in");
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "authenticateUser",
+            "userEmail": encodeURIComponent(jQuery("#heading_huddle").text()),
+            "userPassword": sha256_digest(jQuery("#loginPass").val() + "salt"),
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            var huddleUser = result;
+            console.log("Authenticated user: " + huddleUser);
+            localStorage.setItem("userEmail", huddleUser);
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
+});
+
+$(document).on('click', '#sign-up-button', function() {
+    console.log("Signing up");
+    $.mobile.changePage($('#page_editprofile'));
 });
