@@ -18,6 +18,10 @@ function addUser() {
         dataType: "json",
         data: {
             "db_function": "addUser",
+            "userSkill": [jQuery("#skillone").val(),
+                jQuery("#skilltwo").val(),
+                jQuery("#skillthree").val(),
+            ],
             "userName": jQuery("#textinput-1").val(),
             "userEmail": jQuery("#textinput-2").val(),
             "userPassword": sha256_digest(jQuery("#password").val() + "salt"),
@@ -151,7 +155,7 @@ function getSuggestedHuddles() {
                 })));
 
             });
-            $('#suggestedHuddlesList').listview('refresh');
+            // $('#suggestedHuddlesList').listview('refresh');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
