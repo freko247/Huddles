@@ -300,6 +300,34 @@ $(document).on('click', '#suggested_huddles_link', function() {
 
 $(document).on('click', '#sign-in-button', function() {
     console.log("Signing in");
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "authenticateUser",
+            "userEmail": encodeURIComponent(jQuery("#heading_huddle").text()),
+            "userPassword": sha256_digest(jQuery("#loginPass").val() + "salt"),
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            var huddleUser = result;
+            console.log("Authenticated user: " + huddleUser);
+            localStorage.setItem("userEmail", huddleUser);
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
 });
 
 $(document).on('click', '#sign-up-button', function() {
