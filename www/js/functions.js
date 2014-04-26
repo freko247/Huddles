@@ -7,8 +7,11 @@ $(function() {
     $("body>[data-role='panel']").panel().enhanceWithin();
 });
 
-$(document).on('pageshow', '#page_home', function() {
+$(document).on('pageshow', '#page_first', function() {
     getUserCredentials();
+});
+
+$(document).on('pageshow', '#page_home', function() {
     getSuggestedHuddles();
 });
 
@@ -40,7 +43,7 @@ function addUser() {
             ],
             "userName": jQuery("#textinput-1").val(),
             "userEmail": jQuery("#textinput-2").val(),
-            "userPassword": sha256_digest(jQuery("#password").val() + "salt"),
+            "userPassword": encodeURIComponent(sha256_digest(jQuery("#password").val() + "salt")),
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -307,8 +310,8 @@ $(document).on('click', '#sign-in-button', function() {
         dataType: "json",
         data: {
             "db_function": "authenticateUser",
-            "userEmail": encodeURIComponent(jQuery("#heading_huddle").text()),
-            "userPassword": sha256_digest(jQuery("#loginPass").val() + "salt"),
+            "userEmail": encodeURIComponent(jQuery("#loginEmail").val()),
+            "userPassword": encodeURIComponent(sha256_digest(jQuery("#loginPass").val() + "salt")),
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -320,8 +323,15 @@ $(document).on('click', '#sign-in-button', function() {
         },
         success: function(result) {
             var huddleUser = result;
+            if (huddleUser === null) {
+                $('#page_first').trigger("pagecreate");
+                $("#login_popup").popup("open");
+                return;
+            }
             console.log("Authenticated user: " + huddleUser);
             localStorage.setItem("userEmail", huddleUser);
+            jQuery("#loginPass").val(null);
+            $.mobile.changePage($('#page_home'));
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -333,4 +343,10 @@ $(document).on('click', '#sign-in-button', function() {
 $(document).on('click', '#sign-up-button', function() {
     console.log("Signing up");
     $.mobile.changePage($('#page_editprofile'));
+});
+
+$(document).on('click', '#log-out-button', function() {
+    console.log("Loggin out: " + localStorage.getItem("userEmail"));
+    localStorage.removeItem("userEmail");
+    $.mobile.changePage($('#page_first'));
 });

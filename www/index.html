@@ -33,22 +33,9 @@
     <script type="text/javascript">
     app.initialize();
     </script>
-    <script id="panel-init">
-    $(function() {
-        $( "body>[data-role='panel']" ).panel().enhanceWithin();
-    });
-    </script>
-    <script type="text/javascript">
-    $( document ).ready(function() {
-        console.log( "ready!" );
-        getLocalSettings();
-    });
-    </script>
-=======
 </head>
 <body>
-    <!-- HOME PAGE - SUGGESTHUDDLES -->
-    <div data-role="page" id="page_home" data-theme="a">
+    <div data-role="page" id="page_first" data-theme="a">
         <div data-role="popup" id="login_popup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
             <div data-role="header" data-theme="a">
             <h1>Login Page</h1>
@@ -62,6 +49,11 @@
                 <a href="#" id="sign-up-button" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b">Cancel</a>
             </div>
         </div>
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+        </div>
+    </div>
+    <!-- HOME PAGE - SUGGESTHUDDLES -->
+    <div data-role="page" id="page_home" data-theme="a">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -334,7 +326,7 @@
             <li><a href="#page_editprofile" class="ui-icon-profileicon ui-corner-all ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
             <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
             <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
-            <!-- <li><a href="#log_out.html" class="ui-btn" >LOG OUT</a></li> -->
+            <li><a href="#" id="log-out-button" class="ui-btn" >LOG OUT</a></li>
             <li data-role="list-divider">Huddles</li>
             <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-corner-all ui-shadow ui-nodisc-icon">HUDDLES</a></li>
             <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-corner-all ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
