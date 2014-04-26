@@ -1,6 +1,22 @@
-$(document).on('pageinit', '#page_home', function() {
+$(document).ready(function() {
+    console.log("ready!");
+    // getLocalSettings();
+});
+
+$(function() {
+    $("body>[data-role='panel']").panel().enhanceWithin();
+});
+
+$(document).on('pageshow', '#page_home', function() {
+    getUserCredentials();
     getSuggestedHuddles();
 });
+
+function getUserCredentials() {
+    if (!localStorage.getItem("userEmail")) {
+        $("#login_popup").popup("open");
+    }
+}
 
 function getLocalSettings() {
     if (!localStorage.getItem("userEmail")) {
@@ -280,4 +296,13 @@ function getHuddleUsers() {
 
 $(document).on('click', '#suggested_huddles_link', function() {
     getSuggestedHuddles();
+});
+
+$(document).on('click', '#sign-in-button', function() {
+    console.log("Signing in");
+});
+
+$(document).on('click', '#sign-up-button', function() {
+    console.log("Signing up");
+    $.mobile.changePage($('#page_editprofile'));
 });
