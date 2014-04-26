@@ -39,10 +39,10 @@
     });
     </script>
     <script type="text/javascript">
-        $( document ).ready(function() {
+    $( document ).ready(function() {
         console.log( "ready!" );
         getLocalSettings();
-        });
+    });
     </script>
 </head>
 <body>
@@ -63,6 +63,14 @@
             </div>
             <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
             </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="#">Chat</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -134,11 +142,11 @@
     <div data-role="page" id="page_searchhuddles">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
-           <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-           <h1>Huddles</h1>
-       </div>
-       <!-- MAIN -->
-       <div role="main" class="ui-content jqm-content jqm-fullwidth">
+         <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+         <h1>Huddles</h1>
+     </div>
+     <!-- MAIN -->
+     <div role="main" class="ui-content jqm-content jqm-fullwidth">
         <div data-role="navbar">
             <ul>
                 <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
@@ -170,11 +178,11 @@
 <div data-role="page" id="page_myhuddles">
     <!-- HEADER -->
     <div data-role="header" data-position="fixed">
-       <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-       <h1>Huddles</h1>
-   </div>
-   <!-- MAIN -->
-   <div role="main" class="ui-content jqm-content jqm-fullwidth">
+     <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+     <h1>Huddles</h1>
+ </div>
+ <!-- MAIN -->
+ <div role="main" class="ui-content jqm-content jqm-fullwidth">
     <div data-role="navbar">
         <ul>
             <li><a href="#page_searchhuddles">Search</a></li>
@@ -225,103 +233,120 @@
                         <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a" onclick="createHuddle()">Submit</button></div>
                     </fieldset>
                 </li>
-                </ul>
-            </form>
-        </div>
-    </div>
-
-    <!-- SETTINGS PAGE -->
-    <div data-role="page" id="page_settings">
-        <!-- HEADER -->
-        <div data-role="header" data-position="fixed">
-            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-            <h1>Settings</h1>
-        </div>
-        <!-- MAIN -->
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <h1>Settings</h1>
-        </div>
-    </div>
-
-
-    <!-- HELP PAGE -->
-    <div data-role="page" id="page_help">
-        <!-- HEADER -->
-        <div data-role="header" data-position="fixed">
-            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-            <h1>Help</h1>
-        </div>
-        <!-- MAIN -->
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- introduction -->
-                <h4>Now what is this app about?</h4>
-                <p>bla bla bla</p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- navigation -->
-                <h4>Application navigation - what is that?</h4>
-                <p>bla bla bla</p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- profile -->
-                <h4>Who are you mister!?</h4>
-                <p>bla bla bla</p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- skills -->
-                <h4>What do you know</h4>
-                <p>bla bla bla</p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- tags -->
-                <h4>Tags and what that is</h4>
-                <p>bla bla bla</p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- huddles -->
-                <h4>What the Huddles..?</h4>
-                <p></p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- groups -->
-                <h4>Me, me, me.. Why is it all about you?</h4>
-                <p></p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- chat -->
-                <h4>Well Mr. Admin, how do I talk to others?</h4>
-                <p></p>
-            </div>
-            <div data-role="collapsible" data-iconpos="right">
-                <!-- schedule -->
-                <h4>How about planning..?</h4>
-                <p></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PANELS, POP-UPS AND ETC -->
-
-    <!-- MENU PANEL -->
-    <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
-        <div data-role="ui-panel-inner">
-            <ul data-role="listview" data-inset="true">
-                <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
-                <li data-role="list-divider">Profile</li>
-                <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
-                <li data-icon="profileicon"><a href="#page_editprofile">EDIT PROFILE</a></li>
-                <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
-                <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
-                <!-- <li><a href="#log_out.html" class="ui-btn" >LOG OUT</a></li> -->
-                <li data-role="list-divider">Huddles</li>
-                <li data-icon="huddleicon"><a href="#page_myhuddles">HUDDLES</a></li>
-                <li data-icon="createhuddleicon"><a href="#page_createhuddle">CREATE HUDDLE</a></li>
-                <li data-role="list-divider">Options</li>
-                <li data-icon="settingsicon"><a href="#page_settings">SETTINGS</a></li>
-                <li data-icon="helpicon"><a href="#page_help">HELP</a></li>
             </ul>
+        </form>
+    </div>
+</div>
+
+<!-- SETTINGS PAGE -->
+<div data-role="page" id="page_settings">
+    <!-- HEADER -->
+    <div data-role="header" data-position="fixed">
+        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+        <h1>Settings</h1>
+    </div>
+    <!-- MAIN -->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        <h1>Settings</h1>
+    </div>
+</div>
+
+<!-- HELP PAGE -->
+<div data-role="page" id="page_help">
+    <!-- HEADER -->
+    <div data-role="header" data-position="fixed">
+        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+        <h1>Help</h1>
+    </div>
+    <!-- MAIN -->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- introduction -->
+            <h4>Now what is this app about?</h4>
+            <p>bla bla bla</p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- navigation -->
+            <h4>Application navigation - what is that?</h4>
+            <p>bla bla bla</p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- profile -->
+            <h4>Who are you mister!?</h4>
+            <p>bla bla bla</p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- skills -->
+            <h4>What do you know</h4>
+            <p>bla bla bla</p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- tags -->
+            <h4>Tags and what that is</h4>
+            <p>bla bla bla</p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- huddles -->
+            <h4>What the Huddles..?</h4>
+            <p></p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- groups -->
+            <h4>Me, me, me.. Why is it all about you?</h4>
+            <p></p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- chat -->
+            <h4>Well Mr. Admin, how do I talk to others?</h4>
+            <p></p>
+        </div>
+        <div data-role="collapsible" data-iconpos="right">
+            <!-- schedule -->
+            <h4>How about planning..?</h4>
+            <p></p>
         </div>
     </div>
+</div>
+
+<!-- PANELS, POP-UPS AND ETC -->
+
+<!-- MENU PANEL -->
+<div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
+    <div data-role="ui-panel-inner">
+        <ul data-role="listview" data-inset="true">
+            <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
+            <li data-role="list-divider">Profile</li>
+            <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
+            <li><a href="#page_editprofile" class="ui-icon-profileicon ui-corner-all ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
+            <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
+            <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
+            <!-- <li><a href="#log_out.html" class="ui-btn" >LOG OUT</a></li> -->
+            <li data-role="list-divider">Huddles</li>
+            <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-corner-all ui-shadow ui-nodisc-icon">HUDDLES</a></li>
+            <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-corner-all ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
+            <li data-role="list-divider">Options</li>
+            <li><a href="#page_settings" class="ui-icon-settingsicon ui-corner-all ui-shadow ui-nodisc-icon">SETTINGS</a></li>
+            <li><a href="#page_help" class="ui-icon-helpicon ui-corner-all ui-shadow ui-nodisc-icon">HELP</a></li>
+        </ul>
+    </div>
+</div>
+
+<div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
+    <div data-role="ui-panel-inner">
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">PERSONAL CHAT(S)</li>
+            <li><a href="#">Peter Poppy</a></li>
+            <li><a href="#">James Hendry</a></li>
+            <li><a href="#">Felix Tops</a></li>
+            <li data-role="list-divider">GROUP CHAT(S)</li>
+            <li><a href="#">Group 1337</a></li>
+            <li><a href="#">Group freako</a></li>
+            <li><a href="#">Group zeliax</a></li>
+            <li data-role="list-divider"><a href="#">HUDDLE CHAT(S)</a></li>
+            <li><a href="#">Mobile Application Prototyping</a></li>
+            <li><a href="#">Agile Digital Media Engineering</a></li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
