@@ -38,7 +38,7 @@
     <div data-role="page" id="page_first" data-theme="a">
         <div data-role="popup" id="login_popup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
             <div data-role="header" data-theme="a">
-            <h1>Login Page</h1>
+                <h1>Login Page</h1>
             </div>
             <div role="main" class="ui-content">
                 <label>Email</label>
@@ -54,10 +54,19 @@
     </div>
     <!-- HOME PAGE - SUGGESTHUDDLES -->
     <div data-role="page" id="page_home" data-theme="a">
+        <div data-role="popup" id="tags_popup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+            <div data-role="header" data-theme="a">
+                <h1>Add tags</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <h1>bla bla</h1>
+            </div>
+        </div>
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Home</h1>
+            <a href="#panel_chat" id="chat" class="ui-btn ui-icon-comment ui-btn-icon-notext ui-corner-all">No text</a>
         </div>
         <!-- MAIN -->
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
@@ -73,8 +82,7 @@
         <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#">Tags</a></li>
-                    <li><a href="#">Chat</a></li>
+                    <li><a href="#tags_popup">Tags</a></li>
                 </ul>
             </div>
         </div>
@@ -102,6 +110,22 @@
                 </ul>
             </div>
             <ul data-role="listview" data-inset="true" id="huddle_users">
+                <!-- Huddle I am a member of -->
+                <li data-icon="false"><a href="#">
+                    <h2>Mobile Application Prototyping</h2>
+                    <p><strong>02827</strong></p>
+                    <p><strong>Android</strong></p>
+                    <p><strong>iOS</strong></p>
+                    <p class="ui-li-aside"><strong>(5)</strong></p>
+                </li></a>
+                <!-- Huddle I am not a member of (Maybe we should add an admin name somewhere-->
+                <li data-icon="false"><a href="#">
+                    <h2>Agile Digital Development</h2>
+                    <p><strong>02814</strong></p>
+                    <p><strong>Lean</strong></p>
+                    <p><strong>Scrum</strong></p>
+                    <p class="ui-li-aside"><strong>200</strong>m</p>
+                </li></a>
             </ul>
             <button id="join_huddle">Join Huddle</button>
         </div>
@@ -163,17 +187,17 @@
             <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
                 <li data-icon="false"><a href="#">
                     <h2>Mobile Application Prototyping</h2>
-                    <p><strong>Re: Dinner Tonight</strong></p>
-                    <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
-                    <p>Filler</p>
-                    <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    <p><strong>02827</strong></p>
+                    <p><strong>Android</strong></p>
+                    <p><strong>iOS</strong></p>
+                    <p class="ui-li-aside"><strong>(5)</strong>PM</p>
                 </li></a>
                 <li data-icon="false"><a href="#">
-                    <h2>Agile Digital Media Development</h2>
-                    <p><strong>Re: Food later</strong></p>
-                    <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
-                    <p>Ransom</p>
-                    <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    <h2>Agile Digital Development</h2>
+                    <p><strong>02814</strong></p>
+                    <p><strong>Lean</strong></p>
+                    <p><strong>Scrum</strong></p>
+                    <p class="ui-li-aside"><strong>200</strong>m</p>
                 </li></a>
             </ul>
         </div>
@@ -198,15 +222,17 @@
     <ul data-role="listview" data-inset="true">
         <li data-icon="false"><a href="#">
             <h2>Mobile Application Prototyping</h2>
-            <p><strong>Re: Dinner Tonight</strong></p>
-            <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
-            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+            <p><strong>02827</strong></p>
+            <p><strong>Android</strong></p>
+            <p><strong>iOS</strong></p>
+            <p class="ui-li-aside"><strong>(5)</strong></p>
         </li></a>
         <li data-icon="false"><a href="#">
-            <h2>Agile Digital Media Development</h2>
-            <p><strong>Re: Dinner Tonight</strong></p>
-            <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
-            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+            <h2>Agile Digital Development</h2>
+            <p><strong>02814</strong></p>
+            <p><strong>Lean</strong></p>
+            <p><strong>Scrum</strong></p>
+            <p class="ui-li-aside"><strong>200</strong>m</p>
         </li></a>
     </ul>
 </div>
@@ -341,16 +367,16 @@
     <div data-role="ui-panel-inner">
         <ul data-role="listview" data-inset="true">
             <li data-role="list-divider">PERSONAL CHAT(S)</li>
-            <li><a href="#">Peter Poppy</a></li>
-            <li><a href="#">James Hendry</a></li>
-            <li><a href="#">Felix Tops</a></li>
+            <li><a href="#" class="ui-btn">Peter Poppy</a></li>
+            <li><a href="#" class="ui-btn">James Hendry</a></li>
+            <li><a href="#" class="ui-btn">Felix Tops</a></li>
             <li data-role="list-divider">GROUP CHAT(S)</li>
-            <li><a href="#">Group 1337</a></li>
-            <li><a href="#">Group freako</a></li>
-            <li><a href="#">Group zeliax</a></li>
-            <li data-role="list-divider"><a href="#">HUDDLE CHAT(S)</a></li>
-            <li><a href="#">Mobile Application Prototyping</a></li>
-            <li><a href="#">Agile Digital Media Engineering</a></li>
+            <li><a href="#" class="ui-btn">Group 1337</a></li>
+            <li><a href="#" class="ui-btn">Group freako</a></li>
+            <li><a href="#" class="ui-btn">Group zeliax</a></li>
+            <li data-role="list-divider">HUDDLE CHAT(S)</li>
+            <li><a href="#" class="ui-btn">Mobile Application Prototyping</a></li>
+            <li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>
         </ul>
     </div>
 </div>
