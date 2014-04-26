@@ -108,40 +108,10 @@
                     <img src="img/avatar.png" alt="User avatar"/>
                 </div>
                 <div class="ui-block-b">
-                    <a id="skills" href="#editSkillsDialog" data-rel="popup" data-position="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow">Edit Skills</a>
-
-                    <!-- POP-UP -->
-                    <div data-role="popup" id="editSkillsDialog" data-dismissible="false" data-overlay-theme="a">
-                        <div data-role="header">
-                            <h1>Edit Skills</h1>
-                        </div>
-                        <div role="main" class="ui-content">
-                            <div data-role="controlgroup" data-type="horizontal">
-                                <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
-                                <button onclick="addSkill()">Add</button>
-                            </div>
-                            <ul id="skill-list" data-role="listview" data-inset="true">
-                            </ul>
-                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
-                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
-                        </div>
-                    </div>
-                    <a id="tags" href="#editTagsDialog" data-rel="popup" data-position="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow">Edit Tags</a>
-                    <!-- POP-UP -->
-                    <div data-role="popup" id="editTagsDialog" data-dismissible="false" data-overlay-theme="a">
-                        <div data-role="header">
-                            <h1>Edit Tags</h1>
-                        </div>
-                        <div role="main" class="ui-content">
-                            <div data-role="controlgroup" data-type="horizontal">
-                                <input type="text" id="skill-control-group" data-wrapper-class="controlgroup-textinput ui-btn">
-                                <button>Add</button>
-                            </div>
-                            <h1>SOME SAVED TAGS</h1>
-                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
-                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Save</a>
-                        </div>
-                    </div>
+                    <label>Skills:</label>
+                    <input type="text" name="skillone" id="skillone" value="" data-clear-btn="true">
+                    <input type="text" name="skilltwo" id="skilltwo" value="" data-clear-btn="true">
+                    <input type="text" name="skillthree" id="skillthree" value="" data-clear-btn="true">
                 </div>
             </div>
             <label for="picture">User picture:</label>
@@ -243,29 +213,18 @@
                     <label for="huddlename">Huddle Name:</label>
                     <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
                 </li>
-<!--                     <li class="ui-field-contain">
-                        <label for="location">Location and time:</label>
-                        <div class="ui-checkbox">
-                            <label for="huddle-location-current" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off">Use current location</label>
-                            <input name="huddle-location-current" id="huddle-location-current" data-enhanced="true" type="checkbox">
-                        </div>
-                        <div class="ui-checkbox">
-                            <label for="huddle-time-now" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off">Huddle opens now</label>
-                            <input name="huddle-time-now" id="huddle-time-now" data-enhanced="true" type="checkbox">
-                        </div>
-                    </li> -->
-                    <li class="ui-field-contain" id="huddle-tag-list">
-                        <label>Tags:</label>
-                        <input type="text" name="tagone" id="tagone" value="" data-clear-btn="true">
-                        <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
-                        <input type="text" name="tagthree" id="tagthree" value="" data-clear-btn="true">
-                    </li>
-                    <li class="ui-body ui-body-b">
-                        <fieldset class="ui-grid-a">
-                            <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
-                            <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a" onclick="createHuddle()">Submit</button></div>
-                        </fieldset>
-                    </li>
+                <li class="ui-field-contain" id="huddle-tag-list">
+                    <label>Tags:</label>
+                    <input type="text" name="tagone" id="tagone" value="" data-clear-btn="true">
+                    <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
+                    <input type="text" name="tagthree" id="tagthree" value="" data-clear-btn="true">
+                </li>
+                <li class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
+                        <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a" onclick="createHuddle()">Submit</button></div>
+                    </fieldset>
+                </li>
                 </ul>
             </form>
         </div>
