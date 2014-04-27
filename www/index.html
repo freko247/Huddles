@@ -54,12 +54,17 @@
     </div>
     <!-- HOME PAGE - SUGGESTHUDDLES -->
     <div data-role="page" id="page_home" data-theme="a">
-        <div data-role="popup" id="tags_popup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+        <!-- TAGS POPUP -->
+        <div data-role="popup" id="tags_popup" data-overlay-theme="b" data-theme="b" style="max-width:400px;">
             <div data-role="header" data-theme="a">
-                <h1>Add tags</h1>
+                <h1>Tags</h1>
             </div>
-            <div role="main" class="ui-content">
-                <h1>bla bla</h1>
+            <div id="search-tag-list">
+            </div>
+            <hr>
+            <div data-role="controlgroup" data-type="horizontal">
+                <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
+                <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
             </div>
         </div>
         <!-- HEADER -->
@@ -82,7 +87,7 @@
         <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#tags_popup">Tags</a></li>
+                    <li><a href="#tags_popup" data-transition="slideup" data-rel="popup" data-position-to="window" data-transition="pop" id="tags-button">Tags</a></li>
                 </ul>
             </div>
         </div>
@@ -160,8 +165,8 @@
             <input type="text" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="user@mail.com">
             <label for="textinput-3">Phone number:</label>
             <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value="">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" value="" autocomplete="off">
+            <label for="new_password">New Password:</label>
+            <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
             <label for="re_password">Retype password:</label>
             <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
             <button class="ui-shadow ui-btn ui-corner-all" data-role="button" id="save-1" onclick="addUser()">Save</button>
