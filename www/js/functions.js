@@ -23,8 +23,9 @@ $(document).on('pageshow', '#page_home', function() {
 function getUserCredentials() {
     if (!localStorage.getItem("userEmail")) {
         $("#login_popup").popup("open");
+    } else {
+        $.mobile.changePage($('#page_home'));
     }
-    $.mobile.changePage($('#page_home'));
 }
 
 function getLocalSettings() {
