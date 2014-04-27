@@ -351,3 +351,50 @@ $(document).on('click', '#log-out-button', function() {
     localStorage.removeItem("userEmail");
     $.mobile.changePage($('#page_first'));
 });
+
+$(document).on('click', "#tags-button", function() {
+    console.log(localStorage.getItem("search-tags"));
+    $("#search-tag-list").empty();
+    if (localStorage.getItem("search-tags")) {
+        var searchTags = JSON.parse(localStorage.getItem("search-tags"));
+        console.log(searchTags);
+        $.each(searchTags, function(index, value) {
+            $("#search-tag-list").append($('<a/>', { //here appending `<a>` into `<li>`
+                'href': '#',
+                'data-transition': 'slide',
+                'class': 'search-tag ui-btn ui-icon-delete ui-btn-icon-right',
+                'text': value,
+            }));
+        });
+    }
+});
+
+$(document).on('click', "#add-tag-button", function() {
+    var searchTags = [];
+    if (jQuery($("#tag-input").val())) {
+        $("#search-tag-list").append($('<a/>', { //here appending `<a>` into `<li>`
+            'href': '#',
+            'data-transition': 'slide',
+            'class': 'search-tag ui-btn ui-icon-delete ui-btn-icon-right',
+            'text': "#" + jQuery("#tag-input").val(),
+        }));
+        if (localStorage.getItem("search-tags")) {
+            searchTags = JSON.parse(localStorage.getItem("search-tags"));
+        }
+        searchTags.push("#" + $("#tag-input").val());
+        localStorage.setItem("search-tags", JSON.stringify(searchTags));
+        $("#tag-input").val(null);
+    }
+});
+
+$(document).on('click', ".search-tag", function() {
+    // TODO: Get tags from local storage
+    console.log("Remove tag: " + this.text);
+    $(this).remove();
+    var searchTags = [];
+    $.each($('.search-tag'), function(index, value) {
+        console.log(value);
+        searchTags.push(value.text);
+    });
+    localStorage.setItem("search-tags", JSON.stringify(searchTags));
+});

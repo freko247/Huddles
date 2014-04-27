@@ -40,6 +40,10 @@
   background-color: #2692f6;
 }
 
+.search-tag{
+  border-radius: 20px !important;
+}
+
 .ui-panel-inner{
   padding-bottom: 0px;
   padding-left: 0px;
@@ -88,7 +92,7 @@
     background-image: url("../images/Icon_profile.png");
     background-position: 4px 3px;
     background-size: 80%;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
   }
   .ui-icon-skillsicon:after {
     background: transparent;
