@@ -12,6 +12,11 @@ $(document).on('pageshow', '#page_first', function() {
 });
 
 $(document).on('pageshow', '#page_home', function() {
+    var searchTags = [];
+    if (localStorage.getItem("search-tags")) {
+        searchTags = JSON.parse(localStorage.getItem("search-tags"));
+    }
+    $("#tags-button").text("Tags (" + searchTags.length + ")");
     getSuggestedHuddles();
 });
 
@@ -382,6 +387,7 @@ $(document).on('click', "#add-tag-button", function() {
             searchTags = JSON.parse(localStorage.getItem("search-tags"));
         }
         searchTags.push("#" + $("#tag-input").val());
+        $("#tags-button").text("Tags (" + searchTags.length + ")");
         localStorage.setItem("search-tags", JSON.stringify(searchTags));
         $("#tag-input").val(null);
     }
@@ -396,5 +402,6 @@ $(document).on('click', ".search-tag", function() {
         console.log(value);
         searchTags.push(value.text);
     });
+    $("#tags-button").text("Tags (" + searchTags.length + ")");
     localStorage.setItem("search-tags", JSON.stringify(searchTags));
 });
