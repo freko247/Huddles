@@ -163,8 +163,8 @@
             <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="John Doe">
             <label for="textinput-2">E-mail:</label>
             <input type="text" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="user@mail.com">
-            <label for="textinput-3">Phone number:</label>
-            <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value="">
+            <label for="textinput-3"><!-- Phone --> number:</label>
+            <!-- <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value=""> -->
             <label for="new_password">New Password:</label>
             <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
             <label for="re_password">Retype password:</label>
@@ -352,7 +352,7 @@
     <div data-role="ui-panel-inner">
         <ul data-role="listview" data-inset="true">
             <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
-            <li data-role="list-divider">Profile</li>
+            <li data-role="list-divider" id="panel-user-name">BLa</li>
             <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
             <li><a href="#page_editprofile" class="ui-icon-profileicon ui-corner-all ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
             <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->

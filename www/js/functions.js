@@ -4,14 +4,17 @@ $(document).ready(function() {
 });
 
 $(function() {
+    $("#panel-user-name").text(localStorage.getItem("userEmail"));
     $("body>[data-role='panel']").panel().enhanceWithin();
 });
 
 $(document).on('pageshow', '#page_first', function() {
     getUserCredentials();
+    $("#panel-user-name").text(localStorage.getItem("userEmail"));
 });
 
 $(document).on('pageshow', '#page_home', function() {
+    $("#panel-user-name").text(localStorage.getItem("userEmail"));
     var searchTags = [];
     if (localStorage.getItem("search-tags")) {
         searchTags = JSON.parse(localStorage.getItem("search-tags"));
