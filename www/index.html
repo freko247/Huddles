@@ -99,6 +99,7 @@
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Huddle</h1>
+            <a href="#panel_chat" id="chat" class="ui-btn ui-icon-comment ui-btn-icon-notext ui-corner-all">No text</a>
         </div>
         <!-- MAIN -->
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
@@ -148,7 +149,7 @@
             <!-- ADD PICTURE -->
             <div class="ui-grid-a">
                 <div class="nailthumb-container ui-block-a">
-                    <img src="img/avatar.png" alt="User avatar"/>
+                    <img id="imagePreview" src="img/avatar.png" alt="User avatar"/>
                 </div>
                 <div class="ui-block-b">
                     <label>Skills:</label>
@@ -157,8 +158,8 @@
                     <input type="text" name="skillthree" id="skillthree" value="" data-clear-btn="true">
                 </div>
             </div>
-            <label for="picture">User picture:</label>
-            <input type="file" name="picture" id="picture" value="">
+            <label for="avatar">User picture:</label>
+            <input type="file" name="avatar" id="avatar">
             <label for="textinput-1">Name:</label>
             <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="John Doe">
             <label for="textinput-2">E-mail:</label>

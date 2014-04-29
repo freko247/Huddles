@@ -408,3 +408,20 @@ $(document).on('click', ".search-tag", function() {
     $("#tags-button").text("Tags (" + searchTags.length + ")");
     localStorage.setItem("search-tags", JSON.stringify(searchTags));
 });
+
+$(document).on("change", "#avatar", function() {
+    console.log($("#imagePreview").attr("src"));
+    var files = !! this.files ? this.files : [];
+    if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+    if (/^image/.test(files[0].type)) { // only image file
+        var reader = new FileReader(); // instance of the FileReader
+        reader.readAsDataURL(files[0]); // read the local file
+
+        reader.onloadend = function() { // set image data as src
+            img_width = $("#imagePreview").width();
+            $("#imagePreview").attr('src', this.result);
+            $("#imagePreview").attr("width", img_width);
+        };
+    }
+});
