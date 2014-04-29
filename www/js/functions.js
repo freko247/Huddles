@@ -1,6 +1,5 @@
 $(document).ready(function() {
     console.log("ready!");
-    // getLocalSettings();
 });
 
 $(function() {
@@ -24,9 +23,7 @@ $(document).on('pageshow', '#page_home', function() {
 });
 
 function getUserCredentials() {
-    if (!localStorage.getItem("userEmail")) {
-        $("#login_popup").popup("open");
-    } else {
+    if (localStorage.getItem("userEmail")) {
         $.mobile.changePage($('#page_home'));
     }
 }
