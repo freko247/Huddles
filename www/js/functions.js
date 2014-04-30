@@ -174,11 +174,11 @@ function getSuggestedHuddles() {
             console.log("Got suggested Huddles!", result);
             $.each(huddles, function(index, value) {
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
-                    'class': 'ui-first-child ui-last-child',
+                    'data-icon': 'huddleicon',
                 }).append($('<a/>', { //here appending `<a>` into `<li>`
                     'href': '#' + value,
                     'data-transition': 'slide',
-                    'class': 'ui-btn ui-icon-huddleicon ui-corner-all',
+                    'class': 'ui-btn ui-corner-all',
                     'text': value,
                 })));
 
