@@ -36,17 +36,21 @@
 </head>
 <body>
     <div data-role="page" id="page_first" data-theme="a">
+        <div data-role="header" data-theme="a">
+            <h1>Log In</h1>
+        </div>
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div >
-                <label>Email</label>
-                <input type="text" name="loginEmail" id="loginEmail" value="" data-clear-btn="true">
-                <label>Password</label>
-                <input type="password" name="loginPass" id="loginPass" value="" data-clear-btn="true">
-                <a href="#" id="sign-in-button" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Sign In</a>
-                <a href="#" id="sign-up-button" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b">Sign Up</a>
-            </div>
+            <label for="loginEmail">Email</label>
+            <input type="text" name="loginEmail" id="loginEmail" value="" data-clear-btn="true">
+            <label for="loginPass">Password</label>
+            <input type="password" name="loginPass" id="loginPass" value="" data-clear-btn="true">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <a href="#" id="sign-in-button" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">Log In</a>
+                <a href="#" id="sign-up-button" class="ui-btn ui-corner-all ui-shadow ui-btn-a">Register</a>
+            </fieldset>
         </div>
     </div>
+
     <!-- HOME PAGE - SUGGESTHUDDLES -->
     <div data-role="page" id="page_home" data-theme="a">
         <!-- TAGS POPUP -->
@@ -175,11 +179,11 @@
     <div data-role="page" id="page_searchhuddles">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
-         <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-         <h1>Huddles</h1>
-     </div>
-     <!-- MAIN -->
-     <div role="main" class="ui-content jqm-content jqm-fullwidth">
+           <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+           <h1>Huddles</h1>
+       </div>
+       <!-- MAIN -->
+       <div role="main" class="ui-content jqm-content jqm-fullwidth">
         <div data-role="navbar">
             <ul>
                 <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
@@ -211,11 +215,11 @@
 <div data-role="page" id="page_myhuddles">
     <!-- HEADER -->
     <div data-role="header" data-position="fixed">
-     <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-     <h1>Huddles</h1>
- </div>
- <!-- MAIN -->
- <div role="main" class="ui-content jqm-content jqm-fullwidth">
+       <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+       <h1>Huddles</h1>
+   </div>
+   <!-- MAIN -->
+   <div role="main" class="ui-content jqm-content jqm-fullwidth">
     <div data-role="navbar">
         <ul>
             <li><a href="#page_searchhuddles">Search</a></li>
