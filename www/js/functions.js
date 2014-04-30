@@ -1,11 +1,11 @@
 $(document).ready(function() {
     console.log("ready!");
+    $(function() {
+        $("#panel-user-name").text(localStorage.getItem("userEmail"));
+        $("body>[data-role='panel']").panel().enhanceWithin();
+    });
 });
 
-$(function() {
-    $("#panel-user-name").text(localStorage.getItem("userEmail"));
-    $("body>[data-role='panel']").panel().enhanceWithin();
-});
 
 $(document).on('pageshow', '#page_first', function() {
     getUserCredentials();
@@ -41,6 +41,8 @@ function addUser() {
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
         type: "POST",
+        processData: false,
+        // contentType: false,
         dataType: "json",
         data: {
             "db_function": "addUser",
@@ -51,6 +53,7 @@ function addUser() {
             "userName": jQuery("#textinput-1").val(),
             "userEmail": jQuery("#textinput-2").val(),
             "userPassword": encodeURIComponent(sha256_digest(jQuery("#password").val() + "salt")),
+            "userAvatar": localStorage.getItem("userAvatar"),
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -416,9 +419,45 @@ $(document).on("change", "#avatar", function() {
         reader.readAsDataURL(files[0]); // read the local file
 
         reader.onloadend = function() { // set image data as src
-            img_width = $("#imagePreview").width();
-            $("#imagePreview").attr('src', this.result);
-            $("#imagePreview").attr("width", img_width);
+            localStorage.setItem("userAvatar", this.result);
+            setAvatar(this.result);
         };
     }
 });
+
+function setAvatar(img) {
+    img_width = $("#imagePreview").width();
+    $("#imagePreview").attr('src', img);
+    $("#imagePreview").attr("width", img_width);
+}
+
+function getAvatarFromDB() {
+    var img = "";
+    $.ajax({
+        traditional: true,
+        url: "http://huddlesrest.appspot.com/api",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "db_function": "getUserAvatar",
+            "userEmail": localStorage.getItem("userEmail"),
+        },
+        beforeSend: function() {
+            // This callback function will trigger before data is sent
+            $.mobile.loading('show');
+        },
+        complete: function() {
+            // This callback function will trigger on data sent/received complete
+            $.mobile.loading('hide');
+        },
+        success: function(result) {
+            img = result;
+            console.log("Got Huddle avatar!", img);
+            setAvatar(img);
+        },
+        error: function(request, error) {
+            // This callback function will trigger on unsuccessful action
+            alert('Network error has occurred please try again!');
+        }
+    });
+}
