@@ -175,7 +175,7 @@ function getSuggestedHuddles() {
                 }).append($('<a/>', { //here appending `<a>` into `<li>`
                     'href': '#' + value,
                     'data-transition': 'slide',
-                    'class': 'ui-btn ui-icon-huddleicon',
+                    'class': 'ui-btn ui-icon-huddleicon ui-corner-all',
                     'text': value,
                 })));
 
