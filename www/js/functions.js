@@ -215,7 +215,7 @@ function getHuddleInfo(huddleName) {
             var huddles = result;
             console.log("Got Huddle info!", huddles);
             $('#tags_huddle').empty();
-            $.each(huddles, function(index, value) {
+            $.each(huddles[1], function(index, value) {
                 $('#tags_huddle').append($('<li/>', { //here appending `<li>`
                     'class': 'ui-first-child ui-last-child',
                 }).append("#" + value));
