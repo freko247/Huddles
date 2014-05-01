@@ -4,6 +4,17 @@ $(document).ready(function() {
         $("#panel-user-name").text(localStorage.getItem("userEmail"));
         $("body>[data-role='panel']").panel().enhanceWithin();
     });
+    var onSuccess = function(position) {
+        localStorage.setItem("userPosition", JSON.stringify([position.coords.latitude, position.coords.longitude]))
+    };
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+    }
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
 
 
@@ -153,6 +164,12 @@ function getSuggestedHuddles() {
     console.log("Getting Huddles!");
     // huddles = "";
     $('#suggestedHuddlesList').empty();
+    var filterDistance = "";
+    var userLocation = JSON.parse(localStorage.getItem("userPosition"));
+    console.log("User location is: ", userLocation)
+    if ($("#rangeswitch").val() === "on") {
+        filterDistance = $("#rangeslider").val() + ".0"
+    }
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -160,6 +177,8 @@ function getSuggestedHuddles() {
         dataType: "json",
         data: {
             "db_function": "getSuggestedHuddles",
+            "filterDistance": filterDistance,
+            "userLocation": userLocation,
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -173,6 +192,7 @@ function getSuggestedHuddles() {
             var huddles = result;
             console.log("Got suggested Huddles!", result);
             $.each(huddles, function(index, value) {
+                console.log("this is a suggested huddle: ", value)
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'huddleicon',
                 }).append($('<a/>', { //here appending `<a>` into `<li>`
@@ -215,6 +235,7 @@ function getHuddleInfo(huddleName) {
             var huddles = result;
             console.log("Got Huddle info!", huddles);
             $('#tags_huddle').empty();
+            // Response is [huddleName, [huddleTag], [huddle.lat, huddle.lon], huddleDateAndTime]
             $.each(huddles[1], function(index, value) {
                 $('#tags_huddle').append($('<li/>', { //here appending `<li>`
                     'class': 'ui-first-child ui-last-child',
