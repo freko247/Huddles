@@ -5,7 +5,7 @@ $(document).ready(function() {
         $("body>[data-role='panel']").panel().enhanceWithin();
     });
     var onSuccess = function(position) {
-        localStorage.setItem("userPosition", JSON.stringify([position.coords.latitude, position.coords.longitude]))
+        localStorage.setItem("userPosition", JSON.stringify([position.coords.latitude, position.coords.longitude]));
     };
 
     // onError Callback receives a PositionError object
@@ -17,6 +17,20 @@ $(document).ready(function() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
 
+$(document).on("pageinit", "#page_home", function(event) {
+    if (localStorage.getItem("userEmail")) {
+        getUserInfo(localStorage.getItem("userEmail"));
+    }
+});
+
+$(document).on('pageshow', '#page_editprofile', function(event) {
+    userSkills = JSON.parse(localStorage.getItem("userSkill"));
+    console.log("User skills: ", userSkills);
+    $("#skillone").val(userSkills[0]);
+    $("#skilltwo").val(userSkills[1]);
+    $("#textinput-1").val(localStorage.getItem("userName"));
+    $("#textinput-2").val(localStorage.getItem("userEmail"));
+});
 
 $(document).on('pageshow', '#page_first', function() {
     getUserCredentials();
@@ -48,24 +62,24 @@ function getLocalSettings() {
 
 function addUser() {
     localStorage.setItem("userEmail", jQuery("#textinput-2").val());
+    data = {
+        "db_function": "addUser",
+        "userSkill": [jQuery("#skillone").val(),
+            jQuery("#skilltwo").val(),
+            jQuery("#skillthree").val(),
+        ],
+        "userName": jQuery("#textinput-1").val(),
+        "userEmail": jQuery("#textinput-2").val(),
+        "userPassword": encodeURIComponent(sha256_digest(jQuery("#password").val() + "salt")),
+        "userAvatar": localStorage.getItem("userAvatar"),
+    };
+    console.log(data);
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
         type: "POST",
-        processData: false,
-        // contentType: false,
         dataType: "json",
-        data: {
-            "db_function": "addUser",
-            "userSkill": [jQuery("#skillone").val(),
-                jQuery("#skilltwo").val(),
-                jQuery("#skillthree").val(),
-            ],
-            "userName": jQuery("#textinput-1").val(),
-            "userEmail": jQuery("#textinput-2").val(),
-            "userPassword": encodeURIComponent(sha256_digest(jQuery("#password").val() + "salt")),
-            "userAvatar": localStorage.getItem("userAvatar"),
-        },
+        data: data,
         beforeSend: function() {
             // This callback function will trigger before data is sent
             $.mobile.loading('show');
@@ -452,7 +466,7 @@ function setAvatar(img) {
     $("#imagePreview").attr("width", img_width);
 }
 
-function getAvatarFromDB() {
+function getUserInfo() {
     var img = "";
     $.ajax({
         traditional: true,
@@ -460,7 +474,7 @@ function getAvatarFromDB() {
         type: "POST",
         dataType: "json",
         data: {
-            "db_function": "getUserAvatar",
+            "db_function": "getUserInfo",
             "userEmail": localStorage.getItem("userEmail"),
         },
         beforeSend: function() {
@@ -472,9 +486,12 @@ function getAvatarFromDB() {
             $.mobile.loading('hide');
         },
         success: function(result) {
-            img = result;
-            console.log("Got Huddle avatar!", img);
-            setAvatar(img);
+            userInfo = result;
+            if (userInfo) {
+                localStorage.setItem("userName", userInfo[0]);
+                localStorage.setItem("userSkill", JSON.stringify(userInfo[1]));
+                setAvatar(userInfo[2]);
+            }
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
