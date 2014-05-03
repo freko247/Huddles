@@ -1,7 +1,6 @@
 $(document).ready(function() {
     console.log("ready!");
     $(function() {
-        $("#panel-user-name").text(localStorage.getItem("userEmail"));
         $("body>[data-role='panel']").panel().enhanceWithin();
     });
     var onSuccess = function(position) {
@@ -25,7 +24,6 @@ $(document).on("pageinit", "#page_home", function(event) {
 
 $(document).on('pageshow', '#page_editprofile', function(event) {
     userSkills = JSON.parse(localStorage.getItem("userSkill"));
-    console.log("User skills: ", userSkills);
     $("#skillone").val(userSkills[0]);
     $("#skilltwo").val(userSkills[1]);
     $("#textinput-1").val(localStorage.getItem("userName"));
@@ -49,6 +47,8 @@ $(document).on('pageshow', '#page_home', function() {
 
 function getUserCredentials() {
     if (localStorage.getItem("userEmail")) {
+        getUserInfo(localStorage.getItem("userEmail"));
+        $("#panel-user-name").text(localStorage.getItem("userEmail"));
         $.mobile.changePage($('#page_home'));
     }
 }
@@ -70,10 +70,9 @@ function addUser() {
         ],
         "userName": jQuery("#textinput-1").val(),
         "userEmail": jQuery("#textinput-2").val(),
-        "userPassword": encodeURIComponent(sha256_digest(jQuery("#password").val() + "salt")),
+        "userPassword": encodeURIComponent(sha256_digest(jQuery("#new_password").val() + "salt")),
         "userAvatar": localStorage.getItem("userAvatar"),
     };
-    console.log(data);
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -139,7 +138,6 @@ function createHuddle() {
             'huddleName': jQuery("#label_huddlename").val(),
             'huddleAdmin': localStorage.getItem("userEmail"),
         };
-        console.log(data);
         $.ajax({
             traditional: true,
             url: "http://huddlesrest.appspot.com/api",
@@ -155,7 +153,6 @@ function createHuddle() {
                 $.mobile.loading('hide');
             },
             success: function(result) {
-                console.log("Huddle created!");
                 getSuggestedHuddles();
             },
             error: function(request, error) {
@@ -175,14 +172,11 @@ function createHuddle() {
 }
 
 function getSuggestedHuddles() {
-    console.log("Getting Huddles!");
-    // huddles = "";
     $('#suggestedHuddlesList').empty();
     var filterDistance = "";
     var userLocation = JSON.parse(localStorage.getItem("userPosition"));
-    console.log("User location is: ", userLocation)
     if ($("#rangeswitch").val() === "on") {
-        filterDistance = $("#rangeslider").val() + ".0"
+        filterDistance = ($("#rangeslider").val() + ".0");
     }
     $.ajax({
         traditional: true,
@@ -204,9 +198,7 @@ function getSuggestedHuddles() {
         },
         success: function(result) {
             var huddles = result;
-            console.log("Got suggested Huddles!", result);
             $.each(huddles, function(index, value) {
-                console.log("this is a suggested huddle: ", value)
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'huddleicon',
                 }).append($('<a/>', { //here appending `<a>` into `<li>`
@@ -227,7 +219,6 @@ function getSuggestedHuddles() {
 }
 
 function getHuddleInfo(huddleName) {
-    console.log("Getting Huddle info");
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -247,7 +238,6 @@ function getHuddleInfo(huddleName) {
         },
         success: function(result) {
             var huddles = result;
-            console.log("Got Huddle info!", huddles);
             $('#tags_huddle').empty();
             // Response is [huddleName, [huddleTag], [huddle.lat, huddle.lon], huddleDateAndTime]
             $.each(huddles[1], function(index, value) {
@@ -272,7 +262,6 @@ $(document).on('click', '#suggestedHuddlesList li a', function() {
 });
 
 $(document).on('click', '#join_huddle', function() {
-    console.log('Joining Huddle');
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -293,7 +282,6 @@ $(document).on('click', '#join_huddle', function() {
         },
         success: function(result) {
             var huddle = result;
-            console.log("Joined huddle!", huddle);
             getHuddleUsers();
             $(this).attr('disabled', 'disabled');
         },
@@ -305,7 +293,6 @@ $(document).on('click', '#join_huddle', function() {
 });
 
 function getHuddleUsers() {
-    console.log('Getting Huddle users');
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -325,7 +312,6 @@ function getHuddleUsers() {
         },
         success: function(result) {
             var huddleUsers = result;
-            console.log("Got Huddle users!", huddleUsers);
             $('#huddle_users').empty();
             $.each(huddleUsers, function(index, value) {
                 $('#huddle_users').append($('<li/>', { //here appending `<li>`
@@ -346,7 +332,6 @@ $(document).on('click', '#suggested_huddles_link', function() {
 });
 
 $(document).on('click', '#sign-in-button', function() {
-    console.log("Signing in");
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -355,7 +340,7 @@ $(document).on('click', '#sign-in-button', function() {
         data: {
             "db_function": "authenticateUser",
             "userEmail": encodeURIComponent(jQuery("#loginEmail").val()),
-            "userPassword": encodeURIComponent(sha256_digest(jQuery("#loginPass").val() + "salt")),
+            "userPassword": sha256_digest(jQuery("#loginPass").val() + "salt"),
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -366,16 +351,12 @@ $(document).on('click', '#sign-in-button', function() {
             $.mobile.loading('hide');
         },
         success: function(result) {
-            var huddleUser = result;
-            if (huddleUser === null) {
-                $('#page_first').trigger("pagecreate");
-                $("#login_popup").popup("open");
-                return;
-            }
-            console.log("Authenticated user: " + huddleUser);
-            localStorage.setItem("userEmail", huddleUser);
             jQuery("#loginPass").val(null);
-            $.mobile.changePage($('#page_home'));
+            var huddleUser = result;
+            if (huddleUser) {
+                localStorage.setItem("userEmail", huddleUser);
+                $.mobile.changePage($('#page_home'));
+            }
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -385,22 +366,21 @@ $(document).on('click', '#sign-in-button', function() {
 });
 
 $(document).on('click', '#sign-up-button', function() {
-    console.log("Signing up");
     $.mobile.changePage($('#page_editprofile'));
 });
 
 $(document).on('click', '#log-out-button', function() {
-    console.log("Loggin out: " + localStorage.getItem("userEmail"));
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userSkill");
+    localStorage.removeItem("userAvatar");
     $.mobile.changePage($('#page_first'));
 });
 
 $(document).on('click', "#tags-button", function() {
-    console.log(localStorage.getItem("search-tags"));
     $("#search-tag-list").empty();
     if (localStorage.getItem("search-tags")) {
         var searchTags = JSON.parse(localStorage.getItem("search-tags"));
-        console.log(searchTags);
         $.each(searchTags, function(index, value) {
             $("#search-tag-list").append($('<a/>', { //here appending `<a>` into `<li>`
                 'href': '#',
@@ -432,12 +412,9 @@ $(document).on('click', "#add-tag-button", function() {
 });
 
 $(document).on('click', ".search-tag", function() {
-    // TODO: Get tags from local storage
-    console.log("Remove tag: " + this.text);
     $(this).remove();
     var searchTags = [];
     $.each($('.search-tag'), function(index, value) {
-        console.log(value);
         searchTags.push(value.text);
     });
     $("#tags-button").text("Tags (" + searchTags.length + ")");
@@ -445,7 +422,6 @@ $(document).on('click', ".search-tag", function() {
 });
 
 $(document).on("change", "#avatar", function() {
-    console.log($("#imagePreview").attr("src"));
     var files = !! this.files ? this.files : [];
     if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
