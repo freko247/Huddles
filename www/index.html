@@ -106,9 +106,21 @@
                                 <option value="off">Off</option>
                                 <option value="on">On</option>
                             </select>
+                            <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
                         </div>
-                        <label for="rangeslider">Radius:</label>
-                        <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
+                        <div class="ui-field-contain">
+                            <label for="tagswitch">Tags</label>
+                                <select name="tagswitch" id="tagswitch" data-role="flipswitch" data-mini="true">
+                                    <option value="off">Off</option>
+                                    <option value="on">On</option>
+                                </select>
+                            <div id="search-tag-list">
+                            </div>
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
+                                <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
+                            </div>
+                        </div>
                     </fieldset>
                 </form>
                 <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
@@ -298,8 +310,8 @@
                 </li>
                 <li class="ui-body ui-body-b">
                     <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
-                        <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a" onclick="createHuddle()">Submit</button></div>
+                        <!-- <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div> -->
+                        <div class="ui-block-b"><button type="submit" id="create-huddle-button" class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
                     </fieldset>
                 </li>
             </ul>

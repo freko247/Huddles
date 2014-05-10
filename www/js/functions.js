@@ -178,6 +178,10 @@ function getSuggestedHuddles() {
     if ($("#rangeswitch").val() === "on") {
         filterDistance = ($("#rangeslider").val() + ".0");
     }
+    var searchTags = "";
+    if ($("#tagswitch").val() === "on") {
+        searchTags = localStorage.getItem("search-tags");
+    }
     $.ajax({
         traditional: true,
         url: "http://huddlesrest.appspot.com/api",
@@ -187,6 +191,7 @@ function getSuggestedHuddles() {
             "db_function": "getSuggestedHuddles",
             "filterDistance": filterDistance,
             "userLocation": userLocation,
+            "searchTags": searchTags,
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -417,7 +422,6 @@ $(document).on('click', ".search-tag", function() {
     $.each($('.search-tag'), function(index, value) {
         searchTags.push(value.text);
     });
-    $("#tags-button").text("Tags (" + searchTags.length + ")");
     localStorage.setItem("search-tags", JSON.stringify(searchTags));
 });
 
@@ -475,3 +479,7 @@ function getUserInfo() {
         }
     });
 }
+
+$(document).on('click', '#create-huddle-button', function() {
+    createHuddle();
+});
