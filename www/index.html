@@ -161,11 +161,10 @@
         <!-- MAIN -->
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
             <form>
-                <!-- ADD PICTURE -->
-                <ul data-role="listview" data-inset="true">
-                    <div class="nailthumb-container ui-block-a">
+                <div class="nailthumb-container">
                         <img id="imagePreview" src="img/avatar.png" alt="User avatar"/>
                     </div>
+                <ul data-role="listview" data-inset="true">
                     <li class="ui-field-contain">
                         <label for="avatar">User picture:</label>
                         <input type="file" name="avatar" id="avatar">
@@ -185,7 +184,7 @@
                     <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
                     </li>
                     <li class="ui-field-contain">
-                        
+
                     </li>
                     <a href="#page_home" class="ui-btn" id="save-1" onclick="addUser()">Save</a>
                 </ul>
