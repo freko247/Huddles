@@ -77,46 +77,44 @@
                             <legend>Filter</legend>
                             <ul data-role="listview">
                                 <li>
-                                    <form>
-                                        <fieldset data-role="ui-grid-b" data-type="horizontal">
-                                            <legend>Active:</legend>
-                                            <div class="ui-block-a">
-                                                <input type="checkbox" name="rangecheck" id="rangecheck" data-mini="true">
-                                                <label for="rangecheck">Radius</label>
-                                            </div>
-                                            <div class="ui-block-b">
-                                                <input type="checkbox" name="timecheck" id="timecheck" data-mini="true">
-                                                <label for="timecheck">Time</label>
-                                            </div>
-                                            <div class="ui-block-c">
-                                                <input type="checkbox" name="tagscheck" id="tagscheck" data-mini="true">
-                                                <label for="tagscheck">Tags</label>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                    <!-- <form>
-                                        <div>
+                                    <!-- <div class="ui-grid-b">
+                                        <legend>Active filters:</legend>
+                                        <div class="ui-block-a">
+                                            <input type="checkbox" name="rangecheck" id="rangecheck" data-mini="true">
+                                            <label for="rangecheck">Radius</label>
+                                        </div>
+                                        <div class="ui-block-b">
+                                            <input type="checkbox" name="timecheck" id="timecheck" data-mini="true">
+                                            <label for="timecheck">Time</label>
+                                        </div>
+                                        <div class="ui-block-c">
+                                            <input type="checkbox" name="tagscheck" id="tagscheck" data-mini="true">
+                                            <label for="tagscheck">Tags</label>
+                                        </div>
+                                    </div> -->
+                                    <form class="ui-grid-b">
+                                        <div class="ui-block-a">
                                             <label for="rangeswitch">Radius</label>
                                             <select name="rangeswitch" id="rangeswitch" data-role="flipswitch">
                                                 <option value="off">Off</option>
                                                 <option value="on">On</option>
                                             </select>
                                         </div>
-                                        <div>
-                                            <label for="timeswitch">Time</label>
-                                            <select name="timeswitch" id="timeswitch" data-role="flipswitch">
+                                        <div class="ui-block-b">
+                                            <label for="dateswitch">Date</label>
+                                            <select name="dateswitch" id="dateswitch" data-role="flipswitch">
                                                 <option value="off">Off</option>
                                                 <option value="on">On</option>
                                             </select>
                                         </div>
-                                        <div>
+                                        <div class="ui-block-c">
                                             <label for="tagsswitch">Tags</label>
                                             <select name="tagsswitch" id="tagsswitch" data-role="flipswitch">
                                                 <option value="off">Off</option>
                                                 <option value="on">On</option>
                                             </select>
                                         </div>
-                                    </form> -->
+                                    </form>
                                 </li>
                                 <li>
                                     <label for="rangeslider">Radius</label>
