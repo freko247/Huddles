@@ -53,19 +53,6 @@
 
     <!-- HOME PAGE - SUGGESTHUDDLES -->
     <div data-role="page" id="page_home" data-theme="a">
-        <!-- TAGS POPUP -->
-        <!-- <div data-role="popup" id="tags_popup" data-overlay-theme="b" data-theme="b" style="max-width:400px;">
-            <div data-role="header" data-theme="a">
-                <h1>Tags</h1>
-            </div>
-            <div id="search-tag-list">
-            </div>
-            <hr>
-            <div data-role="controlgroup" data-type="horizontal">
-                <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
-                <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
-            </div>
-        </div> -->
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -80,22 +67,7 @@
                     <li><a href="#" id="suggested_huddles_link">Suggested Huddles</a></li>
                 </ul>
             </div>
-<!--             <div data-role="collapsible" data-collapsed="true" data-iconpos="right">
-                <h5>Filter</h5>
-                <ul data-role="listview">
-                    <li>
-                        <div class="ui-field-contain">
-                            <label for="rangeswitch">Radius:</label>
-                            <select name="rangeswitch" id="rangeswitch" data-role="flipswitch" data-mini="true">
-                                <option value="off">Off</option>
-                                <option value="on">On</option>
-                            </select>
-                        </div>
-                        <label for="rangeslider" class="ui-hidden-accessible">Range:</label>
-                        <input type="range" name="rangeslider" id="rangeslider" min="0" max="200" value="50">
-                    </li>
-                </ul>
-            </div> -->
+
             <div data-role="controlgroup">
                 <form>
                     <fieldset data-role="collapsible" data-iconpos="right" data-inset="false">
@@ -127,13 +99,6 @@
                 </ul>
             </div>
         </div>
-        <!-- <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#tags_popup" data-rel="popup" data-position-to="window" data-transition="pop" id="tags-button">Tags</a></li>
-                </ul>
-            </div>
-        </div> -->
     </div>
 
     <!-- HUDDLE -->
@@ -153,8 +118,6 @@
             </div>
             <div data-role="navbar">
                 <ul>
-                    <!-- <li><a href="#" class="ui-btn-active">People Skills</a></li> -->
-                    <!-- <li><a href="#page_mobile_groups">Groups</a></li> -->
                     <li><a href="#page_mobile_users">People</a></li>
                 </ul>
             </div>
@@ -207,8 +170,6 @@
             <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" value="">
             <label for="textinput-2">E-mail:</label>
             <input type="email" name="textinput-2" id="textinput-2" placeholder="E-mail@address.com" value="">
-            <!-- <label for="textinput-3">Phone number:</label> -->
-            <!-- <input type="tel" name="textinput-3" pattern="[0-9]*" id="textinput-3" placeholder="" value=""> -->
             <label for="new_password">New Password:</label>
             <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
             <label for="re_password">Retype password:</label>
@@ -310,7 +271,6 @@
                 </li>
                 <li class="ui-body ui-body-b">
                     <fieldset class="ui-grid-a">
-                        <!-- <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div> -->
                         <div class="ui-block-b"><button type="submit" id="create-huddle-button" class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
                     </fieldset>
                 </li>
@@ -399,8 +359,6 @@
             <li data-role="list-divider" id="panel-user-name">BLa</li>
             <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
             <li><a href="#page_editprofile" class="ui-icon-profileicon ui-corner-all ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
-            <!-- <li><a href="#page_addtags" class="ui-btn" >ADD TAGS</a></li> -->
-            <!-- <li><a href="#page_addskills" class="ui-btn" >ADD SKILS</a></li> -->
             <li><a href="#" id="log-out-button" class="ui-icon-power ui-corner-all ui-shadow ui-nodisc-icon">LOG OUT</a></li>
             <li data-role="list-divider">Huddles</li>
             <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-corner-all ui-shadow ui-nodisc-icon">HUDDLES</a></li>
