@@ -202,7 +202,7 @@ function getSuggestedHuddles() {
             $.mobile.loading('hide');
         },
         success: function(result) {
-            var huddles = result;
+            var huddles = result[0];
             $.each(huddles, function(index, value) {
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'huddleicon',
