@@ -70,8 +70,66 @@
                 </div>
 
                 <!-- SUGGESTED HUDDLES -->
-                <div data-role="controlgroup" id="suggestedhuddles">
+
+                <div data-role="controlgroup">
                     <form>
+                        <fieldset data-role="collapsible">
+                            <legend>Filter</legend>
+                            <ul data-role="listview">
+                                <li>
+                                    <form>
+                                        <fieldset data-role="ui-grid-b" data-type="horizontal">
+                                            <legend>Active:</legend>
+                                            <div class="ui-block-a">
+                                                <input type="checkbox" name="rangecheck" id="rangecheck" data-mini="true">
+                                                <label for="rangecheck">Radius</label>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <input type="checkbox" name="timecheck" id="timecheck" data-mini="true">
+                                                <label for="timecheck">Time</label>
+                                            </div>
+                                            <div class="ui-block-c">
+                                                <input type="checkbox" name="tagscheck" id="tagscheck" data-mini="true">
+                                                <label for="tagscheck">Tags</label>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                    <!-- <form>
+                                        <div>
+                                            <label for="rangeswitch">Radius</label>
+                                            <select name="rangeswitch" id="rangeswitch" data-role="flipswitch">
+                                                <option value="off">Off</option>
+                                                <option value="on">On</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="timeswitch">Time</label>
+                                            <select name="timeswitch" id="timeswitch" data-role="flipswitch">
+                                                <option value="off">Off</option>
+                                                <option value="on">On</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="tagsswitch">Tags</label>
+                                            <select name="tagsswitch" id="tagsswitch" data-role="flipswitch">
+                                                <option value="off">Off</option>
+                                                <option value="on">On</option>
+                                            </select>
+                                        </div>
+                                    </form> -->
+                                </li>
+                                <li>
+                                    <label for="rangeslider">Radius</label>
+                                    <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
+                    <!-- <form>
                         <fieldset data-role="collapsible" data-iconpos="right" data-inset="false">
                             <legend>Filter</legend>
                             <div class="ui-field-contain">
@@ -96,7 +154,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                    </form>
+                    </form> -->
                     <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
                     </ul>
                 </div>
@@ -111,13 +169,13 @@
 
     <!-- HUDDLE -->
     <div data-role="page" id="page_huddle" data-theme="a">
-        <!-- HEADER -->
+
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Huddle</h1>
             <a href="#panel_chat" id="chat" class="ui-btn ui-icon-comment ui-btn-icon-notext ui-corner-all">No text</a>
         </div>
-        <!-- MAIN -->
+
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
             <div>
                 <h1 id='heading_huddle'>Huddle</h1>
@@ -162,8 +220,8 @@
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
             <form>
                 <div class="nailthumb-container">
-                        <img id="imagePreview" src="img/avatar.png" alt="User avatar"/>
-                    </div>
+                    <img id="imagePreview" src="img/avatar.png" alt="User avatar"/>
+                </div>
                 <ul data-role="listview" data-inset="true">
                     <li class="ui-field-contain">
                         <label for="avatar">User picture:</label>
@@ -178,13 +236,13 @@
                         <input type="email" name="textinput-2" id="textinput-2" data-clear-btn="true" placeholder="E-mail@address.com" value="">
                     </li>
                     <li class="ui-field-contain">
-                    <label for="new_password">Password:</label>
-                    <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
-                    <label for="re_password">Retype password:</label>
-                    <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
+                        <label for="new_password">Password:</label>
+                        <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
+                        <label for="re_password">Retype password:</label>
+                        <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
                     </li>
                     <li class="ui-field-contain">
-
+                        <!-- ADD DYNAMIC COLLAPSIBLE SKILLS LIST -->
                     </li>
                     <a href="#page_home" class="ui-btn" id="save-1" onclick="addUser()">Save</a>
                 </ul>
