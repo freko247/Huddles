@@ -207,10 +207,10 @@ function getSuggestedHuddles() {
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'huddleicon',
                 }).append($('<a/>', { //here appending `<a>` into `<li>`
-                    'href': '#' + value,
+                    'href': '#' + value[0],
                     'data-transition': 'slide',
                     'class': 'ui-btn ui-corner-all',
-                    'text': value,
+                    'text': value[0],
                 })));
 
             });
@@ -248,7 +248,7 @@ function getHuddleInfo(huddleName) {
             $.each(huddles[1], function(index, value) {
                 $('#tags_huddle').append($('<li/>', { //here appending `<li>`
                     'class': 'ui-first-child ui-last-child',
-                }).append("#" + value));
+                }).append(value));
 
             });
         },
