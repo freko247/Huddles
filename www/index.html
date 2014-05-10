@@ -53,50 +53,56 @@
 
     <!-- HOME PAGE - SUGGESTHUDDLES -->
     <div data-role="page" id="page_home" data-theme="a">
-        <!-- HEADER -->
+
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Home</h1>
             <a href="#panel_chat" id="chat" class="ui-btn ui-icon-comment ui-btn-icon-notext ui-corner-all">No text</a>
         </div>
-        <!-- MAIN -->
-        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#">Recent Events</a></li>
-                    <li><a href="#" id="suggested_huddles_link">Suggested Huddles</a></li>
-                </ul>
-            </div>
 
-            <div data-role="controlgroup">
-                <form>
-                    <fieldset data-role="collapsible" data-iconpos="right" data-inset="false">
-                        <legend>Filter</legend>
-                        <div class="ui-field-contain">
-                            <label for="rangeswitch">Radius</label>
-                            <select name="rangeswitch" id="rangeswitch" data-role="flipswitch" data-mini="true">
-                                <option value="off">Off</option>
-                                <option value="on">On</option>
-                            </select>
-                            <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
-                        </div>
-                        <div class="ui-field-contain">
-                            <label for="tagswitch">Tags</label>
+        <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
+                        <li><a href="#recentevents" data-ajax="false">Recent Events</a></li>
+                    </ul>
+                </div>
+
+                <div data-role="controlgroup" id="suggestedhuddles">
+                    <form>
+                        <fieldset data-role="collapsible" data-iconpos="right" data-inset="false">
+                            <legend>Filter</legend>
+                            <div class="ui-field-contain">
+                                <label for="rangeswitch">Radius</label>
+                                <select name="rangeswitch" id="rangeswitch" data-role="flipswitch" data-mini="true">
+                                    <option value="off">Off</option>
+                                    <option value="on">On</option>
+                                </select>
+                                <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
+                            </div>
+                            <div class="ui-field-contain">
+                                <label for="tagswitch">Tags</label>
                                 <select name="tagswitch" id="tagswitch" data-role="flipswitch" data-mini="true">
                                     <option value="off">Off</option>
                                     <option value="on">On</option>
                                 </select>
-                            <div id="search-tag-list">
+                                <div id="search-tag-list">
+                                </div>
+                                <div data-role="controlgroup" data-type="horizontal">
+                                    <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
+                                    <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
+                                </div>
                             </div>
-                            <div data-role="controlgroup" data-type="horizontal">
-                                <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
-                                <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-                <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
-                </ul>
+                        </fieldset>
+                    </form>
+                    <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
+                    </ul>
+                </div>
+
+                <div data-role="controlgroup" id="recentevents">
+
+                </div>
             </div>
         </div>
     </div>
