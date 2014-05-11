@@ -421,12 +421,14 @@ $(document).on('click', "#tags-button", function() {
 $(document).on('click', "#add-tag-button", function() {
     var searchTags = [];
     if (jQuery($("#tag-input").val())) {
-        $("#search-tag-list").append($('<a/>', { //here appending `<a>` into `<li>`
-            'href': '#',
+        $("#search-tag-list").append($('<li/>', {
+            'data-icon': 'delete',
             'data-transition': 'slide',
-            'class': 'search-tag ui-btn ui-icon-delete ui-btn-icon-right',
+            'class': 'search-tag ui-first-child ui-last-child',
+        }).append($('<a/>', {
+            'class': 'ui-btn ui-btn-icon-right ui-icon-delete',
             'text': "#" + jQuery("#tag-input").val(),
-        }));
+        })));
         if (localStorage.getItem("search-tags")) {
             searchTags = JSON.parse(localStorage.getItem("search-tags"));
         }

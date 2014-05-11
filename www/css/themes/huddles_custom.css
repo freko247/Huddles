@@ -43,9 +43,10 @@
 .list-divider{
   border-color: #448ccb !important;
 }
-.search-tag{
+
+/*.search-tag{
   border-radius: 20px !important;
-}
+}*/
 
 .ui-panel-inner{
   padding-bottom: 0px;
