@@ -77,7 +77,7 @@
                             <legend>Filter</legend>
                             <ul data-role="listview">
                                 <li>
-                                    <!-- <div class="ui-grid-b">
+                                    <div class="ui-grid-b">
                                         <legend>Active filters:</legend>
                                         <div class="ui-block-a">
                                             <input type="checkbox" name="rangecheck" id="rangecheck" data-mini="true">
@@ -91,8 +91,8 @@
                                             <input type="checkbox" name="tagscheck" id="tagscheck" data-mini="true">
                                             <label for="tagscheck">Tags</label>
                                         </div>
-                                    </div> -->
-                                    <form class="ui-grid-b">
+                                    </div>
+                                    <!-- <form class="ui-grid-b">
                                         <div class="ui-block-a">
                                             <label for="rangeswitch">Radius</label>
                                             <select name="rangeswitch" id="rangeswitch" data-role="flipswitch">
@@ -114,14 +114,31 @@
                                                 <option value="on">On</option>
                                             </select>
                                         </div>
-                                    </form>
+                                    </form> -->
                                 </li>
                                 <li>
                                     <label for="rangeslider">Radius</label>
                                     <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
                                 </li>
                                 <li>
-
+                                    <div data-role="controlgroup" data-type="horizontal">
+                                        <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
+                                        <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
+                                    </div>
+                                    <div>
+                                        <ul id="search-tag-list" data-split-icon="delete">
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ui-grid-a">
+                                        <div class="ui-block-a">
+                                            <a href="#" class="ui-btn">Apply</a>
+                                        </div>
+                                        <div class="ui-block-b">
+                                            <a href="#" class="ui-btn ui-block b">Cancel</a>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </fieldset>
