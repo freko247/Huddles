@@ -204,6 +204,10 @@ function getSuggestedHuddles() {
         success: function(result) {
             var huddles = result[0];
             $.each(huddles, function(index, value) {
+                var tags = "";
+                $.each(value[1], function(index, tag) {
+                    tags += '<strong>' + tag + '</strong><br>';
+                });
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'huddleicon',
                     'text': value[0],
@@ -216,14 +220,16 @@ function getSuggestedHuddles() {
                     '</div>' +
                     '<div class="ui-grid-a">' +
                     '<div class="ui-block-a">' +
-                    '<p><strong>' + value[1][0] + '</strong></p>' +
-                    '<p><strong>' + value[1][1] + '</strong></p>' +
-                    '<p><strong>' + value[1][2] + '</strong></p>' +
+                    '<p>' +
+                    tags +
+                    '</p>' +
                     '</div>' +
                     '<div class="ui-block-b">' +
-                    '<p><strong>Lat: ' + value[2][0] + '</strong></p>' +
-                    '<p><strong>Lat: ' + value[2][1] + '</strong></p>' +
-                    '<p><strong>Created: ' + value[3] + '</strong></p>' +
+                    '<p>' +
+                    '<strong>Lat: ' + value[2][0] + '</strong><br>' +
+                    '<strong>Lat: ' + value[2][1] + '</strong><br>' +
+                    '<strong>Created: ' + value[3] + '</strong><br>' +
+                    '</p>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
