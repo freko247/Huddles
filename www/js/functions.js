@@ -175,11 +175,11 @@ function getSuggestedHuddles() {
     $('#suggestedHuddlesList').empty();
     var filterDistance = "";
     var userLocation = JSON.parse(localStorage.getItem("userPosition"));
-    if ($("#rangeswitch").val() === "on") {
+    if ($("#rangecheck").is(":checked")) {
         filterDistance = ($("#rangeslider").val() + ".0");
     }
     var searchTags = "";
-    if ($("#tagswitch").val() === "on") {
+    if ($("#tagscheck").is(":checked")) {
         searchTags = localStorage.getItem("search-tags");
     }
     $.ajax({
