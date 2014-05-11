@@ -77,7 +77,7 @@
                 <!-- SUGGESTED HUDDLES -->
                 <div id="suggestedhuddles">
                     <form>
-                        <fieldset data-role="collapsible">
+                        <fieldset data-role="collapsible" id="filter-fieldset">
                             <legend>Filter</legend>
                             <ul data-role="listview" data-inset="false">
                                 <li class="ui-field-contain">
@@ -109,13 +109,12 @@
                                     </div>
                                 </li>
                                 <li class="ui-field-contain">
-
                                     <div class="ui-grid-b">
                                         <div class="ui-block-a">
                                             <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="update-suggested-huddles">Apply</a>
                                         </div>
                                         <div class="ui-block-b">
-                                            <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="cancel-filter">Reset</a>
+                                            <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="reset-filter">Reset</a>
                                         </div>
                                         <div class="ui-block-c">
                                             <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="cancel-filter">Cancel</a>
@@ -139,7 +138,7 @@
         </div>
     </div>
 
-    <!-- IN HUDDLE -->
+    <!-- IN A HUDDLE -->
     <div data-role="page" id="page_huddle" data-theme="a">
 
         <div data-role="header" data-position="fixed">
