@@ -317,34 +317,39 @@
 <div data-role="page" id="page_myhuddles">
     <!-- HEADER -->
     <div data-role="header" data-position="fixed">
-     <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-     <h1>Huddles</h1>
- </div>
- <!-- MAIN -->
- <div role="main" class="ui-content jqm-content jqm-fullwidth">
-    <div data-role="navbar">
-        <ul>
-            <li><a href="#page_searchhuddles">Search</a></li>
-            <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
-        </ul>
+        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+        <h1>Huddles</h1>
     </div>
-    <ul data-role="listview" data-inset="true">
-        <li data-icon="false"><a href="#">
-            <h2>Mobile Application Prototyping</h2>
-            <p><strong>02827</strong></p>
-            <p><strong>Android</strong></p>
-            <p><strong>iOS</strong></p>
-            <p class="ui-li-aside"><strong>(5)</strong></p>
-        </li></a>
-        <li data-icon="false"><a href="#">
-            <h2>Agile Digital Development</h2>
-            <p><strong>02814</strong></p>
-            <p><strong>Lean</strong></p>
-            <p><strong>Scrum</strong></p>
-            <p class="ui-li-aside"><strong>200</strong>m</p>
-        </li></a>
-    </ul>
-</div>
+ <!-- MAIN -->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        <div data-role="tabs" id="tabs_huddles">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page_searchhuddles">Search</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
+                </ul>
+            </div>
+
+            <div id="">
+            </div>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="false"><a href="#">
+                    <h2>Mobile Application Prototyping</h2>
+                    <p><strong>02827</strong></p>
+                    <p><strong>Android</strong></p>
+                    <p><strong>iOS</strong></p>
+                    <p class="ui-li-aside"><strong>(5)</strong></p>
+                </li></a>
+                <li data-icon="false"><a href="#">
+                    <h2>Agile Digital Development</h2>
+                    <p><strong>02814</strong></p>
+                    <p><strong>Lean</strong></p>
+                    <p><strong>Scrum</strong></p>
+                    <p class="ui-li-aside"><strong>200</strong>m</p>
+                </li></a>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <!-- CREATE HUDDLE PAGE -->
@@ -357,7 +362,7 @@
     <!-- MAIN -->
     <div role="main" class="ui-content jqm-content jqm-fullwidth">
         <form>
-            <ul data-role="listview" data-inset="true">
+            <ul data-role="listview">
                 <li class="ui-field-contain">
                     <label for="huddlename">Huddle Name:</label>
                     <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
@@ -368,10 +373,8 @@
                     <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
                     <input type="text" name="tagthree" id="tagthree" value="" data-clear-btn="true">
                 </li>
-                <li class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-b"><button type="submit" id="create-huddle-button" class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
-                    </fieldset>
+                <li>
+                    <div><button type="submit" id="create-huddle-submit" class="ui-btn ui-corner-all">Submit</button></div>
                 </li>
             </ul>
         </form>
@@ -453,18 +456,18 @@
 <!-- MENU PANEL -->
 <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
     <div data-role="ui-panel-inner">
-        <ul data-role="listview" data-inset="true">
+        <ul data-role="listview">
             <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
             <li data-role="list-divider" id="panel-user-name">BLa</li>
-            <li><a href="#page_home" class="ui-icon-homeicon ui-corner-all ui-shadow ui-nodisc-icon">HOME</a></li>
-            <li><a href="#page_editprofile" class="ui-icon-profileicon ui-corner-all ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
-            <li><a href="#" id="log-out-button" class="ui-icon-power ui-corner-all ui-shadow ui-nodisc-icon">LOG OUT</a></li>
+            <li><a href="#page_home" class="ui-icon-homeiconui-shadow ui-nodisc-icon">HOME</a></li>
+            <li><a href="#page_editprofile" class="ui-icon-profileicon ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
+            <li><a href="#" id="log-out-button" class="ui-icon-power ui-shadow ui-nodisc-icon">LOG OUT</a></li>
             <li data-role="list-divider">Huddles</li>
-            <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-corner-all ui-shadow ui-nodisc-icon">HUDDLES</a></li>
-            <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-corner-all ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
+            <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-shadow ui-nodisc-icon">HUDDLES</a></li>
+            <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
             <li data-role="list-divider">Options</li>
-            <li><a href="#page_settings" class="ui-icon-settingsicon ui-corner-all ui-shadow ui-nodisc-icon">SETTINGS</a></li>
-            <li><a href="#page_help" class="ui-icon-helpicon ui-corner-all ui-shadow ui-nodisc-icon">HELP</a></li>
+            <li><a href="#page_settings" class="ui-icon-settingsicon ui-shadow ui-nodisc-icon">SETTINGS</a></li>
+            <li><a href="#page_help" class="ui-icon-helpicon  ui-shadow ui-nodisc-icon">HELP</a></li>
         </ul>
     </div>
 </div>

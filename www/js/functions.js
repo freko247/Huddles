@@ -509,7 +509,11 @@ function getUserInfo() {
     });
 }
 
-$(document).on('click', '#create-huddle-button', function() {
+$(document).on('click', '#create-huddle-submit', function() {
+    createHuddle();
+});
+
+$(document).on('click', '#create-huddle-cancel', function() {
     createHuddle();
 });
 
