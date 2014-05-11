@@ -40,6 +40,9 @@
   background-color: #2692f6;
 }
 
+.list-divider{
+  border-color: #448ccb !important;
+}
 .search-tag{
   border-radius: 20px !important;
 }
