@@ -36,6 +36,11 @@ $(document).on('pageshow', '#page_first', function() {
 });
 
 $(document).on('pageshow', '#page_home', function() {
+    if (!$("#huddle-date").val()) {
+        var string_date = $.format.date(new Date(), "yyyy-MM-dd");
+        $("#huddle-date").val(string_date);
+        console.log("setting date to: " + string_date);
+    }
     $("#panel-user-name").text(localStorage.getItem("userEmail"));
     var searchTags = [];
     if (localStorage.getItem("search-tags")) {
@@ -172,6 +177,7 @@ function createHuddle() {
 }
 
 function getSuggestedHuddles() {
+    console.log("Getting suggested huddles, date is set to: " + $("#huddle-date").val());
     $('#suggestedHuddlesList').empty();
     var filterDistance = "";
     var userLocation = JSON.parse(localStorage.getItem("userPosition"));
