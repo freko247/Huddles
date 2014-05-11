@@ -226,7 +226,8 @@ function getSuggestedHuddles() {
                     '<p><strong>Created: ' + value[3] + '</strong></p>' +
                     '</div>' +
                     '</div>' +
-                    '</div>'
+                    '</div>' +
+                    '<hr class="list-divider">'
                 ));
             });
         },
