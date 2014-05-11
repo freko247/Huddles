@@ -506,3 +506,7 @@ function getUserInfo() {
 $(document).on('click', '#create-huddle-button', function() {
     createHuddle();
 });
+
+$(document).on('click', "#update-suggested-huddles", function() {
+    getSuggestedHuddles();
+});
