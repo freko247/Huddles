@@ -149,3 +149,7 @@
   /*  ...more HD icon rules go here...*/
 }
 
+.controlgroup-textinput{
+  padding-top:.22em;
+  padding-bottom:.22em;
+}
