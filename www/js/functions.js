@@ -206,15 +206,29 @@ function getSuggestedHuddles() {
             $.each(huddles, function(index, value) {
                 $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
                     'data-icon': 'huddleicon',
-                }).append($('<a/>', { //here appending `<a>` into `<li>`
-                    'href': '#' + value[0],
-                    'data-transition': 'slide',
-                    'class': 'ui-btn ui-corner-all',
                     'text': value[0],
-                })));
-
+                }).html(
+                    '<div>' +
+                    '<div class="ui-grid-solo">' +
+                    '<h2><u>' + value[0] + '</u></h2>' +
+                    '<div class="ui-block-a">' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="ui-grid-a">' +
+                    '<div class="ui-block-a">' +
+                    '<p><strong>' + value[1][0] + '</strong></p>' +
+                    '<p><strong>' + value[1][1] + '</strong></p>' +
+                    '<p><strong>' + value[1][2] + '</strong></p>' +
+                    '</div>' +
+                    '<div class="ui-block-b">' +
+                    '<p><strong>Lat: ' + value[2][0] + '</strong></p>' +
+                    '<p><strong>Lat: ' + value[2][1] + '</strong></p>' +
+                    '<p><strong>Created: ' + value[3] + '</strong></p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                ));
             });
-            // $('#suggestedHuddlesList').listview('refresh');
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -259,10 +273,10 @@ function getHuddleInfo(huddleName) {
     });
 }
 
-$(document).on('click', '#suggestedHuddlesList li a', function() {
-    $("#heading_huddle").text($(this).text());
+$(document).on('click', '#suggestedHuddlesList li div', function() {
+    $("#heading_huddle").text($('h2', this).text());
     window.location = "#page_huddle";
-    getHuddleInfo($(this).text());
+    getHuddleInfo($('h2', this).text());
     getHuddleUsers();
 });
 
