@@ -510,3 +510,7 @@ $(document).on('click', '#create-huddle-button', function() {
 $(document).on('click', "#update-suggested-huddles", function() {
     getSuggestedHuddles();
 });
+
+$(document).on('click', "#cancel-filter", function() {
+    $("#filter-fieldset").collapsible("collapse");
+});
