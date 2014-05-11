@@ -105,8 +105,8 @@
                                     <div data-role="controlgroup" data-type="horizontal" class="ui-field-contain">
                                         <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn ui-corner-all" type="text">
                                         <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-corner-all ui-btn-icon-notext ui-btn-icon-left">No text</a>
-                                    <ul data-role="listview" data-inset="true" id="search-tag-list">
-                                    </ul>
+                                        <ul data-role="listview" data-inset="true" id="search-tag-list">
+                                        </ul>
                                     </div>
                                 </li>
                                 <li class="ui-field-contain">
@@ -150,7 +150,7 @@
         </div>
     </div>
 
-    <!-- HUDDLE -->
+    <!-- IN HUDDLE -->
     <div data-role="page" id="page_huddle" data-theme="a">
 
         <div data-role="header" data-position="fixed">
@@ -233,219 +233,199 @@
         </div>
     </div>
 
-    <!-- HUDDLES - PAGE ONE - SEARCH -->
-    <div data-role="page" id="page_searchhuddles">
+    <!-- HUDDLES PAGE -->
+    <div data-role="page" id="page_huddles">
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Huddles</h1>
+        </div>
+
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#searchhuddles" data-ajax="false" class="ui-btn-active ui-state-persists">Search</a></li>
+                        <li><a href="#myhuddles" data-ajax="false" class="ui-btn-active ui-state-persists">My Huddles</a></li>
+                    </ul>
+                </div>
+
+                <div id="searchhuddles" data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+                    <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
+                        <li data-icon="false">
+                            <a href="#">
+                                <h2>Mobile Application Prototyping</h2>
+                                <p><strong>02827</strong></p>
+                                <p><strong>Android</strong></p>
+                                <p><strong>iOS</strong></p>
+                                <p class="ui-li-aside"><strong>(5)</strong>PM</p>
+                            </a>
+                        </li>
+                        <li data-icon="false"><a href="#">
+                            <h2>Agile Digital Development</h2>
+                            <p><strong>02814</strong></p>
+                            <p><strong>Lean</strong></p>
+                            <p><strong>Scrum</strong></p>
+                            <p class="ui-li-aside"><strong>200</strong>m</p>
+                        </li></a>
+                    </ul>
+                </div>
+
+                <div id="myhuddles">
+                    <ul data-role="listview" data-inset="true">
+                        <li data-icon="false"><a href="#">
+                            <h2>Mobile Application Prototyping</h2>
+                            <p><strong>02827</strong></p>
+                            <p><strong>Android</strong></p>
+                            <p><strong>iOS</strong></p>
+                            <p class="ui-li-aside"><strong>(5)</strong></p>
+                        </li></a>
+                        <li data-icon="false"><a href="#">
+                            <h2>Agile Digital Development</h2>
+                            <p><strong>02814</strong></p>
+                            <p><strong>Lean</strong></p>
+                            <p><strong>Scrum</strong></p>
+                            <p class="ui-li-aside"><strong>200</strong>m</p>
+                        </li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATE HUDDLE PAGE -->
+    <div data-role="page" id="page_createhuddle">
         <!-- HEADER -->
         <div data-role="header" data-position="fixed">
-         <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-         <h1>Huddles</h1>
-     </div>
-     <!-- MAIN -->
-     <div role="main" class="ui-content jqm-content jqm-fullwidth">
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#" class="ui-btn-active ui-state-persists">Search</a></li>
-                <li><a href="#page_myhuddles">My Huddles</a></li>
-            </ul>
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>New Huddle</h1>
         </div>
-        <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-            <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
-                <li data-icon="false">
-                    <a href="#">
-                        <h2>Mobile Application Prototyping</h2>
-                        <p><strong>02827</strong></p>
-                        <p><strong>Android</strong></p>
-                        <p><strong>iOS</strong></p>
-                        <p class="ui-li-aside"><strong>(5)</strong>PM</p>
-                    </a>
-                </li>
-                <li data-icon="false"><a href="#">
-                    <h2>Agile Digital Development</h2>
-                    <p><strong>02814</strong></p>
-                    <p><strong>Lean</strong></p>
-                    <p><strong>Scrum</strong></p>
-                    <p class="ui-li-aside"><strong>200</strong>m</p>
-                </li></a>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- HUDDLES - PAGE TWO - MY HUDDLES -->
-<div data-role="page" id="page_myhuddles">
-    <!-- HEADER -->
-    <div data-role="header" data-position="fixed">
-        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-        <h1>Huddles</h1>
-    </div>
-    <!-- MAIN -->
-    <div role="main" class="ui-content jqm-content jqm-fullwidth">
-        <div data-role="tabs" id="tabs_huddles">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page_searchhuddles">Search</a></li>
-                    <li><a href="#" class="ui-btn-active ui-state-persists">My Huddles</a></li>
+        <!-- MAIN -->
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <li class="ui-field-contain">
+                        <label for="huddlename">Huddle Name:</label>
+                        <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
+                    </li>
+                    <li class="ui-field-contain" id="huddle-tag-list">
+                        <label>Tags:</label>
+                        <input type="text" name="tagone" id="tagone" value="" data-clear-btn="true">
+                        <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
+                        <input type="text" name="tagthree" id="tagthree" value="" data-clear-btn="true">
+                    </li>
+                    <li>
+                        <div><button type="submit" id="create-huddle-submit" class="ui-btn ui-corner-all">Submit</button></div>
+                    </li>
                 </ul>
-            </div>
-
-            <div id="">
-            </div>
-            <ul data-role="listview" data-inset="true">
-                <li data-icon="false"><a href="#">
-                    <h2>Mobile Application Prototyping</h2>
-                    <p><strong>02827</strong></p>
-                    <p><strong>Android</strong></p>
-                    <p><strong>iOS</strong></p>
-                    <p class="ui-li-aside"><strong>(5)</strong></p>
-                </li></a>
-                <li data-icon="false"><a href="#">
-                    <h2>Agile Digital Development</h2>
-                    <p><strong>02814</strong></p>
-                    <p><strong>Lean</strong></p>
-                    <p><strong>Scrum</strong></p>
-                    <p class="ui-li-aside"><strong>200</strong>m</p>
-                </li></a>
-            </ul>
+            </form>
         </div>
     </div>
-</div>
 
-<!-- CREATE HUDDLE PAGE -->
-<div data-role="page" id="page_createhuddle">
-    <!-- HEADER -->
-    <div data-role="header" data-position="fixed">
-        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-        <h1>New Huddle</h1>
+    <!-- SETTINGS PAGE -->
+    <div data-role="page" id="page_settings">
+
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Settings</h1>
+        </div>
+
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <h1>Settings</h1>
+        </div>
     </div>
-    <!-- MAIN -->
-    <div role="main" class="ui-content jqm-content jqm-fullwidth">
-        <form>
+
+    <!-- HELP PAGE -->
+    <div data-role="page" id="page_help">
+
+        <div data-role="header" data-position="fixed">
+            <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <h1>Help</h1>
+        </div>
+
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- introduction -->
+                <h4>Now what is this app about?</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- navigation -->
+                <h4>Application navigation - what is that?</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- profile -->
+                <h4>Who are you mister!?</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- skills -->
+                <h4>What do you know</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- tags -->
+                <h4>Tags and what that is</h4>
+                <p>bla bla bla</p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- huddles -->
+                <h4>What the Huddles..?</h4>
+                <p></p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- groups -->
+                <h4>Me, me, me.. Why is it all about you?</h4>
+                <p></p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- chat -->
+                <h4>Well Mr. Admin, how do I talk to others?</h4>
+                <p></p>
+            </div>
+            <div data-role="collapsible" data-iconpos="right">
+                <!-- schedule -->
+                <h4>How about planning..?</h4>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENU PANEL -->
+    <div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
+        <div data-role="ui-panel-inner">
             <ul data-role="listview">
-                <li class="ui-field-contain">
-                    <label for="huddlename">Huddle Name:</label>
-                    <input type="text" name="huddlename" id="label_huddlename" value="" data-clear-btn="true">
-                </li>
-                <li class="ui-field-contain" id="huddle-tag-list">
-                    <label>Tags:</label>
-                    <input type="text" name="tagone" id="tagone" value="" data-clear-btn="true">
-                    <input type="text" name="tagtwo" id="tagtwo" value="" data-clear-btn="true">
-                    <input type="text" name="tagthree" id="tagthree" value="" data-clear-btn="true">
-                </li>
-                <li>
-                    <div><button type="submit" id="create-huddle-submit" class="ui-btn ui-corner-all">Submit</button></div>
-                </li>
+                <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
+                <li data-role="list-divider" id="panel-user-name">BLa</li>
+                <li><a href="#page_home" class="ui-icon-homeicon ui-shadow ui-nodisc-icon">HOME</a></li>
+                <li><a href="#page_editprofile" class="ui-icon-profileicon ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
+                <li><a href="#" id="log-out-button" class="ui-icon-power ui-shadow ui-nodisc-icon">LOG OUT</a></li>
+                <li data-role="list-divider">Huddles</li>
+                <li><a href="#page_huddles" class="ui-icon-huddleicon ui-shadow ui-nodisc-icon">HUDDLES</a></li>
+                <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
+                <li data-role="list-divider">Options</li>
+                <li><a href="#page_settings" class="ui-icon-settingsicon ui-shadow ui-nodisc-icon">SETTINGS</a></li>
+                <li><a href="#page_help" class="ui-icon-helpicon  ui-shadow ui-nodisc-icon">HELP</a></li>
             </ul>
-        </form>
+        </div>
     </div>
-</div>
 
-<!-- SETTINGS PAGE -->
-<div data-role="page" id="page_settings">
-    <!-- HEADER -->
-    <div data-role="header" data-position="fixed">
-        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-        <h1>Settings</h1>
-    </div>
-    <!-- MAIN -->
-    <div role="main" class="ui-content jqm-content jqm-fullwidth">
-        <h1>Settings</h1>
-    </div>
-</div>
-
-<!-- HELP PAGE -->
-<div data-role="page" id="page_help">
-    <!-- HEADER -->
-    <div data-role="header" data-position="fixed">
-        <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
-        <h1>Help</h1>
-    </div>
-    <!-- MAIN -->
-    <div role="main" class="ui-content jqm-content jqm-fullwidth">
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- introduction -->
-            <h4>Now what is this app about?</h4>
-            <p>bla bla bla</p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- navigation -->
-            <h4>Application navigation - what is that?</h4>
-            <p>bla bla bla</p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- profile -->
-            <h4>Who are you mister!?</h4>
-            <p>bla bla bla</p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- skills -->
-            <h4>What do you know</h4>
-            <p>bla bla bla</p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- tags -->
-            <h4>Tags and what that is</h4>
-            <p>bla bla bla</p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- huddles -->
-            <h4>What the Huddles..?</h4>
-            <p></p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- groups -->
-            <h4>Me, me, me.. Why is it all about you?</h4>
-            <p></p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- chat -->
-            <h4>Well Mr. Admin, how do I talk to others?</h4>
-            <p></p>
-        </div>
-        <div data-role="collapsible" data-iconpos="right">
-            <!-- schedule -->
-            <h4>How about planning..?</h4>
-            <p></p>
+    <div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
+        <div data-role="ui-panel-inner">
+            <ul data-role="listview">
+                <li data-role="list-divider">PERSONAL CHAT(S)</li>
+                <li><a href="#" class="ui-btn">Peter Poppy</a></li>
+                <li><a href="#" class="ui-btn">James Hendry</a></li>
+                <li><a href="#" class="ui-btn">Felix Tops</a></li>
+                <li data-role="list-divider">GROUP CHAT(S)</li>
+                <li><a href="#" class="ui-btn">Group 1337</a></li>
+                <li><a href="#" class="ui-btn">Group freako</a></li>
+                <li><a href="#" class="ui-btn">Group zeliax</a></li>
+                <li data-role="list-divider">HUDDLE CHAT(S)</li>
+                <li><a href="#" class="ui-btn">Mobile Application Prototyping</a></li>
+                <li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>
+            </ul>
         </div>
     </div>
-</div>
-
-<!-- PANELS, POP-UPS AND ETC -->
-
-<!-- MENU PANEL -->
-<div data-role="panel" id="panel_menu" data-position="left" data-display="push" data-theme="a">
-    <div data-role="ui-panel-inner">
-        <ul data-role="listview">
-            <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
-            <li data-role="list-divider" id="panel-user-name">BLa</li>
-            <li><a href="#page_home" class="ui-icon-homeicon ui-shadow ui-nodisc-icon">HOME</a></li>
-            <li><a href="#page_editprofile" class="ui-icon-profileicon ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
-            <li><a href="#" id="log-out-button" class="ui-icon-power ui-shadow ui-nodisc-icon">LOG OUT</a></li>
-            <li data-role="list-divider">Huddles</li>
-            <li><a href="#page_myhuddles" class="ui-icon-huddleicon ui-shadow ui-nodisc-icon">HUDDLES</a></li>
-            <li><a href="#page_createhuddle" class="ui-icon-createhuddleicon ui-shadow ui-nodisc-icon">CREATE HUDDLE</a></li>
-            <li data-role="list-divider">Options</li>
-            <li><a href="#page_settings" class="ui-icon-settingsicon ui-shadow ui-nodisc-icon">SETTINGS</a></li>
-            <li><a href="#page_help" class="ui-icon-helpicon  ui-shadow ui-nodisc-icon">HELP</a></li>
-        </ul>
-    </div>
-</div>
-
-<div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
-    <div data-role="ui-panel-inner">
-        <ul data-role="listview">
-            <li data-role="list-divider">PERSONAL CHAT(S)</li>
-            <li><a href="#" class="ui-btn">Peter Poppy</a></li>
-            <li><a href="#" class="ui-btn">James Hendry</a></li>
-            <li><a href="#" class="ui-btn">Felix Tops</a></li>
-            <li data-role="list-divider">GROUP CHAT(S)</li>
-            <li><a href="#" class="ui-btn">Group 1337</a></li>
-            <li><a href="#" class="ui-btn">Group freako</a></li>
-            <li><a href="#" class="ui-btn">Group zeliax</a></li>
-            <li data-role="list-divider">HUDDLE CHAT(S)</li>
-            <li><a href="#" class="ui-btn">Mobile Application Prototyping</a></li>
-            <li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>
-        </ul>
-    </div>
-</div>
 </body>
 </html>
