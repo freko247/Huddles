@@ -36,8 +36,8 @@
     </script>
 </head>
 <body>
-    <div data-role="page" id="page_first" data-theme="a">
-        <div data-role="header" data-theme="a">
+    <div data-role="page" id="page_first">
+        <div data-role="header">
             <h1>Log In</h1>
         </div>
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
@@ -45,10 +45,14 @@
             <input type="email" name="loginEmail" id="loginEmail" value="" data-clear-btn="true">
             <label for="loginPass">Password</label>
             <input type="password" name="loginPass" id="loginPass" value="" data-clear-btn="true">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <a href="#" id="sign-in-button" class="ui-btn ui-corner-all ui-shadow ui-btn-a">Log In</a>
-                <a href="#" id="sign-up-button" class="ui-btn ui-corner-all ui-shadow ui-btn-a">Register</a>
-            </fieldset>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a href="#" id="sign-in-button" class="ui-btn ui-corner-all">Log In</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#" id="sign-up-button" class="ui-btn ui-corner-all">Register</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -62,131 +66,85 @@
         </div>
 
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
-            <div data-role="tabs">
+            <div data-role="tabs" id="tabs_home">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
-                        <li><a href="#recentevents" data-ajax="false">Recent Events</a></li>
+                        <li><a href="#suggestedhuddles" class="ui-corner-all" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
+                        <li><a href="#recentevents" class="ui-corner-all" data-ajax="false">Recent Events</a></li>
                     </ul>
                 </div>
 
-                <!-- SUGGESTED HUDDLES -->
 
-                <div data-role="controlgroup">
+                <!-- SUGGESTED HUDDLES -->
+                <div id="suggestedhuddles">
                     <form>
-                        <fieldset data-role="collapsible" id="filter-fieldset">
+                        <fieldset data-role="collapsible">
                             <legend>Filter</legend>
-                            <ul data-role="listview">
-                                <li>
-                                    <div class="ui-grid-b">
+                            <ul data-role="listview" data-inset="false">
+                                <li class="ui-field-contain">
+                                    <fieldset data-role="controlgroup" data-type="horizontal">
                                         <legend>Active filters:</legend>
-                                        <div class="ui-block-a">
-                                            <input type="checkbox" name="rangecheck" id="rangecheck" data-mini="true">
-                                            <label for="rangecheck">Radius</label>
-                                        </div>
-                                        <div class="ui-block-b">
-                                            <input type="checkbox" name="timecheck" id="timecheck" data-mini="true">
-                                            <label for="timecheck">Time</label>
-                                        </div>
-                                        <div class="ui-block-c">
-                                            <input type="checkbox" name="tagscheck" id="tagscheck" data-mini="true">
-                                            <label for="tagscheck">Tags</label>
-                                        </div>
-                                    </div>
-                                    <!-- <form class="ui-grid-b">
-                                        <div class="ui-block-a">
-                                            <label for="rangeswitch">Radius</label>
-                                            <select name="rangeswitch" id="rangeswitch" data-role="flipswitch">
-                                                <option value="off">Off</option>
-                                                <option value="on">On</option>
-                                            </select>
-                                        </div>
-                                        <div class="ui-block-b">
-                                            <label for="dateswitch">Date</label>
-                                            <select name="dateswitch" id="dateswitch" data-role="flipswitch">
-                                                <option value="off">Off</option>
-                                                <option value="on">On</option>
-                                            </select>
-                                        </div>
-                                        <div class="ui-block-c">
-                                            <label for="tagswitch">Tags</label>
-                                            <select name="tagswitch" id="tagswitch" data-role="flipswitch">
-                                                <option value="off">Off</option>
-                                                <option value="on">On</option>
-                                            </select>
-                                        </div>
-                                    </form> -->
+                                        <input type="checkbox" name="rangecheck" id="rangecheck">
+                                        <label for="rangecheck">Radius</label>
+                                        <input type="checkbox" name="timecheck" id="timecheck">
+                                        <label for="timecheck">Time</label>
+                                        <input type="checkbox" name="tagscheck" id="tagscheck">
+                                        <label for="tagscheck">Tags</label>
+                                    </fieldset> 
                                 </li>
-                                <li>
+                                <li class="ui-field-contain">
                                     <label for="rangeslider">Radius</label>
                                     <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
                                 </li>
-                                <li>
+                                <li class="ui-field-contain">
                                     <label>Date</label>
                                     <input type="date" name="huddle-date" id="huddle-date" value="">
                                 </li>
-                                <li>
+                                <li class="ui-field-contain">
                                     <label>Tags</label>
-                                    <div class="ui-field-contain">
-                                        <ul data-role="listview" data-inset="true" id="search-tag-list">
-                                        </ul>
-                                    </div>
-                                    <div data-role="controlgroup" data-type="horizontal">
-                                        <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
-                                        <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
-                                    </div>
-                                    <div>
-                                        <ul id="search-tag-list" data-split-icon="delete">
-                                        </ul>
+                                    <div data-role="controlgroup" data-type="horizontal" class="ui-field-contain">
+                                        <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn ui-corner-all" type="text">
+                                        <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-corner-all ui-btn-icon-notext ui-btn-icon-left">No text</a>
+                                    <ul data-role="listview" data-inset="true" id="search-tag-list">
+                                    </ul>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="ui-grid-a">
+                                <li class="ui-field-contain">
+                                    <!-- <fieldset data-role="controlgroup" data-type="horizontal"> -->
+                                    <div class="ui-grid-b">
                                         <div class="ui-block-a">
-                                            <a href="#" class="ui-btn" id="update-suggested-huddles">Apply</a>
+                                            <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="update-suggested-huddles">Apply</a>
                                         </div>
                                         <div class="ui-block-b">
-                                            <a href="#" class="ui-btn" id="cancel-filter">Cancel</a>
+                                            <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="cancel-filter">Reset</a>
+                                        </div>
+                                        <div class="ui-block-c">
+                                            <a href="#" class="ui-btn ui-corner-all ui-btn-a" id="cancel-filter">Cancel</a>
                                         </div>
                                     </div>
+                                    <!-- </fieldset> -->
                                 </li>
                             </ul>
                         </fieldset>
                     </form>
-                </div>
-                    <!-- <form>
-                        <fieldset data-role="collapsible" data-iconpos="right" data-inset="false">
-                            <legend>Filter</legend>
-                            <div class="ui-field-contain">
-                                <label for="rangeswitch">Radius</label>
-                                <select name="rangeswitch" id="rangeswitch" data-role="flipswitch" data-mini="true">
-                                    <option value="off">Off</option>
-                                    <option value="on">On</option>
-                                </select>
-                                <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
-                            </div>
-                            <div class="ui-field-contain">
-                                <label for="tagswitch">Tags</label>
-                                <select name="tagswitch" id="tagswitch" data-role="flipswitch" data-mini="true">
-                                    <option value="off">Off</option>
-                                    <option value="on">On</option>
-                                </select>
-                                <div id="search-tag-list">
-                                </div>
-                                <div data-role="controlgroup" data-type="horizontal">
-                                    <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn" type="text">
-                                    <a href="#" id="add-tag-button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-btn-icon-left">No text</a>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form> -->
-                    <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
-                    </ul>
+                    <div data-role="controlgroup">
+                        <ul id="suggestedHuddlesList" data-role="listview" data-inset="true">
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- RECENT EVENTS -->
-                <div data-role="controlgroup" id="recentevents">
-
+                <div id="recentevents">
+                    <h2>Hello</h2>
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                        <legend>Active filters:</legend>
+                        <input type="checkbox" name="rangecheck" id="rangecheck">
+                        <label for="rangecheck">Radius</label>
+                        <input type="checkbox" name="timecheck" id="timecheck">
+                        <label for="timecheck">Time</label>
+                        <input type="checkbox" name="tagscheck" id="tagscheck">
+                        <label for="tagscheck">Tags</label>
+                    </fieldset> 
                 </div>
             </div>
         </div>
@@ -269,7 +227,7 @@
                     <li class="ui-field-contain">
                         <!-- ADD DYNAMIC COLLAPSIBLE SKILLS LIST -->
                     </li>
-                    <a href="#page_home" class="ui-btn" id="save-1" onclick="addUser()">Save</a>
+                    <a href="#page_home" class="ui-btn ui-corner-all" id="save-1" onclick="addUser()">Save</a>
                 </ul>
             </form>
         </div>
@@ -320,7 +278,7 @@
         <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
         <h1>Huddles</h1>
     </div>
- <!-- MAIN -->
+    <!-- MAIN -->
     <div role="main" class="ui-content jqm-content jqm-fullwidth">
         <div data-role="tabs" id="tabs_huddles">
             <div data-role="navbar">
@@ -459,7 +417,7 @@
         <ul data-role="listview">
             <li data-icon="delete" class="ui-nodisc-icon"><a href="#" data-rel="close">CLOSE MENU</a></li>
             <li data-role="list-divider" id="panel-user-name">BLa</li>
-            <li><a href="#page_home" class="ui-icon-homeiconui-shadow ui-nodisc-icon">HOME</a></li>
+            <li><a href="#page_home" class="ui-icon-homeicon ui-shadow ui-nodisc-icon">HOME</a></li>
             <li><a href="#page_editprofile" class="ui-icon-profileicon ui-shadow ui-nodisc-icon">EDIT PROFILE</a></li>
             <li><a href="#" id="log-out-button" class="ui-icon-power ui-shadow ui-nodisc-icon">LOG OUT</a></li>
             <li data-role="list-divider">Huddles</li>
@@ -474,7 +432,7 @@
 
 <div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
     <div data-role="ui-panel-inner">
-        <ul data-role="listview" data-inset="true">
+        <ul data-role="listview">
             <li data-role="list-divider">PERSONAL CHAT(S)</li>
             <li><a href="#" class="ui-btn">Peter Poppy</a></li>
             <li><a href="#" class="ui-btn">James Hendry</a></li>
