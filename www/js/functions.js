@@ -131,10 +131,15 @@ function addHuddleTag() {
 
 function createHuddle() {
     var onSuccess = function(position) {
-        var tags = [jQuery("#tagone").val(),
+        var tags = [];
+        $.each([jQuery("#tagone").val(),
             jQuery("#tagtwo").val(),
             jQuery("#tagthree").val(),
-        ];
+        ], function(index, value) {
+            if (value) {
+                tags.push('#' + value);
+            }
+        });
         data = {
             "db_function": "createHuddle",
             'huddleLocation': [position.coords.latitude, position.coords.longitude],
@@ -288,7 +293,7 @@ function getHuddleInfo(huddleName) {
 
 $(document).on('click', '#suggestedHuddlesList li div', function() {
     $("#heading_huddle").text($('h2', this).text());
-    window.location = "#page_huddle";
+    $.mobile.changePage($('#page_huddle'));
     getHuddleInfo($('h2', this).text());
     getHuddleUsers();
 });
