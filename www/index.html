@@ -69,8 +69,8 @@
             <div data-role="tabs" id="tabs_home">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#suggestedhuddles" class="ui-corner-all" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
-                        <li><a href="#recentevents" class="ui-corner-all" data-ajax="false">Recent Events</a></li>
+                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
+                        <li><a href="#recentevents" data-ajax="false">Recent Events</a></li>
                     </ul>
                 </div>
 
@@ -149,7 +149,7 @@
 
         <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
             <div>
-                <h1 id='heading_huddle'>Huddle</h1>
+                <h1 id='heading_huddle'>Huddle Name</h1>
                 <ul id="tags_huddle">
                 </ul>
             </div>
@@ -159,22 +159,6 @@
                 </ul>
             </div>
             <ul data-role="listview" data-inset="true" id="huddle_users">
-                <!-- Huddle I am a member of -->
-                <li data-icon="false"><a href="#">
-                    <h2>Mobile Application Prototyping</h2>
-                    <p><strong>02827</strong></p>
-                    <p><strong>Android</strong></p>
-                    <p><strong>iOS</strong></p>
-                    <p class="ui-li-aside"><strong>(5)</strong></p>
-                </li></a>
-                <!-- Huddle I am not a member of (Maybe we should add an admin name somewhere-->
-                <li data-icon="false"><a href="#">
-                    <h2>Agile Digital Development</h2>
-                    <p><strong>02814</strong></p>
-                    <p><strong>Lean</strong></p>
-                    <p><strong>Scrum</strong></p>
-                    <p class="ui-li-aside"><strong>200</strong>m</p>
-                </li></a>
             </ul>
             <button id="join_huddle">Join Huddle</button>
         </div>
@@ -182,42 +166,90 @@
 
     <!-- EDIT PROFILE PAGE -->
     <div data-role="page" id="page_editprofile">
-        <!-- HEADER -->
+
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Profile</h1>
         </div>
-        <!-- MAIN -->
+
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
-            <form>
-                <div class="nailthumb-container">
-                    <img id="imagePreview" src="img/avatar.png" alt="User avatar"/>
+
+            <div data-role="tabs" id="tabs_profile">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#personalprofile" data-ajax="false">Personal</a></li>
+                        <li><a href="#professionalprofile" data-ajax="false">Professional</a></li>
+                        <li><a href="#huddleprofile" data-ajax="false">Huddle</a></li>
+                    </ul>
                 </div>
-                <ul data-role="listview" data-inset="true">
-                    <li class="ui-field-contain">
-                        <label for="avatar">User picture:</label>
-                        <input type="file" name="avatar" id="avatar">
-                    </li>
-                    <li class="ui-field-contain">
-                        <label for="textinput-1">Name:</label>
-                        <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" data-clear-btn="true" value="">
-                    </li>
-                    <li class="ui-field-contain">
-                        <label for="textinput-2">E-mail:</label>
-                        <input type="email" name="textinput-2" id="textinput-2" data-clear-btn="true" placeholder="E-mail@address.com" value="">
-                    </li>
-                    <li class="ui-field-contain">
-                        <label for="new_password">Password:</label>
-                        <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
-                        <label for="re_password">Retype password:</label>
-                        <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
-                    </li>
-                    <li class="ui-field-contain">
-                        <!-- ADD DYNAMIC COLLAPSIBLE SKILLS LIST -->
-                    </li>
-                    <a href="#page_home" class="ui-btn ui-corner-all" id="save-1" onclick="addUser()">Save</a>
-                </ul>
-            </form>
+
+                <div id="personalprofile">
+                    <form>
+                        <div class="nailthumb-container">
+                            <img id="imagePreview" src="img/avatar.png" alt="User avatar"/>
+                        </div>
+                        <ul data-role="listview" data-inset="true">
+                            <li class="ui-field-contain">
+                                <label for="avatar">User picture:</label>
+                                <input type="file" name="avatar" id="avatar">
+                            </li>
+                            <li class="ui-field-contain">
+                                <label for="textinput-1">Name:</label>
+                                <input type="text" name="textinput-1" id="textinput-1" placeholder="Full name" data-clear-btn="true" value="">
+                            </li>
+                            <li class="ui-field-contain">
+                                <label for="textinput-2">E-mail:</label>
+                                <input type="email" name="textinput-2" id="textinput-2" data-clear-btn="true" placeholder="E-mail@address.com" value="">
+                            </li>
+                            <li class="ui-field-contain">
+                                <label for="new_password">Password:</label>
+                                <input type="password" name="new_password" id="new_password" value="" autocomplete="off">
+                                <label for="re_password">Retype password:</label>
+                                <input type="password" name="re_password" id="re_password" value="" autocomplete="off">
+                            </li>
+                            <a href="#page_home" class="ui-btn ui-corner-all" id="save-1" onclick="addUser()">Save</a>
+                        </ul>
+                    </form>
+                </div>
+
+                <div id="professionalprofile">
+                    <form>
+                        <ul data-role="listview" data-inset="true">
+                            <li class="ui-field-contain">
+                                <div data-role="controlgroup" data-type="horizontal" id="prof_skills_box">
+                                    <input id="skill-input" data-wrapper-class="controlgroup-textinput ui-btn ui-corner-all" type="text">
+                                    <a href="#" id="add-skill-button" class="ui-btn ui-icon-plus ui-corner-all ui-btn-icon-notext ui-btn-icon-left">No text</a>
+                                </div>
+                            </li>
+                            <li class="ui-field-contain">
+                                <ul data-role="listview" data-split-icon="delete" data-inset="true" id="show-skills-list">
+                                    <li><a href="#">Wrestling</a> <a href="#" id="delete-wrestling"></a></li>
+                                    <li><a href="#">Jumping from the Eiffel Tower</a> <a href="#" id="delete-eiffel"></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+
+                <div id="huddleprofile">
+                    <form>
+                        <ul data-role="listview" data-inset="true">
+                            <li class="ui-field-contain">
+                                <div data-role="controlgroup" data-type="horizontal">
+                                    <input id="ptags-input" data-wrapper-class="controlgroup-textinput ui-btn ui-corner-all" type="text">
+                                    <a href="#" id="add-ptags-button" class="ui-btn ui-icon-plus ui-corner-all ui-btn-icon-notext ui-btn-icon-left">No text</a>
+                                </div>
+                            </li>
+                            <li class="ui-field-contain">
+                                <ul data-role="listview" data-split-icon="delete" data-inset="true" id="show-ptags-list">
+                                    <li><a href="#">DTU</a> <a href="#" id="delete-DTU"></a></li>
+                                    <li><a href="#">Mobile Application Prototyping</a> <a href="#" id="delete-map"></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -232,8 +264,8 @@
             <div data-role="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#searchhuddles" data-ajax="false" class="ui-btn-active ui-state-persists">Search</a></li>
-                        <li><a href="#myhuddles" data-ajax="false" class="ui-btn-active">My Huddles</a></li>
+                        <li><a href="#searchhuddles" data-ajax="false">Search</a></li>
+                        <li><a href="#myhuddles" data-ajax="false">My Huddles</a></li>
                     </ul>
                 </div>
 
@@ -282,12 +314,12 @@
 
     <!-- CREATE HUDDLE PAGE -->
     <div data-role="page" id="page_createhuddle">
-        <!-- HEADER -->
+
         <div data-role="header" data-position="fixed">
             <a href="#panel_menu" id="hamburger" class=" ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>New Huddle</h1>
         </div>
-        <!-- MAIN -->
+
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
             <form>
                 <ul data-role="listview" data-inset="true">
@@ -398,6 +430,7 @@
         </div>
     </div>
 
+    <!-- CHAT PANEL -->
     <div data-role="panel" id="panel_chat" data-position="right" data-display="push" data-theme="a">
         <div data-role="ui-panel-inner">
             <ul data-role="listview">
