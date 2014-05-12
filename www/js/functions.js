@@ -219,36 +219,38 @@ function getSuggestedHuddles() {
             var huddles = result[0];
             $.each(huddles, function(index, value) {
                 var tags = "";
-                $.each(value[1], function(index, tag) {
-                    tags += '<strong>' + tag + '</strong><br>';
-                });
-                $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
-                    'data-icon': 'huddleicon',
-                    'text': value[0],
-                }).html(
-                    '<div>' +
-                    '<div class="ui-grid-solo">' +
-                    '<h2><u>' + value[0] + '</u></h2>' +
-                    '<div class="ui-block-a">' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="ui-grid-a">' +
-                    '<div class="ui-block-a">' +
-                    '<p>' +
-                    tags +
-                    '</p>' +
-                    '</div>' +
-                    '<div class="ui-block-b">' +
-                    '<p>' +
-                    '<strong>Lat: ' + value[2][0] + '</strong><br>' +
-                    '<strong>Lat: ' + value[2][1] + '</strong><br>' +
-                    '<strong>Created: ' + value[3] + '</strong><br>' +
-                    '</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<hr class="list-divider">'
-                ));
+                if (value) {
+                    $.each(value[1], function(index, tag) {
+                        tags += '<strong>' + tag + '</strong><br>';
+                    });
+                    $('#suggestedHuddlesList').append($('<li/>', { //here appending `<li>`
+                        'data-icon': 'huddleicon',
+                        'text': value[0],
+                    }).html(
+                        '<div>' +
+                        '<div class="ui-grid-solo">' +
+                        '<h2><u>' + value[0] + '</u></h2>' +
+                        '<div class="ui-block-a">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="ui-grid-a">' +
+                        '<div class="ui-block-a">' +
+                        '<p>' +
+                        tags +
+                        '</p>' +
+                        '</div>' +
+                        '<div class="ui-block-b">' +
+                        '<p>' +
+                        '<strong>Lat: ' + value[2][0] + '</strong><br>' +
+                        '<strong>Lat: ' + value[2][1] + '</strong><br>' +
+                        '<strong>Created: ' + value[3] + '</strong><br>' +
+                        '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<hr class="list-divider">'
+                    ));
+                }
             });
         },
         error: function(request, error) {
@@ -357,7 +359,6 @@ function getHuddleUsers() {
                 $('#huddle_users').append($('<li/>', { //here appending `<li>`
                     'class': 'ui-first-child ui-last-child',
                 }).append(value));
-
             });
         },
         error: function(request, error) {
