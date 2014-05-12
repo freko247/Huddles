@@ -131,6 +131,7 @@ function addHuddleTag() {
 
 function createHuddle() {
     var onSuccess = function(position) {
+        var huddleName = jQuery("#label_huddlename").val();
         var tags = [];
         $.each([jQuery("#tagone").val(),
             jQuery("#tagtwo").val(),
@@ -145,7 +146,7 @@ function createHuddle() {
             'huddleLocation': [position.coords.latitude, position.coords.longitude],
             'huddleDateAndTime': position.timestamp,
             'huddleTag': tags,
-            'huddleName': jQuery("#label_huddlename").val(),
+            'huddleName': huddleName,
             'huddleAdmin': localStorage.getItem("userEmail"),
         };
         $.ajax({
@@ -163,7 +164,9 @@ function createHuddle() {
                 $.mobile.loading('hide');
             },
             success: function(result) {
-                getSuggestedHuddles();
+                $.mobile.changePage($('#page_huddle'));
+                getHuddleInfo(huddleName);
+                getHuddleUsers();
             },
             error: function(request, error) {
                 // This callback function will trigger on unsuccessful action
