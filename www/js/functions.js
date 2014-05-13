@@ -242,7 +242,7 @@ function getSuggestedHuddles() {
                         '<div class="ui-block-b">' +
                         '<p>' +
                         '<strong>Lat: ' + value[2][0] + '</strong><br>' +
-                        '<strong>Lat: ' + value[2][1] + '</strong><br>' +
+                        '<strong>Lon: ' + value[2][1] + '</strong><br>' +
                         '<strong>Created: ' + value[3] + '</strong><br>' +
                         '</p>' +
                         '</div>' +
@@ -519,10 +519,6 @@ function getUserInfo() {
 }
 
 $(document).on('click', '#create-huddle-submit', function() {
-    createHuddle();
-});
-
-$(document).on('click', '#create-huddle-cancel', function() {
     createHuddle();
 });
 
