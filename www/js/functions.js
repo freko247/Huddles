@@ -1,3 +1,5 @@
+APIUrl = "http://huddlesrest.appspot.com/api";
+
 $(document).ready(function() {
     console.log("ready!");
     $(function() {
@@ -80,7 +82,7 @@ function addUser() {
     };
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: data,
@@ -151,7 +153,7 @@ function createHuddle() {
         };
         $.ajax({
             traditional: true,
-            url: "http://huddlesrest.appspot.com/api",
+            url: APIUrl,
             type: "POST",
             dataType: "json",
             data: data,
@@ -185,12 +187,15 @@ function createHuddle() {
 }
 
 function getSuggestedHuddles() {
-    console.log("Getting suggested huddles, date is set to: " + $("#huddle-date").val());
     $('#suggestedHuddlesList').empty();
     var filterDistance = "";
     var userLocation = JSON.parse(localStorage.getItem("userPosition"));
     if ($("#rangecheck").is(":checked")) {
         filterDistance = ($("#rangeslider").val() + ".0");
+    }
+    var huddleDate = "";
+    if ($("#timecheck").is(":checked")) {
+        huddleDate = $("#huddle-date").val();
     }
     var searchTags = "";
     if ($("#tagscheck").is(":checked")) {
@@ -198,7 +203,7 @@ function getSuggestedHuddles() {
     }
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: {
@@ -206,6 +211,7 @@ function getSuggestedHuddles() {
             "filterDistance": filterDistance,
             "userLocation": userLocation,
             "searchTags": searchTags,
+            "huddleDate": huddleDate,
         },
         beforeSend: function() {
             // This callback function will trigger before data is sent
@@ -263,7 +269,7 @@ function getSuggestedHuddles() {
 function getHuddleInfo(huddleName) {
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: {
@@ -306,7 +312,7 @@ $(document).on('click', '#suggestedHuddlesList li div', function() {
 $(document).on('click', '#join_huddle', function() {
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: {
@@ -337,7 +343,7 @@ $(document).on('click', '#join_huddle', function() {
 function getHuddleUsers() {
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: {
@@ -375,7 +381,7 @@ $(document).on('click', '#suggested_huddles_link', function() {
 $(document).on('click', '#sign-in-button', function() {
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: {
@@ -488,7 +494,7 @@ function getUserInfo() {
     var img = "";
     $.ajax({
         traditional: true,
-        url: "http://huddlesrest.appspot.com/api",
+        url: APIUrl,
         type: "POST",
         dataType: "json",
         data: {
