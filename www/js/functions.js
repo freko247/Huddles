@@ -98,7 +98,7 @@ function addUser() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -170,7 +170,7 @@ function createHuddle() {
             },
             error: function(request, error) {
                 // This callback function will trigger on unsuccessful action
-                alert('Network error has occurred please try again!');
+                alert('No network connection to server. Check your connection and try again or try again later');
             }
         });
     };
@@ -255,7 +255,7 @@ function getSuggestedHuddles() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -291,7 +291,7 @@ function getHuddleInfo(huddleName) {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -329,7 +329,7 @@ $(document).on('click', '#join_huddle', function() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 });
@@ -363,7 +363,7 @@ function getHuddleUsers() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -401,7 +401,7 @@ $(document).on('click', '#sign-in-button', function() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 });
@@ -513,7 +513,7 @@ function getUserInfo() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
