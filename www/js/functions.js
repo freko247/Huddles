@@ -227,7 +227,7 @@ function getSuggestedHuddles() {
                         'data-icon': 'huddleicon',
                         'text': value[0],
                     }).html(
-                        '<div>' +
+                        '<div class="huddle-item">' +
                         '<div class="ui-grid-solo">' +
                         '<h2><u>' + value[0] + '</u></h2>' +
                         '<div class="ui-block-a">' +

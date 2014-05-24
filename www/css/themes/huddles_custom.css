@@ -44,6 +44,11 @@
   border-color: #448ccb !important;
 }
 
+.huddle-item{
+  background-color: #448ccb !important;
+  padding: 10px;
+}
+
 /*.search-tag{
   border-radius: 20px !important;
 }*/
@@ -147,9 +152,4 @@
     background-repeat: no-repeat;
   }
   /*  ...more HD icon rules go here...*/
-}
-
-.controlgroup-textinput{
-  padding-top:.22em;
-  padding-bottom:.22em;
 }

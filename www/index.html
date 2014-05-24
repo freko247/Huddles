@@ -69,7 +69,7 @@
             <div data-role="tabs" id="tabs_home">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
+                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link" class="ui-btn-active">Suggested Huddles</a></li>
                         <li><a href="#recentevents" data-ajax="false">Recent Events</a></li>
                     </ul>
                 </div>
@@ -177,9 +177,9 @@
             <div data-role="tabs" id="tabs_profile">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#personalprofile" data-ajax="false">Personal</a></li>
-                        <li><a href="#professionalprofile" data-ajax="false">Professional</a></li>
-                        <li><a href="#huddleprofile" data-ajax="false">Huddle</a></li>
+                        <li><a href="#personalprofile" data-ajax="false" class="ui-btn-active">Personal</a></li>
+                        <li><a href="#skillsprofile" data-ajax="false">Skills</a></li>
+                        <li><a href="#tagsprofile" data-ajax="false">Tags</a></li>
                     </ul>
                 </div>
 
@@ -212,7 +212,7 @@
                     </form>
                 </div>
 
-                <div id="professionalprofile">
+                <div id="skillsprofile">
                     <form>
                         <ul data-role="listview" data-inset="true">
                             <li class="ui-field-contain">
@@ -231,7 +231,7 @@
                     </form>
                 </div>
 
-                <div id="huddleprofile">
+                <div id="tagsprofile">
                     <form>
                         <ul data-role="listview" data-inset="true">
                             <li class="ui-field-contain">
@@ -264,29 +264,8 @@
             <div data-role="tabs">
                 <div data-role="navbar">
                     <ul>
+                        <li><a href="#myhuddles" data-ajax="false" class="ui-btn-active">My Huddles</a></li>
                         <li><a href="#searchhuddles" data-ajax="false">Search</a></li>
-                        <li><a href="#myhuddles" data-ajax="false">My Huddles</a></li>
-                    </ul>
-                </div>
-
-                <div id="searchhuddles" data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-                    <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
-                        <li data-icon="false">
-                            <a href="#">
-                                <h2>Mobile Application Prototyping</h2>
-                                <p><strong>02827</strong></p>
-                                <p><strong>Android</strong></p>
-                                <p><strong>iOS</strong></p>
-                                <p class="ui-li-aside"><strong>(5)</strong>PM</p>
-                            </a>
-                        </li>
-                        <li data-icon="false"><a href="#">
-                            <h2>Agile Digital Development</h2>
-                            <p><strong>02814</strong></p>
-                            <p><strong>Lean</strong></p>
-                            <p><strong>Scrum</strong></p>
-                            <p class="ui-li-aside"><strong>200</strong>m</p>
-                        </li></a>
                     </ul>
                 </div>
 
@@ -306,6 +285,29 @@
                             <p><strong>Scrum</strong></p>
                             <p class="ui-li-aside"><strong>200</strong>m</p>
                         </li></a>
+                    </ul>
+                </div>
+
+                <div id="searchhuddles" data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+                    <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
+                        <li data-icon="false">
+                            <a href="#">
+                                <h2>Mobile Application Prototyping</h2>
+                                <p><strong>02827</strong></p>
+                                <p><strong>Android</strong></p>
+                                <p><strong>iOS</strong></p>
+                                <p class="ui-li-aside"><strong>(5)</strong>PM</p>
+                            </a>
+                        </li>
+                        <li data-icon="false">
+                            <a href="#">
+                                <h2>Agile Digital Development</h2>
+                                <p><strong>02814</strong></p>
+                                <p><strong>Lean</strong></p>
+                                <p><strong>Scrum</strong></p>
+                                <p class="ui-li-aside"><strong>200</strong>m</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
