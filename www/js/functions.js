@@ -72,8 +72,8 @@ function addUser() {
     data = {
         "db_function": "addUser",
         "userSkill": [jQuery("#skillone").val(),
-            jQuery("#skilltwo").val(),
-            jQuery("#skillthree").val(),
+        jQuery("#skilltwo").val(),
+        jQuery("#skillthree").val(),
         ],
         "userName": jQuery("#textinput-1").val(),
         "userEmail": jQuery("#textinput-2").val(),
@@ -100,7 +100,7 @@ function addUser() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -138,11 +138,11 @@ function createHuddle() {
         $.each([jQuery("#tagone").val(),
             jQuery("#tagtwo").val(),
             jQuery("#tagthree").val(),
-        ], function(index, value) {
-            if (value) {
-                tags.push('#' + value);
-            }
-        });
+            ], function(index, value) {
+                if (value) {
+                    tags.push('#' + value);
+                }
+            });
         data = {
             "db_function": "createHuddle",
             'huddleLocation': [position.coords.latitude, position.coords.longitude],
@@ -172,7 +172,7 @@ function createHuddle() {
             },
             error: function(request, error) {
                 // This callback function will trigger on unsuccessful action
-                alert('Network error has occurred please try again!');
+                alert('No network connection to server. Check your connection and try again or try again later');
             }
         });
     };
@@ -233,35 +233,35 @@ function getSuggestedHuddles() {
                         'data-icon': 'huddleicon',
                         'text': value[0],
                     }).html(
-                        '<div>' +
-                        '<div class="ui-grid-solo">' +
-                        '<h2><u>' + value[0] + '</u></h2>' +
-                        '<div class="ui-block-a">' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="ui-grid-a">' +
-                        '<div class="ui-block-a">' +
-                        '<p>' +
-                        tags +
-                        '</p>' +
-                        '</div>' +
-                        '<div class="ui-block-b">' +
-                        '<p>' +
-                        '<strong>Lat: ' + value[2][0] + '</strong><br>' +
-                        '<strong>Lon: ' + value[2][1] + '</strong><br>' +
-                        '<strong>Created: ' + value[3] + '</strong><br>' +
-                        '</p>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<hr class="list-divider">'
+                    '<div class="huddle-item">' +
+                    '<div class="ui-grid-solo">' +
+                    '<h2><u>' + value[0] + '</u></h2>' +
+                    '<div class="ui-block-a">' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="ui-grid-a">' +
+                    '<div class="ui-block-a">' +
+                    '<p>' +
+                    tags +
+                    '</p>' +
+                    '</div>' +
+                    '<div class="ui-block-b">' +
+                    '<p>' +
+                    '<strong>Lat: ' + value[2][0] + '</strong><br>' +
+                    '<strong>Lon: ' + value[2][1] + '</strong><br>' +
+                    '<strong>Created: ' + value[3] + '</strong><br>' +
+                    '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<hr class="list-divider">'
                     ));
-                }
-            });
-        },
-        error: function(request, error) {
+}
+});
+},
+error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -297,7 +297,7 @@ function getHuddleInfo(huddleName) {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -335,7 +335,7 @@ $(document).on('click', '#join_huddle', function() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 });
@@ -369,7 +369,7 @@ function getHuddleUsers() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -407,7 +407,7 @@ $(document).on('click', '#sign-in-button', function() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 });
@@ -519,7 +519,7 @@ function getUserInfo() {
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
-            alert('Network error has occurred please try again!');
+            alert('No network connection to server. Check your connection and try again or try again later');
         }
     });
 }
@@ -534,4 +534,8 @@ $(document).on('click', "#update-suggested-huddles", function() {
 
 $(document).on('click', "#cancel-filter", function() {
     $("#filter-fieldset").collapsible("collapse");
+});
+
+$(document).on('click', "#tagscheck", function() {
+    $('#tagscheck').hide();
 });

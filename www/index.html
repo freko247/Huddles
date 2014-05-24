@@ -69,7 +69,7 @@
             <div data-role="tabs" id="tabs_home">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link">Suggested Huddles</a></li>
+                        <li><a href="#suggestedhuddles" data-ajax="false" id="suggested_huddles_link" class="ui-btn-active">Suggested Huddles</a></li>
                         <li><a href="#recentevents" data-ajax="false">Recent Events</a></li>
                     </ul>
                 </div>
@@ -77,12 +77,12 @@
                 <!-- SUGGESTED HUDDLES -->
                 <div id="suggestedhuddles">
                     <form>
-                        <fieldset data-role="collapsible" id="filter-fieldset">
+                        <fieldset data-role="collapsible" id="filter-fieldset" data-iconpos="right">
                             <legend>Filter</legend>
                             <ul data-role="listview" data-inset="false">
                                 <li class="ui-field-contain">
                                     <fieldset data-role="controlgroup" data-type="horizontal">
-                                        <legend>Active filters:</legend>
+                                        <legend>Filter Switches:</legend>
                                         <input type="checkbox" name="rangecheck" id="rangecheck">
                                         <label for="rangecheck">Radius</label>
                                         <input type="checkbox" name="timecheck" id="timecheck">
@@ -91,15 +91,15 @@
                                         <label for="tagscheck">Tags</label>
                                     </fieldset>
                                 </li>
-                                <li class="ui-field-contain">
+                                <li id="filterradius" class="ui-field-contain">
                                     <label for="rangeslider">Radius</label>
                                     <input type="range" name="rangeslider" id="rangeslider" min="0" max="2000" value="500">
                                 </li>
-                                <li class="ui-field-contain">
+                                <li id="filterdate" class="ui-field-contain">
                                     <label>Date</label>
                                     <input type="date" name="huddle-date" id="huddle-date" value="">
                                 </li>
-                                <li class="ui-field-contain">
+                                <li id="filtertags" class="ui-field-contain">
                                     <label>Tags</label>
                                     <div data-role="controlgroup" data-type="horizontal" class="ui-field-contain">
                                         <input id="tag-input" data-wrapper-class="controlgroup-textinput ui-btn ui-corner-all" type="text">
@@ -177,9 +177,9 @@
             <div data-role="tabs" id="tabs_profile">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#personalprofile" data-ajax="false">Personal</a></li>
-                        <li><a href="#professionalprofile" data-ajax="false">Professional</a></li>
-                        <li><a href="#huddleprofile" data-ajax="false">Huddle</a></li>
+                        <li><a href="#personalprofile" data-ajax="false" class="ui-btn-active">Personal</a></li>
+                        <li><a href="#skillsprofile" data-ajax="false">Skills</a></li>
+                        <li><a href="#tagsprofile" data-ajax="false">Tags</a></li>
                     </ul>
                 </div>
 
@@ -212,7 +212,7 @@
                     </form>
                 </div>
 
-                <div id="professionalprofile">
+                <div id="skillsprofile">
                     <form>
                         <ul data-role="listview" data-inset="true">
                             <li class="ui-field-contain">
@@ -231,7 +231,7 @@
                     </form>
                 </div>
 
-                <div id="huddleprofile">
+                <div id="tagsprofile">
                     <form>
                         <ul data-role="listview" data-inset="true">
                             <li class="ui-field-contain">
@@ -264,29 +264,8 @@
             <div data-role="tabs">
                 <div data-role="navbar">
                     <ul>
+                        <li><a href="#myhuddles" data-ajax="false" class="ui-btn-active">My Huddles</a></li>
                         <li><a href="#searchhuddles" data-ajax="false">Search</a></li>
-                        <li><a href="#myhuddles" data-ajax="false">My Huddles</a></li>
-                    </ul>
-                </div>
-
-                <div id="searchhuddles" data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-                    <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
-                        <li data-icon="false">
-                            <a href="#">
-                                <h2>Mobile Application Prototyping</h2>
-                                <p><strong>02827</strong></p>
-                                <p><strong>Android</strong></p>
-                                <p><strong>iOS</strong></p>
-                                <p class="ui-li-aside"><strong>(5)</strong>PM</p>
-                            </a>
-                        </li>
-                        <li data-icon="false"><a href="#">
-                            <h2>Agile Digital Development</h2>
-                            <p><strong>02814</strong></p>
-                            <p><strong>Lean</strong></p>
-                            <p><strong>Scrum</strong></p>
-                            <p class="ui-li-aside"><strong>200</strong>m</p>
-                        </li></a>
                     </ul>
                 </div>
 
@@ -306,6 +285,29 @@
                             <p><strong>Scrum</strong></p>
                             <p class="ui-li-aside"><strong>200</strong>m</p>
                         </li></a>
+                    </ul>
+                </div>
+
+                <div id="searchhuddles" data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+                    <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search for huddles..." data-inset="true">
+                        <li data-icon="false">
+                            <a href="#">
+                                <h2>Mobile Application Prototyping</h2>
+                                <p><strong>02827</strong></p>
+                                <p><strong>Android</strong></p>
+                                <p><strong>iOS</strong></p>
+                                <p class="ui-li-aside"><strong>(5)</strong>PM</p>
+                            </a>
+                        </li>
+                        <li data-icon="false">
+                            <a href="#">
+                                <h2>Agile Digital Development</h2>
+                                <p><strong>02814</strong></p>
+                                <p><strong>Lean</strong></p>
+                                <p><strong>Scrum</strong></p>
+                                <p class="ui-li-aside"><strong>200</strong>m</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -365,48 +367,52 @@
         <div role="main" class="ui-content jqm-content jqm-fullwidth">
             <div data-role="collapsible" data-iconpos="right">
                 <!-- introduction -->
-                <h4>Now what is this app about?</h4>
-                <p>bla bla bla</p>
+                <h4>Introduction</h4>
+                <p>This application is used to connect with people who have common interests, goals or purposes in life.</p>
+                <p>This application is heavily profile dependant, so please create a profile to utilize the application.</p>
+                <p>No information about you or your profile will be shared with 3rd parties.</p>
+                <p>The application utilizes information you input to best fit the use of the application to you.</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- navigation -->
-                <h4>Application navigation - what is that?</h4>
-                <p>bla bla bla</p>
+                <h4>Navigation</h4>
+                <p>The application panel is always accessible and is the core navigation feature of the application.</p>
+                <p>Sometimes tabs will appear which will reveal more information within a certain page. Clicking these will change the interface to display the proper information.</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- profile -->
-                <h4>Who are you mister!?</h4>
+                <h4>Creating a Profile</h4>
                 <p>bla bla bla</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- skills -->
-                <h4>What do you know</h4>
+                <h4>Skills</h4>
                 <p>bla bla bla</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- tags -->
-                <h4>Tags and what that is</h4>
+                <h4>Tags</h4>
                 <p>bla bla bla</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- huddles -->
-                <h4>What the Huddles..?</h4>
-                <p></p>
+                <h4>What is a Huddle</h4>
+                <p> bla bla bla</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
-                <!-- groups -->
-                <h4>Me, me, me.. Why is it all about you?</h4>
-                <p></p>
+                <!-- collaborations -->
+                <h4>Collaborations</h4>
+                <p>bla bla bla</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- chat -->
-                <h4>Well Mr. Admin, how do I talk to others?</h4>
-                <p></p>
+                <h4>Chatting with others</h4>
+                <p>bla bla bla</p>
             </div>
             <div data-role="collapsible" data-iconpos="right">
                 <!-- schedule -->
-                <h4>How about planning..?</h4>
-                <p></p>
+                <h4>Scheduling tasks and events</h4>
+                <p>bla bla bla</p>
             </div>
         </div>
     </div>
