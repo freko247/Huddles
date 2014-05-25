@@ -49,6 +49,10 @@
   padding: 10px;
 }
 
+.no-shadow{
+  box-shadow: none;
+}
+
 /*.search-tag{
   border-radius: 20px !important;
 }*/
