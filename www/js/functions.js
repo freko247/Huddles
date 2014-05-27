@@ -72,8 +72,8 @@ function addUser() {
     data = {
         "db_function": "addUser",
         "userSkill": [jQuery("#skillone").val(),
-        jQuery("#skilltwo").val(),
-        jQuery("#skillthree").val(),
+            jQuery("#skilltwo").val(),
+            jQuery("#skillthree").val(),
         ],
         "userName": jQuery("#textinput-1").val(),
         "userEmail": jQuery("#textinput-2").val(),
@@ -138,11 +138,11 @@ function createHuddle() {
         $.each([jQuery("#tagone").val(),
             jQuery("#tagtwo").val(),
             jQuery("#tagthree").val(),
-            ], function(index, value) {
-                if (value) {
-                    tags.push('#' + value);
-                }
-            });
+        ], function(index, value) {
+            if (value) {
+                tags.push('#' + value);
+            }
+        });
         data = {
             "db_function": "createHuddle",
             'huddleLocation': [position.coords.latitude, position.coords.longitude],
@@ -233,33 +233,42 @@ function getSuggestedHuddles() {
                         'data-icon': 'huddleicon',
                         'text': value[0],
                     }).html(
-                    '<div class="huddle-item">' +
-                    '<div class="ui-grid-solo">' +
-                    '<h2><u>' + value[0] + '</u></h2>' +
-                    '<div class="ui-block-a">' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="ui-grid-a">' +
-                    '<div class="ui-block-a">' +
-                    '<p>' +
-                    tags +
-                    '</p>' +
-                    '</div>' +
-                    '<div class="ui-block-b">' +
-                    '<p>' +
-                    '<strong>Lat: ' + value[2][0] + '</strong><br>' +
-                    '<strong>Lon: ' + value[2][1] + '</strong><br>' +
-                    '<strong>Created: ' + value[3] + '</strong><br>' +
-                    '</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<hr class="list-divider">'
+                        '<div class="huddle-item">' +
+                        '<div class="ui-grid-solo">' +
+                        '<h2><u>' + value[0] + '</u></h2>' +
+                        '<div class="ui-block-a">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="ui-grid-a">' +
+                        '<div class="ui-block-a">' +
+                        '<p>' +
+                        tags +
+                        '</p>' +
+                        '</div>' +
+                        '<div class="ui-block-b">' +
+                        '<p>' +
+                        '<strong>Lat: ' + value[2][0] + '</strong><br>' +
+                        '<strong>Lon: ' + value[2][1] + '</strong><br>' +
+                        '<strong>Created: ' + value[3] + '</strong><br>' +
+                        '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<hr class="list-divider">'
                     ));
-}
-});
-},
-error: function(request, error) {
+                }
+            });
+            if (huddles.length === 0) {
+                $('#suggestedHuddlesList').append($('<div/>', { //here appending `<li>`
+                    'class': 'ui-grid-solo',
+                }).html(
+                    '<h3>Sorry no matches found<h3>' +
+                    '<p>Please try the manual filter, and help us improve the search algorithm.<p>' +
+                    '</div>'
+                ));
+            }
+        },
+        error: function(request, error) {
             // This callback function will trigger on unsuccessful action
             alert('No network connection to server. Check your connection and try again or try again later');
         }
