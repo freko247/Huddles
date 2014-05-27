@@ -262,8 +262,8 @@ function getSuggestedHuddles() {
                 $('#suggestedHuddlesList').append($('<div/>', { //here appending `<li>`
                     'class': 'ui-grid-solo',
                 }).html(
-                    '<h3>Sorry no matches found<h3>' +
-                    '<p>Please try the manual filter, and help us improve the search algorithm.<p>' +
+                    '<h3>Sorry no matches found</h3>' +
+                    '<p>Please try the manual filter, and help us improve the search algorithm.</p>' +
                     '</div>'
                 ));
             }
