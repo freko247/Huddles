@@ -40,6 +40,27 @@
   background-color: #2692f6;
 }
 
+#panel_in_chat{
+  border-top-width: 0px;
+  border-right-width: 0px;
+  margin-right: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  background-color: #3e3b3b;
+}
+
+#chat_back{
+  -webkit-border-radius: 0em;
+  border-radius: 0em;
+  background-color: #2692f6;
+}
+
+#chat_back:after{
+  -webkit-border-radius: 0em;
+  border-radius: 0em;
+  background-color: #2692f6;
+}
+
 .list-divider{
   border-color: #448ccb !important;
 }

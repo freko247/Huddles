@@ -470,7 +470,7 @@
         <div data-role="ui-panel-inner">
             <ul data-role="listview">
                 <li data-role="list-divider">PERSONAL CHAT(S)</li>
-                <li><a href="#" class="ui-btn">Peter Poppy</a></li>
+                <li><a href="#panel_in_chat" data-transition="pop" class="ui-btn">Peter Poppy</a></li>
                 <li><a href="#" class="ui-btn">James Hendry</a></li>
                 <li><a href="#" class="ui-btn">Felix Tops</a></li>
                 <li data-role="list-divider">GROUP CHAT(S)</li>
@@ -482,6 +482,22 @@
                 <li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>
             </ul>
         </div>
+    </div>
+
+    <div data-role="panel" id="panel_in_chat" data-position="right"data-theme="a">
+        <div data-role="header">
+            <a href="#panel_chat" id="chat_back" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all">No text</a>
+            <h2>Peter Poppy</h2>
+        </div>
+
+        <div role="main" class="ui-content jqm-content jqm-fullwidth" data-theme="a">
+            <form>
+                <fieldset>
+                    <p>Test text</p>
+                </fieldset>
+            </form>
+        </div>
+
     </div>
 </body>
 </html>
