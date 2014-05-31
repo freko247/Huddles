@@ -375,7 +375,7 @@ function getHuddleUsers() {
             $.each(huddleUsers, function(index, value) {
                 $('#huddle_users').append($('<li/>', { //here appending `<li>`
                     'class': 'ui-first-child ui-last-child',
-                }).append(value));
+                }).append(value[0]));
             });
         },
         error: function(request, error) {
