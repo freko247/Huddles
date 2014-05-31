@@ -34,7 +34,7 @@ $(document).on('pageshow', '#page_editprofile', function(event) {
 
 $(document).on('pageshow', '#page_first', function() {
     getUserCredentials();
-    $("#panel-user-name").text(localStorage.getItem("userEmail"));
+    $("#panel-user-name").text(localStorage.getItem("userName"));
 });
 
 $(document).on('pageshow', '#page_home', function() {
@@ -43,7 +43,7 @@ $(document).on('pageshow', '#page_home', function() {
         $("#huddle-date").val(string_date);
         console.log("setting date to: " + string_date);
     }
-    $("#panel-user-name").text(localStorage.getItem("userEmail"));
+    $("#panel-user-name").text(localStorage.getItem("userName"));
     var searchTags = [];
     if (localStorage.getItem("search-tags")) {
         searchTags = JSON.parse(localStorage.getItem("search-tags"));
@@ -55,7 +55,7 @@ $(document).on('pageshow', '#page_home', function() {
 function getUserCredentials() {
     if (localStorage.getItem("userEmail")) {
         getUserInfo(localStorage.getItem("userEmail"));
-        $("#panel-user-name").text(localStorage.getItem("userEmail"));
+        $("#panel-user-name").text(localStorage.getItem("userName"));
         $.mobile.changePage($('#page_home'));
     }
 }
@@ -297,12 +297,14 @@ function getHuddleInfo(huddleName) {
             var huddles = result;
             $('#tags_huddle').empty();
             // Response is [huddleName, [huddleTag], [huddle.lat, huddle.lon], huddleDateAndTime]
-            $.each(huddles[1], function(index, value) {
-                $('#tags_huddle').append($('<li/>', { //here appending `<li>`
-                    'class': 'ui-first-child ui-last-child',
-                }).append(value));
+            if (huddles) {
+                $.each(huddles[1], function(index, value) {
+                    $('#tags_huddle').append($('<li/>', { //here appending `<li>`
+                        'class': 'ui-first-child ui-last-child',
+                    }).append(value));
 
-            });
+                });
+            }
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -411,6 +413,7 @@ $(document).on('click', '#sign-in-button', function() {
             var huddleUser = result;
             if (huddleUser) {
                 localStorage.setItem("userEmail", huddleUser);
+                getUserCredentials();
                 $.mobile.changePage($('#page_home'));
             }
         },
