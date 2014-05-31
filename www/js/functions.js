@@ -568,16 +568,12 @@ $(document).on('click', "#tagscheck", function() {
 
 $(document).on('click', "#peter-poppy", function() {
     $('#panel_chat').empty();
-    $('#panel_chat').load("index.html #panel_in_chat");
+    $('#panel_chat').generatePMChat();
     $("[data-role=panel]").trigger('pagecreate');
+    $("[data-role='panel']").panel().enhanceWithin();
 });
 
-// $(document).on('click', "#chat_back", function() {
-//     $('[data-role=panel]').trigger('pagecreate');
-// });
-
 $(document).on('click', '#chat_back', function() {
-    // var listview = '<li data-role="list-divider">PERSONAL CHAT(S)</li>
     $('#panel_chat').append(generateChats);
     $('[data-role=page]').trigger('pagecreate');
     $("[data-role='panel']").panel().enhanceWithin();
