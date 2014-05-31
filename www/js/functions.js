@@ -372,11 +372,25 @@ function getHuddleUsers() {
         success: function(result) {
             var huddleUsers = result;
             $('#huddle_users').empty();
-            $.each(huddleUsers, function(index, value) {
-                $('#huddle_users').append($('<li/>', { //here appending `<li>`
-                    'class': 'ui-first-child ui-last-child',
-                }).append(value[0]));
-            });
+            if (huddleUsers) {
+                $.each(huddleUsers, function(index, value) {
+                    var userSkills = "";
+                    if (value[1]) {
+                        $.each(value[1], function(index, value) {
+                            if (value) {
+                                userSkills += "#" + value + '</br>';
+                            }
+                        });
+                    }
+                    $('#huddle_users').append($('<li/>', { //here appending `<li>`
+                        'class': 'ui-first-child ui-last-child',
+                    }).html('<div>' +
+                        '<h3>' + value[0] + '</h3>' +
+                        '<p>' + userSkills + '</p>' +
+                        '</div>'
+                    ));
+                });
+            }
         },
         error: function(request, error) {
             // This callback function will trigger on unsuccessful action
@@ -551,3 +565,37 @@ $(document).on('click', "#cancel-filter", function() {
 $(document).on('click', "#tagscheck", function() {
     $('#tagscheck').hide();
 });
+
+$(document).on('click', "#peter-poppy", function() {
+    $('#panel_chat').empty();
+    $('#panel_chat').load("index.html #panel_in_chat");
+    $("[data-role=panel]").trigger('pagecreate');
+});
+
+// $(document).on('click', "#chat_back", function() {
+//     $('[data-role=panel]').trigger('pagecreate');
+// });
+
+$(document).on('click', '#chat_back', function() {
+    // var listview = '<li data-role="list-divider">PERSONAL CHAT(S)</li>
+    $('#panel_chat').append(generateChats);
+    $('[data-role=page]').trigger('pagecreate');
+    $("[data-role='panel']").panel().enhanceWithin();
+});
+
+function generateChats() {
+    var listview = '<ul data-role="listview" id="chat-list">' +
+        '<li data-role="list-divider">PERSONAL CHAT(S)</li>' +
+        '<li><a href="#" id="peter-poppy" data-transition="pop" class="ui-btn">Peter Poppy</a></li>' +
+        '<li><a href="#" class="ui-btn">James Hendry</a></li>' +
+        '<li><a href="#" class="ui-btn">Felix Tops</a></li>' +
+        '<li data-role="list-divider">GROUP CHAT(S)</li>' +
+        '<li><a href="#" class="ui-btn">Group 1337</a></li>' +
+        '<li><a href="#" class="ui-btn">Group freako</a></li>' +
+        '<li><a href="#" class="ui-btn">Group zeliax</a></li>' +
+        '<li data-role="list-divider">HUDDLE CHAT(S)</li>' +
+        '<li><a href="#" class="ui-btn">Mobile Application Prototyping</a></li>' +
+        '<li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>' +
+        '</ul>';
+    return listview;
+}
