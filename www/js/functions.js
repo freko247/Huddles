@@ -582,7 +582,7 @@ $(document).on('click', '#chat_back', function() {
 function generateChats() {
     var listview = '<ul data-role="listview" id="chat-list">' +
         '<li data-role="list-divider">PERSONAL CHAT(S)</li>' +
-        '<li><a href="#" id="peter-poppy" data-transition="pop" class="ui-btn">Peter Poppy</a></li>' +
+        '<li><a href="#" id="peter-poppy" class="ui-btn">Peter Poppy</a></li>' +
         '<li><a href="#" class="ui-btn">James Hendry</a></li>' +
         '<li><a href="#" class="ui-btn">Felix Tops</a></li>' +
         '<li data-role="list-divider">GROUP CHAT(S)</li>' +
@@ -594,4 +594,27 @@ function generateChats() {
         '<li><a href="#" class="ui-btn">Agile Digital Media Engineering</a></li>' +
         '</ul>';
     return listview;
+}
+
+function generatePMChat() {
+    var chat = '<div data-role="header">' +
+        '<a href="#" id="chat_back" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all">No text</a>' +
+        '<h2>Peter Poppy</h2>' +
+        '</div>' +
+        '<div role="main" class="ui-content jqm-content jqm-fullwidth" data-theme="a">' +
+        '<ul data-role="listview">' +
+        '<li>' +
+        '<h2>Peter Poppy</h2>' +
+        '<p>Whats up bro?</p>' +
+        '</li>' +
+        '<li>' +
+        '<h2>Me:</h2>' +
+        '<p>Not much buddy..</p>' +
+        '</li>' +
+        '</ul>' +
+        '<label for="input_box">Input</label>' +
+        '<textarea name="input_box" id="input_box"></textarea>' +
+        '<a href="#" class="ui-btn ui-corner-all">Send</a>' +
+        '</div>';
+    return chat;
 }
