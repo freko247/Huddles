@@ -18,6 +18,13 @@ $(document).ready(function() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
 
+document.addEventListener("backbutton", backKeyDown, true);
+
+function backKeyDown() {
+    // Call my back key code here.
+    console.log("go back!");
+}
+
 $(document).on("pageinit", "#page_home", function(event) {
     if (localStorage.getItem("userEmail")) {
         getUserInfo(localStorage.getItem("userEmail"));
@@ -166,9 +173,11 @@ function createHuddle() {
                 $.mobile.loading('hide');
             },
             success: function(result) {
-                $.mobile.changePage($('#page_huddle'));
+                setTimeout(function() {}, 1000);
+                $("#heading_huddle").text(huddleName);
                 getHuddleInfo(huddleName);
                 getHuddleUsers();
+                $.mobile.changePage($('#page_huddle'));
             },
             error: function(request, error) {
                 // This callback function will trigger on unsuccessful action
@@ -315,9 +324,12 @@ function getHuddleInfo(huddleName) {
 
 $(document).on('click', '#suggestedHuddlesList li div', function() {
     $("#heading_huddle").text($('h2', this).text());
-    $.mobile.changePage($('#page_huddle'));
     getHuddleInfo($('h2', this).text());
     getHuddleUsers();
+    $.mobile.changePage($('#page_huddle'));
+    $(document).one("pagechange", function() {
+        $.mobile.changePage('#page_huddle');
+    });
 });
 
 $(document).on('click', '#join_huddle', function() {
